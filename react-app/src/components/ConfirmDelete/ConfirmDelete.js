@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { deleteImageThunk } from "../../store/image";
+import { deleteImageThunk, getAllImages } from "../../store/image";
 
 const ConfirmDelete = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+    // const [loading, setLoading] = useState(false)
 
     const deleteButton = async (e, id) => {
         e.preventDefault()
-
+        // setLoading(true)
         dispatch(deleteImageThunk(id))
-        setTimeout(function () { history.push(`/photos`); }, 10);
+        dispatch(getAllImages())
+        setTimeout(function () {
+            history.push(`/photos`)
+            // setLoading(false)
+        }, 500);
+
 
     }
 
@@ -20,6 +26,9 @@ const ConfirmDelete = () => {
         <>
             <span>Are You Sure You Want To Delete?</span>
             <button onClick={event => deleteButton(event, id)}>Delete</button>
+            {/* <div>
+                {loading ? <span>Deleting....</span> : null}
+            </div> */}
         </>
     )
 }
