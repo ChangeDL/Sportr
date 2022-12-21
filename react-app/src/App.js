@@ -8,21 +8,28 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import UploadPicture from './components/UploadPicture/UploadPicture';
+import ViewImages from './components/UploadPicture/ViewImages';
+import { getAllImages } from './store/image';
+import ConfirmDelete from './components/ConfirmDelete/ConfirmDelete';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
 
+
+
   if (!loaded) {
     return null;
   }
+
 
   return (
     <BrowserRouter>
@@ -35,13 +42,22 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+        </Route>
+        <Route path='/test'>
+          <UploadPicture />
+        </Route>
+        <Route path="/photos" exact={true}>
+          <ViewImages />
+        </Route>
+        <Route path="/photos/:id/delete-confirm">
+          <ConfirmDelete />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from app.models import db, Image
+from app.forms import ImageForm
 from flask_login import current_user, login_required
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -22,15 +23,36 @@ def upload_image():
 
     upload = upload_file_to_s3(image)
 
+    if upload:
+        print(upload)
+
     if "url" not in upload:
-        # if the dictionary doesn't have a url key
+        # if the dictionary doesn't have a filename key
         # it means that there was an error when we tried to upload
         # so we send back that error message
-        return upload, 400
+        return upload,400
 
     url = upload["url"]
-    # flask_login allows us to get the current user from the request
-    new_image = Image(user=current_user, url=url)
+
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    # we can use the
+    new_image = Image(user=current_user, url=url, description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
     db.session.add(new_image)
     db.session.commit()
     return {"url": url}
+
+
+@image_routes.route("")
+def get_all_images():
+    images = Image.query.order_by(Image.id.desc()).all()
+    return {image.id: image.to_dict() for image in images}
+
+@image_routes.route("/<int:id>", methods=['DELETE'])
+@login_required
+def delete_image(id):
+    image = Image.query.get(id)
+    db.session.delete(image)
+    db.session.commit()
+    return {'message': 'Delete Successful'}

@@ -37,10 +37,9 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('url', sa.Text(), nullable=False),
-    sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('tags', sa.Text(), nullable=True),
-    sa.Column('people', sa.Text(), nullable=True),
-    sa.Column('albumid', sa.Integer(), nullable=True),
+    sa.Column('description', sa.Text()),
+    sa.Column('tags', sa.Text()),
+    sa.Column('people', sa.Text()),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

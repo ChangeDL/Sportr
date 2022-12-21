@@ -4,8 +4,8 @@ import os
 import uuid
 
 BUCKET_NAME = os.environ.get("S3_BUCKET")
-S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
-ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg"}
+S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 s3 = boto3.client(
    "s3",
@@ -15,6 +15,8 @@ s3 = boto3.client(
 
 
 def allowed_file(filename):
+    print(filename)
+    print("." in filename)
     return "." in filename and \
            filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
