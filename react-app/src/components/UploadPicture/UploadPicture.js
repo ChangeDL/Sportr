@@ -78,7 +78,7 @@ const UploadPicture = () => {
                 <div>
                     <label>Description</label>
                     <input
-
+                        placeholder="Not Required"
                         type="text"
                         onChange={updateDescription}
                         value={description}
@@ -87,7 +87,7 @@ const UploadPicture = () => {
                 <div>
                     <label>Tag</label>
                     <input
-
+                        placeholder="Not Required"
                         type="text"
                         onChange={updateTags}
                         value={tags}
@@ -96,7 +96,7 @@ const UploadPicture = () => {
                 <div>
                     <label>People</label>
                     <input
-
+                        placeholder="Not Required"
                         type="text"
                         onChange={updatePeople}
                         value={people}

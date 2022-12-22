@@ -23,6 +23,12 @@ const ViewImages = () => {
         return history.push(`/photos/${id}/delete-confirm`)
     }
 
+    const editButton = async (e, id) => {
+        e.preventDefault()
+
+        return history.push(`photos/${id}/edit-details`)
+    }
+
 
     useEffect(() => {
         dispatch(getAllImages())
@@ -40,13 +46,16 @@ const ViewImages = () => {
             </div>
             <div className="all-images-explore-page">
                 {allImages.map((im) => (
-                    <div>
+                    <div key={im.id}>
                         <img src={im.url} className='images-on-display' />
-                        {/* {
-                            sessionUser.id === im.owner.id ?
-                                <button onClick={event => deleteButton(event, im.id)}>Delete</button>
+                        {
+                            sessionUser && sessionUser.id === im.owner.id ?
+                                <div>
+                                    <button onClick={event => editButton(event, im.id)}>Edit</button>
+                                    <button onClick={event => deleteButton(event, im.id)}>Delete</button>
+                                </div>
                                 : null
-                        } */}
+                        }
                     </div>
 
                 ))}
