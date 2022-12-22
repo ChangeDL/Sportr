@@ -1,0 +1,9 @@
+.work-progress-container {
+    display: flex;
+    /* margin-left: auto;
+    margin-right: auto;
+    width: 50em; */
+    padding-top: 20em;
+    align-items: center;
+    justify-content: center;
+}
