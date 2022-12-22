@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { deleteImageThunk, getAllImages } from "../../store/image";
+import './ViewImage.css'
 
 const ViewImages = () => {
     const dispatch = useDispatch()
@@ -11,8 +12,10 @@ const ViewImages = () => {
         return state
     })
 
+    const sessionUser = useSelector(state => state.session.user)
+
     const allImages = Object.values(imagesObj.imageReducer.allImages)
-    console.log(allImages)
+
 
     const deleteButton = async (e, id) => {
         e.preventDefault()
@@ -29,27 +32,26 @@ const ViewImages = () => {
 
 
     return (
-        <div>
-            <h1>Images</h1>
-            {allImages.map((im) => (
-                <div key={im.url}>
-                    <div
+        <div className="whole-explore-page-container">
+            <div className="mid-navbar-explore-page">
+                <Link to='/photos'><span>Explore</span></Link>
+                <Link to='/page-in-development'><span>Trending</span></Link>
+                <Link to='/page-in-development'><span>Events</span></Link>
+            </div>
+            <div className="all-images-explore-page">
+                {allImages.map((im) => (
+                    <div>
+                        <img src={im.url} className='images-on-display' />
+                        {/* {
+                            sessionUser.id === im.owner.id ?
+                                <button onClick={event => deleteButton(event, im.id)}>Delete</button>
+                                : null
+                        } */}
+                    </div>
 
-                        key={im.id}
-                        style={{
-                            backgroundImage: `url(${im.url})`,
-                            backgroundSize: "contain",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            width: "50%",
-                            height: 250,
-                            margin: 10,
-                            width: "auto",
-                        }} />
-                    <button onClick={event => deleteButton(event, im.id)}>Delete</button>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        </div >
     )
 }
 

@@ -24,5 +24,9 @@ class Image(db.Model):
             "url": self.url,
             "description": self.description,
             "tags": self.tags,
-            "people": self.people
+            "people": self.people,
+            "owner": self.user.to_dict()
         }
+
+    def __repr__(self):
+        return f"{self.user_id}{self.user}"

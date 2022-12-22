@@ -12,6 +12,8 @@ import UploadPicture from './components/UploadPicture/UploadPicture';
 import ViewImages from './components/UploadPicture/ViewImages';
 import { getAllImages } from './store/image';
 import ConfirmDelete from './components/ConfirmDelete/ConfirmDelete';
+import WorkInProgress from './components/WorkInProgress/WorkInProgress';
+import SplashPage from './components/SplashPage/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,7 +50,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPage />
         </Route>
         <Route path='/test'>
           <UploadPicture />
@@ -56,8 +58,11 @@ function App() {
         <Route path="/photos" exact={true}>
           <ViewImages />
         </Route>
-        <Route path="/photos/:id/delete-confirm">
+        <ProtectedRoute path="/photos/:id/delete-confirm">
           <ConfirmDelete />
+        </ProtectedRoute>
+        <Route path='/page-in-development' exact={true}>
+          <WorkInProgress />
         </Route>
       </Switch>
     </BrowserRouter>

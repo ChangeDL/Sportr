@@ -1,0 +1,32 @@
+.all-images-explore-page {
+    display: flex;
+    flex-direction: row;
+    padding-left: 5em;
+    padding-right: 5em;
+    /* flex-wrap: wrap; */
+    height: 50%;
+    gap: .25em;
+}
+
+.images-on-display {
+    width: 10em;
+}
+
+.whole-explore-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    background-color: rgb(243, 245, 246);
+    height: 87.55vh;
+    padding-top: 4em;
+}
+
+.mid-navbar-explore-page {
+    padding-left: 5em;
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+    font-size: large;
+
+    background-color: white;
+}
