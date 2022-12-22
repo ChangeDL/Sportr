@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import './UploadPicture.css'
 
 const UploadPicture = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
@@ -64,45 +64,48 @@ const UploadPicture = () => {
         setPeople(e.target.value)
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <div className="whole-upload-container">
 
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={updateImage}
-                />
-            </div>
-            <div>
-                <label>Description</label>
-                <input
+            <form onSubmit={handleSubmit}>
+                <div>
 
-                    type="text"
-                    onChange={updateDescription}
-                    value={description}
-                />
-            </div>
-            <div>
-                <label>Tag</label>
-                <input
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                    />
+                </div>
+                <div>
+                    <label>Description</label>
+                    <input
 
-                    type="text"
-                    onChange={updateTags}
-                    value={tags}
-                />
-            </div>
-            <div>
-                <label>People</label>
-                <input
+                        type="text"
+                        onChange={updateDescription}
+                        value={description}
+                    />
+                </div>
+                <div>
+                    <label>Tag</label>
+                    <input
 
-                    type="text"
-                    onChange={updatePeople}
-                    value={people}
-                />
-            </div>
-            <button type="submit">Submit</button>
-            {(imageLoading) && <p>Loading...</p>}
-        </form>
+                        type="text"
+                        onChange={updateTags}
+                        value={tags}
+                    />
+                </div>
+                <div>
+                    <label>People</label>
+                    <input
+
+                        type="text"
+                        onChange={updatePeople}
+                        value={people}
+                    />
+                </div>
+                <button type="submit">Submit</button>
+                {(imageLoading) && <p>Loading...</p>}
+            </form>
+        </div>
     )
 }
 
