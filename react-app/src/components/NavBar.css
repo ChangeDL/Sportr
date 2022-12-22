@@ -1,0 +1,84 @@
+.whole-nav-bar {
+    background-color: rgba(32, 32, 35, 0.558);
+    position: fixed;
+    width: 100%;
+    height: 4em;
+
+}
+
+.links-on-nav-bar {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-navbar {
+    box-sizing: border-box;
+    height: 3em;
+    width: 5em;
+    margin-top: .5em;
+}
+
+.navbar-left-side {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.navbar-main-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.navbar-right-side {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1.5em;
+    padding-left: 32em;
+    gap: 1.5em;
+}
+
+.site-name-navbar {
+    font-size: 1.5em;
+    font-weight: bold;
+
+
+}
+
+.container-for-name {
+    padding-top: 1em;
+}
+
+.container-for-right-navbar-links {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1em;
+
+}
+
+.sign-up-navbar-text {
+    background-color: white;
+    border-radius: .25em;
+    color: black;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-weight: bold;
+
+
+}
+
+.sign-up-navbar-text:hover {
+    color: gray;
+}
+
+.link-for-signup {
+    color: white;
+    text-decoration: none;
+
+}
+
+.logout-button-navbar {
+    padding-left: 5em;
+}
