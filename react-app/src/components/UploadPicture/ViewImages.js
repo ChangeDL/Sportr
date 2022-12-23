@@ -47,7 +47,9 @@ const ViewImages = () => {
             <div className="all-images-explore-page">
                 {allImages.map((im) => (
                     <div key={im.id}>
-                        <img src={im.url} className='images-on-display' />
+                        <Link to={`/photos/${im.id}`}>
+                            <img src={im.url} className='images-on-display' />
+                        </Link>
                         {
                             sessionUser && sessionUser.id === im.owner.id ?
                                 <div>

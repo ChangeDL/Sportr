@@ -25,7 +25,7 @@ def upload_image():
     upload = upload_file_to_s3(image)
 
     if upload:
-        print('*******************',upload)
+        print(upload)
 
     if "url" not in upload:
         # if the dictionary doesn't have a filename key
@@ -59,7 +59,13 @@ def delete_image(id):
     return {'message': 'Delete Successful'}
 
 
-@image_routes.route('/<int:id>', methods=['GET','PUT'])
+@image_routes.route('/<int:id>', methods=['GET'])
+def get_one_image(id):
+    image = Image.query.get(id)
+    return ({image.id: image.to_dict()})
+
+
+@image_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_image_details(id):
     image = Image.query.get((id))

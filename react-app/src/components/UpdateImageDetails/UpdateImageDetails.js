@@ -1,11 +1,28 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { editImageThunk, getImageByIdThunk } from "../../store/image";
 import './UpdateImageDetails.css'
 
 const UpdateImageDetails = () => {
-    const [description, setDescription] = useState("")
-    const [tags, setTags] = useState("")
-    const [people, setPeople] = useState("")
+
+    const { id } = useParams();
+
+    const history = useHistory();
+
+    const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
+    console.log(currentImage)
+
+    const dispatch = useDispatch()
+
+    const [description, setDescription] = useState(currentImage?.description)
+    const [tags, setTags] = useState(currentImage?.tags)
+    const [people, setPeople] = useState(currentImage?.people)
+
+
+    useEffect(() => {
+        dispatch(getImageByIdThunk(id))
+    }, [dispatch])
 
     const updateDescription = (e) => {
         setDescription(e.target.value)
@@ -19,10 +36,28 @@ const UpdateImageDetails = () => {
         setPeople(e.target.value)
     }
 
+    const onSubmit = async (e) => {
+        e.preventDefault()
+        console.log(id)
+        const updatedData = {
+            imageId: +id,
+            description,
+            tags,
+            people
+        }
+
+        const editedData = await dispatch(editImageThunk(updatedData))
+
+        if (editedData) {
+            history.push('/photos')
+            dispatch(getImageByIdThunk(id))
+        }
+    }
+
     return (
         <div className="update-image-form-container">
 
-            <form>
+            <form onSubmit={onSubmit}>
                 <div>
                     <label>Description</label>
                     <input
