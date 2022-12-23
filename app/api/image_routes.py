@@ -11,6 +11,7 @@ image_routes = Blueprint("images", __name__)
 @image_routes.route("", methods=["POST"])
 @login_required
 def upload_image():
+
     if "image" not in request.files:
         return {"errors": "image required"}, 400
 
@@ -56,3 +57,33 @@ def delete_image(id):
     db.session.delete(image)
     db.session.commit()
     return {'message': 'Delete Successful'}
+
+
+@image_routes.route('/<int:id>', methods=['GET'])
+def get_one_image(id):
+    image = Image.query.get(id)
+    return ({image.id: image.to_dict()})
+
+
+@image_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_image_details(id):
+    image = Image.query.get((id))
+
+    form = ImageForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+        description = form.data['description']
+        tags = form.data['tags']
+        people = form.data['people']
+
+        image.description = description
+        image.tags = tags
+        image.people = people
+
+        db.session.commit()
+
+    return image.to_dict()

@@ -15,6 +15,7 @@ import ConfirmDelete from './components/ConfirmDelete/ConfirmDelete';
 import WorkInProgress from './components/WorkInProgress/WorkInProgress';
 import SplashPage from './components/SplashPage/SplashPage';
 import UpdateImageDetails from './components/UpdateImageDetails/UpdateImageDetails';
+import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,6 +66,9 @@ function App() {
         <ProtectedRoute path="/photos/:id/edit-details">
           <UpdateImageDetails />
         </ProtectedRoute>
+        <Route path="/photos/:id">
+          <ImageShowRoom />
+        </Route>
         <Route path='/page-in-development' exact={true}>
           <WorkInProgress />
         </Route>
