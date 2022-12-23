@@ -66,8 +66,12 @@ const UploadPicture = () => {
     return (
         <div className="whole-upload-container">
 
+            <div className="image-size-warning">
+                <span className="warning-upload-spans">Images Landscape Oriented will </span>
+                <span className="warning-upload-spans">be easier to display</span>
+            </div>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className='upload-form-divs'>
 
                     <input
                         type="file"
@@ -75,7 +79,7 @@ const UploadPicture = () => {
                         onChange={updateImage}
                     />
                 </div>
-                <div>
+                <div className='upload-form-divs'>
                     <label>Description</label>
                     <input
                         placeholder="Not Required"
@@ -84,7 +88,7 @@ const UploadPicture = () => {
                         value={description}
                     />
                 </div>
-                <div>
+                <div className='upload-form-divs'>
                     <label>Tag</label>
                     <input
                         placeholder="Not Required"
@@ -93,7 +97,7 @@ const UploadPicture = () => {
                         value={tags}
                     />
                 </div>
-                <div>
+                <div className='upload-form-divs'>
                     <label>People</label>
                     <input
                         placeholder="Not Required"

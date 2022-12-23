@@ -6,12 +6,12 @@ import './UpdateImageDetails.css'
 
 const UpdateImageDetails = () => {
 
-    const { id } = useParams();
+    const { userId, id } = useParams();
 
     const history = useHistory();
 
-    const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
-    console.log(currentImage)
+    const currentImage = useSelector(state => state?.imageReducer?.allImages[id])
+
 
     const dispatch = useDispatch()
 
@@ -58,6 +58,7 @@ const UpdateImageDetails = () => {
         <div className="update-image-form-container">
 
             <form onSubmit={onSubmit}>
+
                 <div>
                     <label>Description</label>
                     <input

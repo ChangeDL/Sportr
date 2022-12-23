@@ -4,11 +4,15 @@
     width: 100%;
     height: 4em;
 
+    box-sizing: border-box;
+
+
 }
 
 .links-on-nav-bar {
     color: white;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 .logo-navbar {
@@ -21,12 +25,15 @@
 .navbar-left-side {
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
 }
 
 
 .navbar-main-container {
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-between;
 
 }
 
@@ -34,8 +41,9 @@
     display: flex;
     flex-direction: row;
     padding-top: 1.5em;
-    padding-left: 32em;
+    padding-right: 2.5em;
     gap: 1.5em;
+    box-sizing: border-box;
 }
 
 .site-name-navbar {
@@ -80,5 +88,12 @@
 }
 
 .logout-button-navbar {
-    padding-left: 5em;
+    /* padding-left: 5em; */
+    padding-top: .25em;
+}
+
+.upload-icon-navbar {
+    font-size: 1.5em;
+
+    box-sizing: border-box;
 }
