@@ -7,8 +7,10 @@
 
 .showroom-image {
     padding-top: 1em;
-    width: 55em;
-    height: 30em;
+    /* width: 55em;
+    height: 30em; */
+    width: 70%;
+    height: 70%;
     padding-bottom: 1em;
 
 

@@ -23,19 +23,22 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='navbar-right-side'>
-
-            <span>
-              <NavLink className='links-on-nav-bar' to='/test' exact={true} activeClassName='active'>
-                Upload
-              </NavLink>
-            </span>
-            <span>
-              <NavLink className='links-on-nav-bar' to='/photos' exact={true} activeClassName='active'>
-                Explore
-              </NavLink>
-            </span>
+            {sessionUser ?
+              <span>
+                <NavLink className='links-on-nav-bar' to='/test' exact={true} activeClassName='active'>
+                  <div className='upload-icon-navbar'>
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                  </div>
+                </NavLink>
+              </span>
+              : null}
             {!sessionUser ?
               <>
+                <span>
+                  <NavLink className='links-on-nav-bar' to='/photos' exact={true} activeClassName='active'>
+                    Explore
+                  </NavLink>
+                </span>
                 <span>
                   <NavLink className='links-on-nav-bar' to='/login' exact={true} activeClassName='active'>
                     Log in

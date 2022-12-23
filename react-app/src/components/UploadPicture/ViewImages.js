@@ -26,7 +26,7 @@ const ViewImages = () => {
     const editButton = async (e, id) => {
         e.preventDefault()
 
-        return history.push(`photos/${id}/edit-details`)
+        return history.push(`photos/${sessionUser.id}/${id}/edit-details`)
     }
 
 

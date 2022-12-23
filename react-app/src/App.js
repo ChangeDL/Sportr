@@ -63,7 +63,7 @@ function App() {
         <ProtectedRoute path="/photos/:id/delete-confirm">
           <ConfirmDelete />
         </ProtectedRoute>
-        <ProtectedRoute path="/photos/:id/edit-details">
+        <ProtectedRoute path="/photos/:userId/:id/edit-details">
           <UpdateImageDetails />
         </ProtectedRoute>
         <Route path="/photos/:id">
