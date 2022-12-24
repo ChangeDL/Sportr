@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import ProfileAbout from './components/ProfilePages/ProfileAbout';
 import { authenticate } from './store/session';
 import UploadPicture from './components/UploadPicture/UploadPicture';
 import ViewImages from './components/UploadPicture/ViewImages';
@@ -16,6 +16,12 @@ import WorkInProgress from './components/WorkInProgress/WorkInProgress';
 import SplashPage from './components/SplashPage/SplashPage';
 import UpdateImageDetails from './components/UpdateImageDetails/UpdateImageDetails';
 import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
+import ProfilePhotoStream from './components/ProfilePages/ProfilePhotoStream';
+import ProfileAlbums from './components/ProfilePages/ProfileAlbums';
+import ProfileFaves from './components/ProfilePages/ProfileFaves';
+import ProfileGalleries from './components/ProfilePages/ProfileGalleries';
+import ProfileStats from './components/ProfilePages/ProfileStats';
+import ProfileGroups from './components/ProfilePages/ProfileGroups.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,9 +54,27 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
+        <Route path='/people/:userId' exact={true} >
+          <ProfileAbout />
+        </Route>
+        <Route path='/people/:userId/photostream' exact={true} >
+          <ProfilePhotoStream />
+        </Route>
+        <Route path='/people/:userId/albums' exact={true} >
+          <ProfileAlbums />
+        </Route>
+        <Route path='/people/:userId/favorites' exact={true} >
+          <ProfileFaves />
+        </Route>
+        <Route path='/people/:userId/galleries' exact={true} >
+          <ProfileGalleries />
+        </Route>
+        <Route path='/people/:userId/groups'>
+          <ProfileGroups />
+        </Route>
+        <Route path='/people/:userId/stats' exact={true} >
+          <ProfileStats />
+        </Route>
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>

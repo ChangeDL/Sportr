@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteImageThunk, getAllImages, getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
-import Logo from '../../assets/misc/Logo.png'
+import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 
 
 const ImageShowRoom = () => {
@@ -11,7 +11,7 @@ const ImageShowRoom = () => {
     const history = useHistory()
     const { id } = useParams()
     const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
-    console.log(currentImage?.url)
+
 
 
     useEffect(() => {
@@ -44,18 +44,20 @@ const ImageShowRoom = () => {
             <div className="rest-of-showroom-container">
                 <div className="profile-username-title-follow">
                     <div className="profile-picture-pro-showroom">
-                        <img className="profile-picture-showroom" src={Logo} />
+                        <img className="profile-picture-showroom" src={DefaultProfilePic} />
                         <div className="span-tag-pro-div">
                             <span className="span-tag-pro">PRO</span>
                         </div>
                     </div>
                     <div className="username-title-showroom">
-                        <span>{currentImage?.owner.username}</span>
+                        <div className="username-follow-button-div-showroom">
+                            <Link to={`/people/${currentImage?.owner.id}/photostream`} className='username-image-showroom-link'><span>{currentImage?.owner.username}</span></Link>
+                            <div className="follow-button-showroom-div">
+                                <button className="follow-button-showroom"><i class="fa-solid fa-plus"></i> Follow</button>
+                            </div>
+                        </div>
                         <span>IMAGE TITLE HERE</span> {/*ADD TITLE TO TABLE */}
                         <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
-                    </div>
-                    <div className="follow-button-showroom-div">
-                        <button className="follow-button-showroom"><i class="fa-solid fa-plus"></i> Follow</button>
                     </div>
                 </div>
                 <div className="border-div-showroom" />

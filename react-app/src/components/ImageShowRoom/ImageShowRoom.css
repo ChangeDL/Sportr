@@ -61,6 +61,7 @@
 .profile-picture-pro-showroom {
     display: flex;
     flex-direction: column;
+
 }
 
 .rest-of-showroom-container {
@@ -69,7 +70,9 @@
 
 .profile-picture-showroom {
     height: 4em;
-    width: 6.5em;
+    width: 4em;
+    border-radius: 5em;
+    margin-left: 1.25em;
 }
 
 .span-tag-pro {
@@ -91,6 +94,7 @@
 .profile-username-title-follow {
     display: flex;
     flex-direction: row;
+    gap: 1.25em;
 }
 
 .username-title-showroom {
@@ -126,4 +130,15 @@
     margin-left: 6em;
     padding-top: .75em;
 
+}
+
+.username-follow-button-div-showroom {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.username-image-showroom-link {
+    text-decoration: none;
+    color: black;
 }
