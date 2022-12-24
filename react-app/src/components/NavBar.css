@@ -41,9 +41,10 @@
     display: flex;
     flex-direction: row;
     padding-top: 1.5em;
-    padding-right: 2.5em;
-    gap: 1.5em;
+    margin-right: 1em;
+    width: 25em;
     box-sizing: border-box;
+    justify-content: space-around;
 }
 
 .site-name-navbar {
@@ -94,6 +95,51 @@
 
 .upload-icon-navbar {
     font-size: 1.5em;
-
+    margin-left: 5em;
     box-sizing: border-box;
+    /* border: .1em solid black; */
+}
+
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.25em;
+    /* margin-left: 2em; */
+    /* border: .2em solid black; */
+
+
+}
+
+.ProfileButton {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.profile-button-div {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.profileButton {
+    width: 3em;
+
+}
+
+.profile-button-actual-div {
+    /* margin-left: 11.1em; */
+    /* border: .1em solid black; */
+    margin-top: .25em;
+}
+
+.div-for-profile-button-and-upload {
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+    width: 30%;
+    gap: 2.5em;
 }

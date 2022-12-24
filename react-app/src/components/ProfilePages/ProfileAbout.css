@@ -1,0 +1,118 @@
+.profile-banner-image {
+    background-image: url('../../assets/misc/SportrTestBanner.jpg');
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.user-information-profile {
+    display: flex;
+    color: white;
+    padding-top: 13em;
+    margin-left: 10em;
+    box-sizing: border-box;
+}
+
+.username-followers-following {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    font-size: .85em;
+    font-weight: 300;
+    padding-left: .1em;
+    box-sizing: border-box;
+
+}
+
+.full-name-span-profile {
+    font-size: 1.65em;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding-top: 1em;
+
+}
+
+.edit-button-profile-info {
+    background: none;
+    /* border-color: white; */
+    color: white;
+    border: none;
+    font-size: 1em;
+    padding-top: 2.25em;
+    box-sizing: border-box;
+
+}
+
+
+.ellipsis-icon-profile {
+    border: .1em solid white;
+    padding-left: .5em;
+    padding-right: .5em;
+    box-sizing: border-box;
+}
+
+.full-name-and-button {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    font-weight: 200;
+    box-sizing: border-box;
+}
+
+.profile-picture-profile-page {
+    /* border: .2em solid blue; */
+    height: 60%;
+    width: 60%;
+    box-sizing: border-box;
+    border-radius: 5em;
+    /* padding-bottom: 1em; */
+
+
+}
+
+.profile-picture-div-profile {
+    height: 10%;
+    width: 15%;
+    box-sizing: border-box;
+    padding-top: .5em;
+
+}
+
+.mid-navbar-profile-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 65%;
+    margin-left: 10.5em;
+    padding-top: 1em;
+    /* padding-bottom: 1em;
+    border-bottom: .1em solid rgba(220, 220, 220, 0.644); */
+    gap: 1.5em;
+}
+
+
+
+.mid-navbar-links-profile {
+    text-decoration: none;
+    color: rgb(99, 99, 99);
+
+}
+
+.mid-navbar-links-profile-active {
+    text-decoration: none;
+}
+
+.mid-navbar-links-profile:hover,
+.mid-navbar-links-profile-active {
+    color: black;
+    border-bottom: .2em solid rgb(0, 145, 220);
+    padding-bottom: 1em;
+
+}
+
+.about-container-profile {
+    display: flex;
+    justify-content: center;
+}

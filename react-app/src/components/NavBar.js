@@ -1,12 +1,27 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import Logo from '../assets/misc/Logo.png'
+import ProfileButton from './ProfileButton';
 import './NavBar.css'
+
 const NavBar = () => {
+  const [showModal, setShowModal] = useState(false)
+  const [login, setLogin] = useState(true)
   const sessionUser = useSelector(state => state.session.user)
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
+      <>
+        <div className='profile-button-div'>
+          <ProfileButton user={sessionUser} className='ProfileButton' />
+        </div>
+
+      </>
+    )
+  }
   return (
     <div className='whole-nav-bar'>
       <nav>
@@ -24,13 +39,19 @@ const NavBar = () => {
           </div>
           <div className='navbar-right-side'>
             {sessionUser ?
-              <span>
-                <NavLink className='links-on-nav-bar' to='/test' exact={true} activeClassName='active'>
-                  <div className='upload-icon-navbar'>
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                  </div>
-                </NavLink>
-              </span>
+              <>
+                <div className='div-for-profile-button-and-upload'>
+
+                  <span>
+                    <NavLink className='links-on-nav-bar' to='/test' exact={true} activeClassName='active'>
+                      <div className='upload-icon-navbar'>
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                      </div>
+                    </NavLink>
+                  </span>
+                  {sessionLinks}
+                </div>
+              </>
               : null}
             {!sessionUser ?
               <>
@@ -53,9 +74,7 @@ const NavBar = () => {
                 </span>
               </>
               :
-              <span>
-                <LogoutButton />
-              </span>
+              null
             }
           </div>
         </div>
