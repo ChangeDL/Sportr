@@ -45,7 +45,7 @@ const NavBar = () => {
                   <span>
                     <NavLink className='links-on-nav-bar' to='/test' exact={true} activeClassName='active'>
                       <div className='upload-icon-navbar'>
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <i className="fa-solid fa-cloud-arrow-up"></i>
                       </div>
                     </NavLink>
                   </span>

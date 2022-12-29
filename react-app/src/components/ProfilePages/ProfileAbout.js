@@ -32,7 +32,7 @@ function ProfileAbout() {
             <div className='full-name-and-button'>
               <span className='full-name-span-profile'>FULL NAME</span>
               <div className='extra-button-profile-div'>
-                <button className='edit-button-profile-info'><span className='ellipsis-icon-profile'><i class="fa-solid fa-ellipsis"></i></span></button>
+                <button className='edit-button-profile-info'><span className='ellipsis-icon-profile'><i className="fa-solid fa-ellipsis"></i></span></button>
               </div>
             </div>
             <div className='username-followers-following'>
@@ -55,7 +55,7 @@ function ProfileAbout() {
       <div className='about-container-profile'>
         <h1>PAGE CURRENTLY UNDER DEVELOPMENT</h1>
       </div>
-    </div>
+    </div >
   );
 }
 export default ProfileAbout;

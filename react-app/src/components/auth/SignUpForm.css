@@ -1,6 +1,153 @@
 .whole-sign-up-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 10em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding-top: 10em;
+
+    box-sizing: border-box;
+}
+
+.background-for-signup-and-login {
+    background-image: url('../../assets/misc/FlickrSignUpFormBackground.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.logo-sign-up-form {
+    width: 30%;
+    height: 30%;
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: .25em;
+    width: 20em;
+    /* justify-content: center;
+    align-items: center; */
+
+}
+
+.logo-and-sign-up-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    padding-top: 1em;
+}
+
+.all-sign-up-form-inputs-labels {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+}
+
+.sign-up-form-inputs-only {
+    height: 3.75em;
+    border-radius: .4em;
+    border: .1em solid rgb(137, 137, 137);
+    padding-left: 1em;
+}
+
+.sign-up-submit-button-div {
+    padding-top: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 1.25em;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+.sign-up-submit-button {
+    width: 90%;
+    height: 3em;
+    border-radius: .25em;
+    border: none;
+    background-color: rgb(18, 143, 220);
+    color: rgb(255, 255, 249);
+    font-weight: 600;
+}
+
+.sign-up-submit-button:hover {
+    background-color: rgb(20, 156, 240);
+}
+
+.terms-of-service-sign-up {
+    font-size: .75em;
+    width: 25em;
+    text-align: center;
+    color: rgb(137, 137, 137);
+}
+
+.terms-of-service-sign-up-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sign-up-form-gray-line-before-already-member {
+    border: .05em solid rgb(227, 227, 227);
+    width: 90%;
+    margin-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.already-a-member-sign-up {
+    font-size: .8em;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.sign-up-form-inputs-only:focus {
+    border: .001em solid rgb(0, 153, 255);
+    outline: .005em solid rgb(0, 153, 255);
+}
+
+.extra-links-bottom-of-sign-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* border: 1em solid beige; */
+    width: 31%;
+    margin-top: .5em;
+    gap: 1em;
+    box-sizing: border-box;
+    font-size: .85em;
+}
+
+.login-submit-button {
+    width: 41%;
+    height: 3em;
+    border-radius: .25em;
+    border: none;
+    background-color: rgb(18, 143, 220);
+    color: rgb(255, 255, 249);
+    font-weight: 600;
+}
+
+.login-submit-button:hover {
+    background-color: rgb(20, 156, 240);
+}
+
+.errors-for-sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    text-align: center;
+    font-size: .75em;
 }
