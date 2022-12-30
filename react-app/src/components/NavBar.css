@@ -40,7 +40,7 @@
 .navbar-right-side {
     display: flex;
     flex-direction: row;
-    padding-top: 1.5em;
+    padding-top: 1em;
     margin-right: 1em;
     width: 25em;
     box-sizing: border-box;
@@ -94,8 +94,9 @@
 }
 
 .upload-icon-navbar {
-    font-size: 1.5em;
-    margin-left: 5em;
+    font-size: 1.75em;
+    margin-left: 4em;
+    padding-top: .1em;
     box-sizing: border-box;
     /* border: .1em solid black; */
 }
@@ -104,7 +105,7 @@
 .profile-dropdown {
     display: flex;
     flex-direction: column;
-    margin-top: 1.25em;
+    margin-top: 1.5em;
     /* margin-left: 2em; */
     /* border: .2em solid black; */
 
@@ -114,6 +115,9 @@
 .ProfileButton {
     display: flex;
     flex-direction: column;
+    background: none;
+    border: none;
+    margin-bottom: 10em;
 
 }
 
@@ -130,11 +134,7 @@
 
 }
 
-.profile-button-actual-div {
-    /* margin-left: 11.1em; */
-    /* border: .1em solid black; */
-    margin-top: .25em;
-}
+
 
 .div-for-profile-button-and-upload {
     display: flex;
@@ -142,4 +142,11 @@
     /* background-color: aqua; */
     width: 30%;
     gap: 2.5em;
+}
+
+.nav-bar-profile-picture {
+
+    width: 25%;
+    border-radius: 50%;
+    margin-right: 10em;
 }

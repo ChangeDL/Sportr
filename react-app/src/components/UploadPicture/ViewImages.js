@@ -38,31 +38,37 @@ const ViewImages = () => {
 
 
     return (
-        <div className="whole-explore-page-container">
-            <div className="mid-navbar-explore-page">
-                <Link to='/photos'><span>Explore</span></Link>
-                <Link to='/page-in-development'><span>Trending</span></Link>
-                <Link to='/page-in-development'><span>Events</span></Link>
-            </div>
-            <div className="all-images-explore-page">
-                {allImages.map((im) => (
-                    <div key={im.id}>
-                        <Link to={`/photos/${im.id}`}>
-                            <img src={im.url} className='images-on-display' />
-                        </Link>
-                        {
-                            sessionUser && sessionUser.id === im.owner.id ?
-                                <div>
-                                    <button onClick={event => editButton(event, im.id)}>Edit</button>
-                                    <button onClick={event => deleteButton(event, im.id)}>Delete</button>
-                                </div>
-                                : null
-                        }
-                    </div>
+        <div className="background-for-explore-page">
 
-                ))}
-            </div>
-        </div >
+            <div className="whole-explore-page-container">
+                <div className="fix-position-container-mid-navbar">
+
+                    <div className="mid-navbar-explore-page">
+                        <Link to='/photos'><span>Explore</span></Link>
+                        <Link to='/page-in-development'><span>Trending</span></Link>
+                        <Link to='/page-in-development'><span>Events</span></Link>
+                    </div>
+                </div>
+                <div className="all-images-explore-page">
+                    {allImages.map((im) => (
+                        <div key={im.id}>
+                            <Link to={`/photos/${im.id}`}>
+                                <img src={im.url} className='images-on-display' />
+                            </Link>
+                            {
+                                sessionUser && sessionUser.id === im.owner.id ?
+                                    <div>
+                                        <button onClick={event => editButton(event, im.id)}>Edit</button>
+                                        <button onClick={event => deleteButton(event, im.id)}>Delete</button>
+                                    </div>
+                                    : null
+                            }
+                        </div>
+
+                    ))}
+                </div>
+            </div >
+        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from '../store/session';
 import LogoutButton from '../components/auth/LogoutButton'
+import defaultProfilePic from '../assets/misc/DefaultProfilePicture.jpg'
 
 
 
@@ -38,9 +39,7 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     return (
         <>
             <div className="profile-button-actual-div">
-                <button onClick={openMenu} className="profileButton">
-                    <i className="fa-solid fa-bars"></i>
-                </button>
+                <img onClick={openMenu} className="nav-bar-profile-picture" src={defaultProfilePic} />
             </div>
             {showMenu && (user ?
                 (< div className="profile-dropdown">

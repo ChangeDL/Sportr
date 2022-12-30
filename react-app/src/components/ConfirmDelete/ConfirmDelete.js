@@ -23,16 +23,32 @@ const ConfirmDelete = () => {
 
     }
 
+    const cancelButton = async (e, id) => {
+        e.preventDefault()
+        history.push(`/photos/${id}`)
+    }
+
     return (
         <>
-            <div className="confirm-delete-container">
+            <div className='background-for-signup-and-login'>
+                <div className="confirm-delete-container">
+                    <div className="sign-up-form">
+                        <form>
+                            <div className="confirm-delete-message" >
+                                <span>Are You Sure You Want To Delete?</span>
+                            </div>
+                            <div className='delete-cancel-button-div'>
+                                <button className='sign-up-submit-button' onClick={event => deleteButton(event, id)}>Delete</button>
+                                <button className='sign-up-submit-button' onClick={event => cancelButton(event, id)}>Cancel</button>
+                            </div>
 
-                <span>Are You Sure You Want To Delete?</span>
-                <button onClick={event => deleteButton(event, id)}>Delete</button>
-            </div>
-            {/* <div>
+                        </form>
+                    </div>
+                    {/* <div>
                 {loading ? <span>Deleting....</span> : null}
             </div> */}
+                </div>
+            </div>
         </>
     )
 }

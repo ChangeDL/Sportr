@@ -11,11 +11,39 @@
     flex-direction: column;
     width: auto;
     align-items: center;
-
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .upload-form-divs {
     display: flex;
     flex-direction: column;
     padding-top: .5em;
+}
+
+.choose-file-button-upload {
+    padding-bottom: .5em;
+    padding-left: 3.5em;
+}
+
+input::file-selector-button {
+    background-color: rgb(18, 143, 220);
+    color: rgb(255, 255, 249);
+    border-radius: .25em;
+    border: none;
+    padding: .5em;
+}
+
+input::file-selector-button:hover {
+    background-color: rgb(20, 156, 240);
+}
+
+.upload-submit-button-div {
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
 }

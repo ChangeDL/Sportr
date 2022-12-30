@@ -1,23 +1,26 @@
 .all-images-explore-page {
     display: flex;
     flex-direction: row;
-    padding-left: 5em;
+    padding-left: 8em;
     padding-right: 5em;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     height: 50%;
-    gap: .25em;
+    gap: 1em;
 }
 
 .images-on-display {
-    width: 10em;
+    width: 21em;
+    padding: .5em;
+    padding-bottom: 1em;
+
 }
 
 .whole-explore-page-container {
     display: flex;
     flex-direction: column;
     gap: 4em;
-    background-color: rgb(243, 245, 246);
-    height: 87.55vh;
+    /* background-color: rgb(243, 245, 246); */
+
     padding-top: 4em;
 }
 
@@ -29,4 +32,14 @@
     font-size: large;
 
     background-color: white;
+}
+
+.fix-position-container-mid-navbar {
+    display: fixed;
+}
+
+.background-for-explore-page {
+    background-color: rgb(243, 245, 246);
+
+    /* height: 100%; */
 }
