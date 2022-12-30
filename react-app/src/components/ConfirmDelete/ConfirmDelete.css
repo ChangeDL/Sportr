@@ -1,6 +1,11 @@
 .confirm-delete-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 10em;
-    padding-top: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20em;
+}
+
+.confirm-delete-message {
+    text-align: center;
+    padding-top: 1em;
 }

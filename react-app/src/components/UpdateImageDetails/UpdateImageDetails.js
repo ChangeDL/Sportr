@@ -10,14 +10,24 @@ const UpdateImageDetails = () => {
 
     const history = useHistory();
 
-    const currentImage = useSelector(state => state?.imageReducer?.allImages[id])
+    // const currentImage = useSelector(state => state?.imageReducer?.allImages[id])
 
 
     const dispatch = useDispatch()
 
-    const [description, setDescription] = useState(currentImage?.description)
-    const [tags, setTags] = useState(currentImage?.tags)
-    const [people, setPeople] = useState(currentImage?.people)
+    const [description, setDescription] = useState('')
+    const [tags, setTags] = useState('')
+    const [people, setPeople] = useState('')
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`/api/images/${id}`)
+            const data = await res.json()
+            setDescription(data[id]?.description)
+            setTags(data[id]?.tags)
+            setPeople(data[id]?.people)
+        })()
+    }, [id])
 
 
     useEffect(() => {
@@ -49,45 +59,64 @@ const UpdateImageDetails = () => {
         const editedData = await dispatch(editImageThunk(updatedData))
 
         if (editedData) {
-            history.push('/photos')
-            dispatch(getImageByIdThunk(id))
+            history.push(`/photos/${id}`)
+            // dispatch(getImageByIdThunk(id))
         }
     }
 
+    const cancelButton = async (e, id) => {
+        e.preventDefault()
+        history.push(`/photos/${id}`)
+    }
+
     return (
-        <div className="update-image-form-container">
+        <div className='background-for-signup-and-login'>
 
-            <form onSubmit={onSubmit}>
 
-                <div>
-                    <label>Description</label>
-                    <input
-                        placeholder="Not Required"
-                        type="text"
-                        onChange={updateDescription}
-                        value={description}
-                    />
+            <div className="update-image-form-container">
+                <div className='sign-up-form'>
+                    <div className="confirm-delete-message">
+                        <span>What would you like to edit about this images details?</span>
+                    </div>
+                    <form onSubmit={onSubmit}>
+
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Description</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updateDescription}
+                                value={description}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Tag</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updateTags}
+                                value={tags}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>People</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updatePeople}
+                                value={people}
+                            />
+                        </div>
+                        <div className='delete-cancel-button-div'>
+                            <button className='sign-up-submit-button' type='submit'>Save Changes</button>
+                            <button className='sign-up-submit-button' onClick={event => cancelButton(event, id)}>Cancel</button>
+                        </div>
+                    </form >
                 </div>
-                <div>
-                    <label>Tag</label>
-                    <input
-                        placeholder="Not Required"
-                        type="text"
-                        onChange={updateTags}
-                        value={tags}
-                    />
-                </div>
-                <div>
-                    <label>People</label>
-                    <input
-                        placeholder="Not Required"
-                        type="text"
-                        onChange={updatePeople}
-                        value={people}
-                    />
-                </div>
-                <button type="submit">Submit</button>
-            </form >
+            </div>
         </div>
     )
 }

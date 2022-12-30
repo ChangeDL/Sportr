@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import './UploadPicture.css'
 
@@ -9,15 +9,25 @@ const UploadPicture = () => {
     const [description, setDescription] = useState("")
     const [tags, setTags] = useState("")
     const [people, setPeople] = useState("")
+    const [errors, setErrors] = useState([])
 
 
+    useEffect(() => {
+        const errors = []
+        if (image) {
+            if (image?.type !== 'image/jpg' && image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('File Type Not Supported. Please upload a png, jpg, or jpeg')
+
+        }
+        setErrors(errors)
+
+    }, [image])
 
 
-
-    // console.log("***************IMAGE", image)
+    console.log("***************IMAGE", image)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (errors.length > 0) return
         const formData = new FormData();
         formData.append("image", image);
         formData.append("description", description)
@@ -64,51 +74,65 @@ const UploadPicture = () => {
         setPeople(e.target.value)
     }
     return (
-        <div className="whole-upload-container">
+        <div className='background-for-signup-and-login'>
+            <div className="whole-upload-container">
+                <div className="sign-up-form">
+                    <div className="image-size-warning">
+                        <span className="warning-upload-spans">Images Landscape Oriented will </span>
+                        <span className="warning-upload-spans">be easier to display</span>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <div className='errors-for-sign-up'>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
 
-            <div className="image-size-warning">
-                <span className="warning-upload-spans">Images Landscape Oriented will </span>
-                <span className="warning-upload-spans">be easier to display</span>
+                            <input
+                                className="choose-file-button-upload"
+                                type="file"
+                                accept="image/*"
+                                onChange={updateImage}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Description</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updateDescription}
+                                value={description}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Tag</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updateTags}
+                                value={tags}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>People</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updatePeople}
+                                value={people}
+                            />
+                        </div>
+                        <div className='upload-submit-button-div'>
+                            <button className='sign-up-submit-button' type='submit'>Upload</button>
+                            {(imageLoading) && <p>Loading...</p>}
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div className='upload-form-divs'>
-
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={updateImage}
-                    />
-                </div>
-                <div className='upload-form-divs'>
-                    <label>Description</label>
-                    <input
-                        placeholder="Not Required"
-                        type="text"
-                        onChange={updateDescription}
-                        value={description}
-                    />
-                </div>
-                <div className='upload-form-divs'>
-                    <label>Tag</label>
-                    <input
-                        placeholder="Not Required"
-                        type="text"
-                        onChange={updateTags}
-                        value={tags}
-                    />
-                </div>
-                <div className='upload-form-divs'>
-                    <label>People</label>
-                    <input
-                        placeholder="Not Required"
-                        type="text"
-                        onChange={updatePeople}
-                        value={people}
-                    />
-                </div>
-                <button type="submit">Submit</button>
-                {(imageLoading) && <p>Loading...</p>}
-            </form>
         </div>
     )
 }

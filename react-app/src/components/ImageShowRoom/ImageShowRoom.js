@@ -44,7 +44,7 @@ const ImageShowRoom = () => {
             <div className="rest-of-showroom-container">
                 <div className="profile-username-title-follow">
                     <div className="profile-picture-pro-showroom">
-                        <img className="profile-picture-showroom" src={DefaultProfilePic} />
+                        <Link to={`/people/${currentImage?.owner.id}/photostream`}><img className="profile-picture-showroom" src={DefaultProfilePic} /></Link>
                         <div className="span-tag-pro-div">
                             <span className="span-tag-pro">PRO</span>
                         </div>
