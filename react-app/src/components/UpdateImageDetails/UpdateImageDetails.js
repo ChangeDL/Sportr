@@ -48,7 +48,6 @@ const UpdateImageDetails = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log(id)
         const updatedData = {
             imageId: +id,
             description,

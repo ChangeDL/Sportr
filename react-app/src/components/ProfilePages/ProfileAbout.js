@@ -30,7 +30,7 @@ function ProfileAbout() {
           </div>
           <div className='split-div-for-information'>
             <div className='full-name-and-button'>
-              <span className='full-name-span-profile'>FULL NAME</span>
+              <span className='full-name-span-profile'>{user.fullName}</span>
               <div className='extra-button-profile-div'>
                 <button className='edit-button-profile-info'><span className='ellipsis-icon-profile'><i className="fa-solid fa-ellipsis"></i></span></button>
               </div>
