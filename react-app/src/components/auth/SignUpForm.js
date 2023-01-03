@@ -5,9 +5,12 @@ import { signUp } from '../../store/session';
 import './SignUpForm.css'
 import Logo from '../../assets/misc/Logo.png'
 
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [full_name, setFullName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,20 +18,24 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
 
+
+
   useEffect(() => {
     const errors = []
     if (username.length < 4) errors.push("Username must be at least 4 characters or more.")
+    if (username.length > 25) errors.push("Username is too long please make it less then 25 characters")
     if (password.length < 8) errors.push("Password must be at least 8 characters or more.")
     if (password !== repeatPassword) errors.push("Repeated Password doesn't match Password.")
+    if (full_name.length < 8 || !letters.includes(full_name[0])) errors.push('Please enter your full name')
 
     setErrors(errors)
-  }, [username, password, repeatPassword])
+  }, [username, password, repeatPassword, full_name])
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (errors.length > 0) return setErrors([])
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username.toLowerCase(), email.toLowerCase(), password));
+      const data = await dispatch(signUp(username.toLowerCase(), full_name, email.toLowerCase(), password));
       if (data) {
         setErrors(data)
       }
@@ -49,6 +56,10 @@ const SignUpForm = () => {
 
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
+  };
+
+  const updateFullName = (e) => {
+    setFullName(e.target.value);
   };
 
   if (user) {
@@ -79,6 +90,17 @@ const SignUpForm = () => {
                 name='username'
                 onChange={updateUsername}
                 value={username}
+                required={true}
+              ></input>
+            </div>
+            <div className='all-sign-up-form-inputs-labels'>
+              <input
+                placeholder='Full Name'
+                className='sign-up-form-inputs-only'
+                type='text'
+                name='fullName'
+                onChange={updateFullName}
+                value={full_name}
                 required={true}
               ></input>
             </div>

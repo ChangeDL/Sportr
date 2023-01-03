@@ -23,7 +23,6 @@ const UploadPicture = () => {
     }, [image])
 
 
-    console.log("***************IMAGE", image)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
