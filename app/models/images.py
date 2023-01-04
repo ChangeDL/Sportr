@@ -7,7 +7,7 @@ image_album = db.Table(
     db.Column('album_id', db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
 )
 if environment == "production":
-    image_album = {'schema': SCHEMA}
+    image_album.schema =  SCHEMA
 
 
 class Image(db.Model):
