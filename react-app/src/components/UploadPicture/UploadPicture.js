@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './UploadPicture.css'
+import { getUserAlbums } from "../../store/album";
 
 const UploadPicture = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
+    const dispatch = useDispatch()
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [description, setDescription] = useState("")
@@ -11,6 +14,7 @@ const UploadPicture = () => {
     const [people, setPeople] = useState("")
     const [errors, setErrors] = useState([])
 
+    const currentUser = useSelector(state => state.session.user)
 
     useEffect(() => {
         const errors = []
@@ -22,7 +26,9 @@ const UploadPicture = () => {
 
     }, [image])
 
-
+    useEffect(() => {
+        dispatch(getUserAlbums(currentUser.id))
+    }, [currentUser.id])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

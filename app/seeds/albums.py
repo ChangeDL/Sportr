@@ -1,18 +1,28 @@
-from app.models import db, Album, environment, SCHEMA
+from app.models import db, Image, Album, environment, SCHEMA
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_albums():
+    image1test = Image(
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/DuckyMeme.jpg"
+    )
+
+    db.session.add(image1test)
+
     album1 = Album(
         user_id=1, name='Album 1')
     album2 = Album(
         user_id=2, name='Album 2', description='Description for Album 2')
     album3 = Album(
         user_id=3, name='Album 3', description='Description for Album 3')
+    album4 = Album(
+        user_id=1,name='Album 4', images=[image1test]
+    )
 
     db.session.add(album1)
     db.session.add(album2)
     db.session.add(album3)
+    db.session.add(album4)
     db.session.commit()
 
 
