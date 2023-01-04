@@ -1,6 +1,8 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
-image_album = db.Table('image_album',
+image_album = db.Table(
+    'image_album',
+    db.Model.metadata,
     db.Column('image_id', db.Integer, db.ForeignKey(add_prefix_for_prod('images.id'))),
     db.Column('album_id', db.Integer, db.ForeignKey(add_prefix_for_prod('albums.id')))
 )
