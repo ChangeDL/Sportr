@@ -58,7 +58,7 @@ def upgrade():
     )
 
     if environment == "production":
-     op.execute(f"ALTER TABLE images SET SCHEMA {SCHEMA};")
+     op.execute(f"ALTER TABLE albums SET SCHEMA {SCHEMA};")
 
     op.create_table('image_album',
     sa.Column('image_id', sa.Integer()),
@@ -68,7 +68,7 @@ def upgrade():
     )
 
     if environment == "production":
-     op.execute(f"ALTER TABLE images SET SCHEMA {SCHEMA};")
+     op.execute(f"ALTER TABLE image_album SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
