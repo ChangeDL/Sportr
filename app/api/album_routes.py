@@ -49,6 +49,13 @@ def get_users_albums(id):
 @album_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 def edit_album_details(id):
+
+    """
+
+    Update Album
+
+    """
+
     album = Album.query.get(id)
 
     form = AlbumForm()
@@ -70,6 +77,13 @@ def edit_album_details(id):
 @album_routes.route("/<int:id>", methods=['DELETE'])
 @login_required
 def delete_album(id):
+
+    """
+
+    Delete Album
+
+    """
+
     album = Album.query.get(id)
     db.session.delete(album)
     db.session.commit()

@@ -16,8 +16,6 @@ function ProfileAlbums() {
 
     const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
-    console.log(userAlbumsArray)
-
 
     useEffect(() => {
         if (!userId) {
@@ -72,6 +70,7 @@ function ProfileAlbums() {
                     <div key={al.name}>
                         <span>{al.name}</span>
                         <span>{al.description}</span>
+                        <img src={al.images[0]?.url} />
                     </div>
                 ))}
             </div>
