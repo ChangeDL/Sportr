@@ -8,6 +8,16 @@ from app.s3_helpers import (
 image_routes = Blueprint("images", __name__)
 
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 @image_routes.route("", methods=["POST"])
 @login_required
 def upload_image():
@@ -37,12 +47,13 @@ def upload_image():
 
     form = ImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    if form.validate_on_submit():
     # we can use the
-    new_image = Image(user=current_user, url=url, description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
-    db.session.add(new_image)
-    db.session.commit()
-    return {"url": url}
+        new_image = Image(user=current_user, url=url, description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
+        db.session.add(new_image)
+        db.session.commit()
+        return {"url": url}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @image_routes.route("")
