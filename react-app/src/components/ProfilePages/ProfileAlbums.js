@@ -2,11 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProfileAbout.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
+import { getUserAlbums } from '../../store/album';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 function ProfileAlbums() {
     const [user, setUser] = useState({});
     const { userId } = useParams();
+    const dispatch = useDispatch()
+
+    const userAlbums = useSelector(state => { return state })
+
+    const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
+
+    console.log(userAlbumsArray)
+
 
     useEffect(() => {
         if (!userId) {
@@ -18,6 +29,10 @@ function ProfileAlbums() {
             setUser(user);
         })();
     }, [userId]);
+
+    useEffect(() => {
+        dispatch(getUserAlbums(userId))
+    }, [userId])
 
 
 
@@ -53,9 +68,14 @@ function ProfileAlbums() {
                 <Link to={`/people/${userId}/stats`} className='mid-navbar-links-profile'>Stats</Link>
             </div>
             <div className='about-container-profile'>
-                <h1>PAGE CURRENTLY UNDER DEVELOPMENT</h1>
+                {userAlbumsArray.map((al) => (
+                    <div key={al.name}>
+                        <span>{al.name}</span>
+                        <span>{al.description}</span>
+                    </div>
+                ))}
             </div>
-        </div>
+        </div >
     );
 }
 export default ProfileAlbums;

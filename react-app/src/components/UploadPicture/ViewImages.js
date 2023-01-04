@@ -17,6 +17,8 @@ const ViewImages = () => {
     const allImages = Object.values(imagesObj.imageReducer.allImages)
 
 
+
+
     const deleteButton = async (e, id) => {
         e.preventDefault()
 
