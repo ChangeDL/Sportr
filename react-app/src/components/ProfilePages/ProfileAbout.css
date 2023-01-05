@@ -1,9 +1,9 @@
 .profile-banner-image {
     background-image: url('../../assets/misc/SportrTestBanner.jpg');
     background-size: cover;
-    height: 300px;
-    width: 100%;
+
     box-sizing: border-box;
+    object-fit: cover;
 
 }
 
@@ -67,6 +67,7 @@
     width: 60%;
     box-sizing: border-box;
     border-radius: 5em;
+    object-fit: cover;
     /* padding-bottom: 1em; */
 
 

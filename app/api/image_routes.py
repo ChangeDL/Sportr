@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Image
+from app.models import db, Image,Album
 from app.forms import ImageForm
 from flask_login import current_user, login_required
 from app.s3_helpers import (
@@ -51,9 +51,8 @@ def upload_image():
     # we can use the
         new_image = Image(user=current_user, url=url, description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
         db.session.add(new_image)
-        '''
-        new_image.append.albums(form.data['albums'])
-        '''
+        album = Album.query.get(form.data['albums'])
+        album.images.append(new_image)
         db.session.commit()
         return {"url": url}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

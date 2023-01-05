@@ -12,9 +12,13 @@ const UploadPicture = () => {
     const [description, setDescription] = useState("")
     const [tags, setTags] = useState("")
     const [people, setPeople] = useState("")
+    const [album, setAlbum] = useState('')
     const [errors, setErrors] = useState([])
 
     const currentUser = useSelector(state => state.session.user)
+
+    const userAlbums = useSelector(state => { return state })
+    const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
     useEffect(() => {
         const errors = []
@@ -30,6 +34,8 @@ const UploadPicture = () => {
         dispatch(getUserAlbums(currentUser.id))
     }, [currentUser.id])
 
+    console.log(album)
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (errors.length > 0) return
@@ -38,6 +44,7 @@ const UploadPicture = () => {
         formData.append("description", description)
         formData.append("tags", tags)
         formData.append("people", people)
+        formData.append("albums", +album)
 
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea
@@ -130,6 +137,20 @@ const UploadPicture = () => {
                                 onChange={updatePeople}
                                 value={people}
                             />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Album</label>
+                            <select
+                                name="albums"
+                                id="albums"
+                                value={album}
+                                onChange={(e) => setAlbum(e.target.value)}
+                            >
+                                <option value=''>Not Required</option>
+                                {userAlbumsArray.map((al) => (
+                                    <option value={al.id}>{al.name}</option>
+                                ))}
+                            </select>
                         </div>
                         <div className='upload-submit-button-div'>
                             <button className='sign-up-submit-button' type='submit'>Upload</button>

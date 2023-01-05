@@ -22,6 +22,9 @@ import ProfileFaves from './components/ProfilePages/ProfileFaves';
 import ProfileGalleries from './components/ProfilePages/ProfileGalleries';
 import ProfileStats from './components/ProfilePages/ProfileStats';
 import ProfileGroups from './components/ProfilePages/ProfileGroups.js';
+import AlbumForm from './components/AlbumForm/AlbumForm';
+import AlbumShowRoom from './components/AlbumShowRoom/AlbumShowRoom';
+import EditAlbumForm from './components/EditAlbumForm/EditAlbumForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,6 +65,15 @@ function App() {
         </Route>
         <Route path='/people/:userId/albums' exact={true} >
           <ProfileAlbums />
+        </Route>
+        <ProtectedRoute path='/people/:userId/albums/new'>
+          <AlbumForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/people/:userId/albums/:albumId/edit'>
+          <EditAlbumForm />
+        </ProtectedRoute>
+        <Route path='/people/:userId/albums/:albumId'>
+          <AlbumShowRoom />
         </Route>
         <Route path='/people/:userId/favorites' exact={true} >
           <ProfileFaves />
