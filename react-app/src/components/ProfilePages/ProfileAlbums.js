@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import './ProfileAbout.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
-import { getUserAlbums } from '../../store/album';
+import { getUserAlbums, removeAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
+import { oneAlbum } from '../../store/album';
 
 
 
@@ -11,8 +12,10 @@ function ProfileAlbums() {
     const [user, setUser] = useState({});
     const { userId } = useParams();
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const userAlbums = useSelector(state => { return state })
+    const currentUser = useSelector(state => state.session.user)
 
     const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
@@ -32,7 +35,26 @@ function ProfileAlbums() {
         dispatch(getUserAlbums(userId))
     }, [userId])
 
+    const addAlbumButton = (e, id) => {
+        e.preventDefault()
 
+        history.push(`/people/${id}/albums/new`)
+
+    }
+
+    const deleteAlbumButton = (e, id) => {
+        e.preventDefault()
+        dispatch(removeAlbum(id))
+        setTimeout(() => {
+            dispatch(getUserAlbums(userId));
+        }, 10)
+
+    }
+
+    const editAlbumButton = (e, userId, albumId) => {
+        e.preventDefault()
+        history.push(`/people/${userId}/albums/${albumId}/edit`)
+    }
 
     return (
         <div className='whole-profile-page-container'>
@@ -65,12 +87,20 @@ function ProfileAlbums() {
                 <Link to={`/people/${userId}/groups`} className='mid-navbar-links-profile'>Groups</Link>
                 <Link to={`/people/${userId}/stats`} className='mid-navbar-links-profile'>Stats</Link>
             </div>
-            <div className='about-container-profile'>
+            <div className='album-container-profile'>
+                {currentUser.id === +userId ?
+                    <button onClick={e => addAlbumButton(e, userId)}>Add album</button>
+                    : null}
                 {userAlbumsArray.map((al) => (
-                    <div key={al.name}>
-                        <span>{al.name}</span>
-                        <span>{al.description}</span>
-                        <img src={al.images[0]?.url} />
+                    <div key={al.id}>
+                        <Link to={`/people/${userId}/albums/${al.id}`}>{al.name} </Link>
+                        {currentUser.id === +userId ?
+                            <div>
+                                <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
+                                <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                            </div>
+                            : null}
+                        {/* <img src={al.images[0]?.url} /> */}
                     </div>
                 ))}
             </div>

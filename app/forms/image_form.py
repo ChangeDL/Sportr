@@ -7,3 +7,4 @@ class ImageForm(FlaskForm):
     description = StringField('Description')
     tags = StringField('Tags')
     people = StringField('People')
+    albums = IntegerField('Album')

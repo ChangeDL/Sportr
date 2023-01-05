@@ -35,7 +35,7 @@ def create_album():
         return new_album.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@album_routes.route("/<int:id>", methods=["GET"])
+@album_routes.route("/user/<int:id>", methods=["GET"])
 def get_users_albums(id):
     """
 
@@ -45,6 +45,11 @@ def get_users_albums(id):
     albums = Album.query.filter_by(user_id=id).all()
     return {album.id: album.to_dict() for album in albums}
 
+
+@album_routes.route('/<int:id>', methods=['GET'])
+def get_single_album(id):
+    album = Album.query.get(id)
+    return album.to_dict()
 
 @album_routes.route("/<int:id>", methods=["PUT"])
 @login_required
@@ -56,18 +61,19 @@ def edit_album_details(id):
 
     """
 
-    album = Album.query.get(id)
+    album = Album.query.get((id))
 
     form = AlbumForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        name = form.data['name'],
+        name = form.data["name"]
         description = form.data['description']
 
+
         album.name = name
-        album.descripiton = description
+        album.description = description
 
         db.session.commit()
 
