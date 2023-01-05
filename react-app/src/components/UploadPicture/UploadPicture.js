@@ -145,8 +145,9 @@ const UploadPicture = () => {
                                 id="albums"
                                 value={album}
                                 onChange={(e) => setAlbum(e.target.value)}
+                                className='sign-up-form-inputs-only'
                             >
-                                <option value=''>Not Required</option>
+                                <option value='' style={{ color: 'grey' }}>Not Required</option>
                                 {userAlbumsArray.map((al) => (
                                     <option value={al.id}>{al.name}</option>
                                 ))}
