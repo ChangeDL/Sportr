@@ -7,18 +7,18 @@
 .all-albums-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
     gap: 5em;
     width: 10em;
     height: 10em;
     padding-top: 1em;
+    width: auto;
     margin-left: 2em;
-
 }
 
 .link-to-album {
     width: 10em;
     height: 10em;
+    box-sizing: border-box;
 }
 
 .span-tag-album-name-link {

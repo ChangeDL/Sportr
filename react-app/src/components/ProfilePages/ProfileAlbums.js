@@ -94,19 +94,35 @@ function ProfileAlbums() {
                     : null}
                 <div className='all-albums-container'>
                     {userAlbumsArray.map((al) => (
-                        <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ backgroundImage: `url(${al.images[0].url})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', textDecoration: 'none', color: 'white' }} >
-                            <div key={al.id} className='album-name-and-buttons'>
-                                <div className='span-tag-album-name-link'>
-                                    <span>{al.name.toUpperCase()}</span>
-                                </div>
-                                {currentUser?.id === +userId ?
-                                    <div className='album-edit-delete-buttons'>
-                                        <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
-                                        <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                        <>
+                            {al.images.length > 0 ?
+                                <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ backgroundImage: `url(${al.images[0].url})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', textDecoration: 'none', color: 'white' }} >
+                                    <div key={al.id} className='album-name-and-buttons'>
+                                        <div className='span-tag-album-name-link'>
+                                            <span>{al.name.toUpperCase()}</span>
+                                        </div>
+                                        {currentUser?.id === +userId ?
+                                            <div className='album-edit-delete-buttons'>
+                                                <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
+                                                <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                                            </div>
+                                            : null}
                                     </div>
-                                    : null}
-                            </div>
-                        </Link>
+                                </Link>
+                                : <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`}> <div key={al.id} className='album-name-and-buttons'>
+                                    <div className='span-tag-album-name-link'>
+                                        <span>{al.name.toUpperCase()}</span>
+                                    </div>
+                                    {currentUser?.id === +userId ?
+                                        <div className='album-edit-delete-buttons'>
+                                            <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
+                                            <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                                        </div>
+                                        : null}
+                                </div>
+                                </Link>
+                            }
+                        </>
                     ))}
                 </div>
             </div>
