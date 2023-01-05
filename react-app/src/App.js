@@ -25,6 +25,7 @@ import ProfileGroups from './components/ProfilePages/ProfileGroups.js';
 import AlbumForm from './components/AlbumForm/AlbumForm';
 import AlbumShowRoom from './components/AlbumShowRoom/AlbumShowRoom';
 import EditAlbumForm from './components/EditAlbumForm/EditAlbumForm';
+import LogoutConfirm from './components/auth/LogoutConfirm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -108,6 +109,9 @@ function App() {
         <Route path='/page-in-development' exact={true}>
           <WorkInProgress />
         </Route>
+        <ProtectedRoute path='/logout-confirm'>
+          <LogoutConfirm />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

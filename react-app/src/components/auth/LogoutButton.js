@@ -6,9 +6,9 @@ import { logout } from '../../store/session';
 const LogoutButton = () => {
   const history = useHistory();
   const dispatch = useDispatch()
-  const onLogout = async (e) => {
-    await dispatch(logout());
-    return history.push('/')
+  const onLogout = (e) => {
+
+    return history.push('/logout-confirm')
 
   };
 

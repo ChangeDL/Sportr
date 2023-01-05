@@ -1,0 +1,44 @@
+.album-container-profile {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+}
+
+.all-albums-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 5em;
+    width: 10em;
+    height: 10em;
+    padding-top: 1em;
+    margin-left: 2em;
+
+}
+
+.link-to-album {
+    width: 10em;
+    height: 10em;
+}
+
+.span-tag-album-name-link {
+    display: flex;
+
+    background-color: rgba(0, 0, 0, 0.346);
+    width: fit-content;
+    font-weight: bold;
+}
+
+.album-name-and-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 7em;
+    padding-left: .5em;
+}
+
+.album-edit-delete-buttons {
+    display: flex;
+    flex-direction: row;
+    height: 1.5em;
+    margin-top: 1em;
+}

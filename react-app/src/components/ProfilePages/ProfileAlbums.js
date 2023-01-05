@@ -5,6 +5,7 @@ import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import { getUserAlbums, removeAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
 import { oneAlbum } from '../../store/album';
+import './ProfileAlbum.css'
 
 
 
@@ -15,7 +16,7 @@ function ProfileAlbums() {
     const history = useHistory()
 
     const userAlbums = useSelector(state => { return state })
-    const currentUser = useSelector(state => state.session.user)
+    const currentUser = useSelector(state => state?.session?.user)
 
     const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
@@ -91,18 +92,23 @@ function ProfileAlbums() {
                 {currentUser.id === +userId ?
                     <button onClick={e => addAlbumButton(e, userId)}>Add album</button>
                     : null}
-                {userAlbumsArray.map((al) => (
-                    <div key={al.id}>
-                        <Link to={`/people/${userId}/albums/${al.id}`}>{al.name} </Link>
-                        {currentUser.id === +userId ?
-                            <div>
-                                <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
-                                <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                <div className='all-albums-container'>
+                    {userAlbumsArray.map((al) => (
+                        <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ backgroundImage: `url(${al.images[0].url})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', textDecoration: 'none', color: 'white' }} >
+                            <div key={al.id} className='album-name-and-buttons'>
+                                <div className='span-tag-album-name-link'>
+                                    <span>{al.name.toUpperCase()}</span>
+                                </div>
+                                {currentUser?.id === +userId ?
+                                    <div className='album-edit-delete-buttons'>
+                                        <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
+                                        <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                                    </div>
+                                    : null}
                             </div>
-                            : null}
-                        {/* <img src={al.images[0]?.url} /> */}
-                    </div>
-                ))}
+                        </Link>
+                    ))}
+                </div>
             </div>
         </div >
     );
