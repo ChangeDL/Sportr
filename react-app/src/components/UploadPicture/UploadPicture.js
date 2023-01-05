@@ -34,7 +34,7 @@ const UploadPicture = () => {
         dispatch(getUserAlbums(currentUser.id))
     }, [currentUser.id])
 
-    console.log(album)
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,7 +44,7 @@ const UploadPicture = () => {
         formData.append("description", description)
         formData.append("tags", tags)
         formData.append("people", people)
-        formData.append("albums", +album)
+        if (album > 0) formData.append("albums", +album)
 
         // aws uploads can be a bit slow—displaying
         // some sort of loading message is a good idea

@@ -51,10 +51,14 @@ def upload_image():
     # we can use the
         new_image = Image(user=current_user, url=url, description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
         db.session.add(new_image)
-        album = Album.query.get(form.data['albums'])
-        album.images.append(new_image)
-        db.session.commit()
-        return {"url": url}
+        if(form.data['albums']):
+            album = Album.query.get(form.data['albums'])
+            album.images.append(new_image)
+            db.session.commit()
+            return {"url": url}
+        else:
+            db.session.commit()
+            return {"url": url}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

@@ -65,7 +65,7 @@ const AlbumForm = () => {
                             <label>Name</label>
                             <input
                                 className='sign-up-form-inputs-only'
-                                placeholder="Not Required"
+                                placeholder="Required"
                                 type="text"
                                 onChange={updateName}
                                 value={name}
