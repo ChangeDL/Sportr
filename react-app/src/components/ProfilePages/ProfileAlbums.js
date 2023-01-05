@@ -48,7 +48,7 @@ function ProfileAlbums() {
         dispatch(removeAlbum(id))
         setTimeout(() => {
             dispatch(getUserAlbums(userId));
-        }, 10)
+        }, 100)
 
     }
 
@@ -89,7 +89,7 @@ function ProfileAlbums() {
                 <Link to={`/people/${userId}/stats`} className='mid-navbar-links-profile'>Stats</Link>
             </div>
             <div className='album-container-profile'>
-                {currentUser.id === +userId ?
+                {currentUser?.id === +userId ?
                     <button onClick={e => addAlbumButton(e, userId)}>Add album</button>
                     : null}
                 <div className='all-albums-container'>
