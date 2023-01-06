@@ -2,6 +2,7 @@ const SET_IMAGES = 'image/SET_IMAGES';
 const DELETE_IMAGE = 'image/DELETE_IMAGE';
 const UPDATE_IMAGE = 'image/UPDATE_IMAGE';
 const GET_IMAGE = 'image/GET_IMAGE';
+const USER_IMAGES = 'image/USER_IMAGES';
 
 
 const setImages = (images) => ({
@@ -25,6 +26,11 @@ const getImageById = (image) => ({
     payload: image
 })
 
+const userImages = (images) => ({
+    type: USER_IMAGES,
+    payload: images
+})
+
 export const getAllImages = () => async (dispatch) => {
     const response = await fetch('/api/images')
     if (response.ok) {
@@ -46,13 +52,13 @@ export const deleteImageThunk = (id) => async (dispatch) => {
 }
 
 export const editImageThunk = (payload) => async dispatch => {
-    const { imageId, description, tags, people } = payload
+    const { imageId, title, description, tags, people, albums } = payload
     const response = await fetch(`/api/images/${imageId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ description, tags, people })
+        body: JSON.stringify({ title, description, tags, people, albums })
     })
 
     if (response.ok) {
@@ -71,7 +77,16 @@ export const getImageByIdThunk = (imageId) => async dispatch => {
     }
 }
 
-const initialState = { allImages: {}, currentImage: {} };
+export const getUserImages = (userId) => async dispatch => {
+    const res = await fetch(`/api/images/user/${userId}`)
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(userImages(data))
+        return data
+    }
+}
+
+const initialState = { allImages: {}, currentImage: {}, userImages: {} };
 
 const imageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -88,6 +103,14 @@ const imageReducer = (state = initialState, action) => {
             newState.currentImage = {}
             const image = action.payload
             newState.currentImage = image
+            return newState
+        }
+
+        case USER_IMAGES: {
+            const newState = { ...state }
+            newState.userImages = {}
+            const images = action.payload
+            newState.userImages = images
             return newState
         }
 

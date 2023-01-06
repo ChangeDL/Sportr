@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from app.models import db, Album
+from app.models import db, Album, Image
 from app.forms import AlbumForm
 
 
@@ -31,6 +31,10 @@ def create_album():
     if form.validate_on_submit():
         new_album = Album(user=current_user, name=form.data["name"], description=form.data["description"])
         db.session.add(new_album)
+        images = form.data['images'].split(',')
+        image_details = []
+        [image_details.append(Image.query.get(int(image))) for image in images]
+        [new_album.images.append(image) for image in image_details]
         db.session.commit()
         return new_album.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -74,6 +78,12 @@ def edit_album_details(id):
 
         album.name = name
         album.description = description
+
+        if(form.data['images'] != ''):
+            images = form.data['images'].split(',')
+            image_details = []
+            [image_details.append(Image.query.get(int(image))) for image in images]
+            [album.images.remove(image) for image in image_details]
 
         db.session.commit()
 

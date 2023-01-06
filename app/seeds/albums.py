@@ -4,7 +4,7 @@ from app.models import db, Image, Album, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_albums():
     image1test = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/DuckyMeme.jpg"
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/DuckyMeme.jpg", title='Photo 4 Title'
     )
 
     db.session.add(image1test)

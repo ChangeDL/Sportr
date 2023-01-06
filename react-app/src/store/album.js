@@ -41,13 +41,13 @@ export const getUserAlbums = (userId) => async (dispatch) => {
 }
 
 export const uploadAlbum = (payload) => async (dispatch) => {
-    const { name, description } = payload
+    const { name, description, images } = payload
     const response = await fetch('/api/albums', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, description })
+        body: JSON.stringify({ name, description, images })
     })
 
     if (response.ok) {
@@ -78,13 +78,13 @@ export const oneAlbum = (id) => async (dispatch) => {
 }
 
 export const updateAlbum = (payload) => async (dispatch) => {
-    const { albumId, name, description } = payload
+    const { albumId, name, description, images } = payload
     const response = await fetch(`/api/albums/${albumId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, description })
+        body: JSON.stringify({ name, description, images })
     })
     if (response.ok) {
         const data = await response.json()

@@ -37,6 +37,7 @@ def upgrade():
     op.create_table('images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('title', sa.Text),
     sa.Column('url', sa.Text(), nullable=False),
     sa.Column('description', sa.Text()),
     sa.Column('tags', sa.Text()),

@@ -43,7 +43,7 @@ const NavBar = () => {
                 <div className='div-for-profile-button-and-upload'>
 
                   <span>
-                    <NavLink className='links-on-nav-bar' to='/test' exact={true} activeClassName='active'>
+                    <NavLink className='links-on-nav-bar' to='/upload' exact={true} activeClassName='active'>
                       <div className='upload-icon-navbar'>
                         <i className="fa-solid fa-cloud-arrow-up"></i>
                       </div>

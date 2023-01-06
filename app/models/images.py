@@ -19,6 +19,7 @@ class Image(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    title = db.Column(db.String)
     url = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
     tags = db.Column(db.String)
@@ -31,11 +32,13 @@ class Image(db.Model):
         return {
             "id": self.id,
             "username": self.user.id,
+            "title": self.title,
             "url": self.url,
             "description": self.description,
             "tags": self.tags,
             "people": self.people,
-            "owner": self.user.to_dict()
+            "owner": self.user.to_dict(),
+            "albums": [album.id for album in self.albums]
         }
 
     def __repr__(self):

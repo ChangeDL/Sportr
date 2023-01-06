@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getUserAlbums } from "../../store/album";
+import { getUserAlbums, oneAlbum } from "../../store/album";
 import Logo from '../../assets/misc/Logo.png'
 import { updateAlbum } from "../../store/album";
 
@@ -13,44 +13,71 @@ const EditAlbumForm = () => {
     const dispatch = useDispatch()
     const [description, setDescription] = useState("")
     const [name, setName] = useState("")
+    const [photos, setPhotos] = useState(new Set())
+    const [selected, setSelected] = useState(false)
     const [errors, setErrors] = useState([])
     let { albumId } = useParams()
     albumId = +albumId
 
-    console.log(typeof (name))
 
 
     const currentUser = useSelector(state => state.session.user)
+    const currentAlbumImages = useSelector(state => state.albumReducer.currentAlbum.images)
 
-    // useEffect(() => {
-    //     const errors = []
-    //     if (name.length < 1 || !letters.includes(name[0])) errors.push('Please provide a valid name')
 
-    //     setErrors(errors)
-    // }, [name])
+
+    useEffect(() => {
+        const validationErrors = []
+        if (selected) validationErrors.push('Albums Must Have One Image In Them')
+
+
+        setErrors(validationErrors)
+    }, [selected])
 
     useEffect(() => {
         (async () => {
             const res = await fetch(`/api/albums/${albumId}`)
             const data = await res.json()
-            console.log(')$(*$(@#!*$%)(@!*$', data)
             setName(data?.name)
             setDescription(data?.description)
         })()
     }, [albumId])
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (errors.length > 0) return
+        const images = Array.from(photos).join()
         const albumInfo = {
             albumId: +albumId,
             name,
-            description
+            description,
+            images
         }
         const editedData = dispatch(updateAlbum(albumInfo))
         if (editedData) {
             return history.push(`/people/${currentUser.id}/albums`)
 
         }
+    }
+
+    const photoSelect = (e, id) => {
+        e.preventDefault()
+
+
+        if (photos.has(id)) {
+            photos.delete(id)
+            setSelected(false)
+        } else {
+
+            photos.add(id)
+            if (currentAlbumImages?.length === photos.size) {
+                setSelected(true)
+            }
+        }
+        // console.log(photos)
+        // console.log(Array.from(photos))
+        return photos
     }
 
     const cancelButton = (e) => {
@@ -65,20 +92,23 @@ const EditAlbumForm = () => {
     const updateName = (e) => {
         setName(e.target.value)
     }
+    useEffect(() => {
+        dispatch(oneAlbum(albumId))
+    }, [dispatch, albumId])
 
     return (
-        <div className='background-for-signup-and-login'>
+        <div className='background-for-album-form'>
             <div className="whole-upload-container">
                 <div className="sign-up-form">
                     <form onSubmit={handleSubmit}>
                         <div className='logo-and-sign-up-message'>
                             <img className='logo-sign-up-form' src={Logo} />
-                            <span>Album Creater</span>
+                            <span>Edit Album</span>
                         </div>
                         <div className='errors-for-sign-up'>
-                            {errors.map((error, ind) => (
+                            {errors.length > 0 ? errors.map((error, ind) => (
                                 <div key={ind}>{error}</div>
-                            ))}
+                            )) : null}
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
                             <label>Name</label>
@@ -99,6 +129,14 @@ const EditAlbumForm = () => {
                                 onChange={updateDescription}
                                 value={description}
                             />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Photos in Album</label>
+                            <div className="album-form-photo-select">
+                                {currentAlbumImages?.map((im) => (
+                                    <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' /></button>
+                                ))}
+                            </div>
                         </div>
                         <div className='upload-submit-button-div'>
                             <button className='sign-up-submit-button' type='submit'>Update Album</button>

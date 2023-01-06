@@ -49,7 +49,7 @@ def upload_image():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
     # we can use the
-        new_image = Image(user=current_user, url=url, description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
+        new_image = Image(user=current_user, url=url, title=form.data['title'], description=form.data['description'], tags=form.data['tags'], people=form.data['people'])
         db.session.add(new_image)
         if(form.data['albums']):
             album = Album.query.get(form.data['albums'])
@@ -93,10 +93,16 @@ def edit_image_details(id):
 
     if form.validate_on_submit():
 
+        title = form.data['title']
         description = form.data['description']
         tags = form.data['tags']
         people = form.data['people']
+        if(form.data['albums']):
+            album = Album.query.get(form.data['albums'])
+            album.images.append(image)
+            db.session.commit()
 
+        image.title = title
         image.description = description
         image.tags = tags
         image.people = people
@@ -104,3 +110,9 @@ def edit_image_details(id):
         db.session.commit()
 
     return image.to_dict()
+
+@image_routes.route('/user/<int:id>')
+def all_user_images(id):
+
+    images = Image.query.filter_by(user_id=id).all()
+    return {image.id: image.to_dict() for image in images}
