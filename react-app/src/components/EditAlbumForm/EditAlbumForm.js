@@ -16,6 +16,7 @@ const EditAlbumForm = () => {
     const [photos, setPhotos] = useState(new Set())
     const [selected, setSelected] = useState(false)
     const [errors, setErrors] = useState([])
+    const [disable, setDisable] = useState(true)
     let { albumId } = useParams()
     albumId = +albumId
 
@@ -26,13 +27,8 @@ const EditAlbumForm = () => {
 
 
 
-    useEffect(() => {
-        const validationErrors = []
-        if (selected) validationErrors.push('Albums Must Have One Image In Them')
 
-
-        setErrors(validationErrors)
-    }, [selected])
+    console.log(name)
 
     useEffect(() => {
         (async () => {
@@ -43,6 +39,16 @@ const EditAlbumForm = () => {
         })()
     }, [albumId])
 
+    useEffect(() => {
+        const errors = []
+        if (name.length < 1 || !letters.includes(name[0])) errors.push('Please provide a valid name')
+        if (selected) errors.push('Albums Must Have One Image In Them')
+        if (errors.length > 0) setDisable(true)
+        if (errors.length === 0) setDisable(false)
+
+
+        setErrors(errors)
+    }, [selected, name])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -131,7 +137,7 @@ const EditAlbumForm = () => {
                             />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
-                            <label>Photos in Album</label>
+                            <label>Remove Photos in Album</label>
                             <div className="album-form-photo-select">
                                 {currentAlbumImages?.map((im) => (
                                     <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' /></button>
@@ -139,7 +145,7 @@ const EditAlbumForm = () => {
                             </div>
                         </div>
                         <div className='upload-submit-button-div'>
-                            <button className='sign-up-submit-button' type='submit'>Update Album</button>
+                            <button disabled={disable} className='sign-up-submit-button' type='submit'>Update Album</button>
                             <button onClick={e => cancelButton(e)} className='sign-up-submit-button'>Cancel</button>
                         </div>
                     </form>

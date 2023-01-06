@@ -1,7 +1,9 @@
 .all-images-explore-page {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 7em;
     flex-direction: row;
-    padding-left: 8em;
     padding-right: 5em;
     flex-wrap: wrap;
     height: 50%;
@@ -19,19 +21,37 @@
     display: flex;
     flex-direction: column;
     gap: 4em;
+    justify-content: center;
+
     /* background-color: rgb(243, 245, 246); */
 
     padding-top: 4em;
 }
 
 .mid-navbar-explore-page {
-    padding-left: 5em;
+    padding-left: 13.35em;
     display: flex;
     flex-direction: row;
     gap: 5em;
     font-size: large;
-
+    padding-top: 1em;
+    position: fixed;
+    width: 100%;
     background-color: white;
+
+}
+
+.links-on-mid-navbar {
+    text-decoration: none;
+    color: rgb(99, 99, 99);
+}
+
+.links-on-mid-navbar:hover,
+.links-on-mid-navbar-active {
+    text-decoration: none;
+    color: black;
+    border-bottom: .2em solid rgb(0, 145, 220);
+    padding-bottom: 1em;
 }
 
 .fix-position-container-mid-navbar {

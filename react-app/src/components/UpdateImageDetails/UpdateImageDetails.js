@@ -17,7 +17,6 @@ const UpdateImageDetails = () => {
     const [people, setPeople] = useState('')
     const [album, setAlbum] = useState(0)
 
-    console.log(album)
     const currentUser = useSelector(state => state.session.user)
 
     const userAlbums = useSelector(state => { return state })

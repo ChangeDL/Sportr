@@ -59,6 +59,10 @@
     gap: 1em;
     font-weight: 200;
     box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 100%;
 }
 
 .profile-picture-profile-page {
