@@ -18,6 +18,7 @@ const AlbumForm = () => {
     const [photos, setPhotos] = useState(new Set())
     const [selected, setSelected] = useState(false)
     const [errors, setErrors] = useState([])
+    const [disable, setDisable] = useState(true)
 
     const currentUser = useSelector(state => state.session.user)
 
@@ -32,8 +33,10 @@ const AlbumForm = () => {
         const errors = []
         if (name.length < 1 || !letters.includes(name[0])) errors.push('Please provide a valid name')
         if (!selected) errors.push('Please select a photo to be added to your album')
+        if (errors.length > 0) setDisable(true)
+        if (errors.length === 0) setDisable(false)
         setErrors(errors)
-    }, [name, selected])
+    }, [name, selected, disable])
 
 
 
@@ -145,7 +148,7 @@ const AlbumForm = () => {
                             </div>
                         </div>
                         <div className='upload-submit-button-div'>
-                            <button className='sign-up-submit-button' type='submit'>Create Album</button>
+                            <button disabled={disable} className='sign-up-submit-button' type='submit'>Create Album</button>
                             <button onClick={e => cancelButton(e)} className='sign-up-submit-button'>Cancel</button>
                         </div>
                     </form>

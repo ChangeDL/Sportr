@@ -14,8 +14,11 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [disable, setDisable] = useState(true)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  const button = document.getElementsByClassName('sign-up-submit-button')
 
 
 
@@ -26,10 +29,14 @@ const SignUpForm = () => {
     if (username.length > 25) errors.push("Username is too long please make it less then 25 characters")
     if (password.length < 8) errors.push("Password must be at least 8 characters or more.")
     if (password !== repeatPassword) errors.push("Repeated Password doesn't match Password.")
-    if (full_name.length < 8 || !letters.includes(full_name[0])) errors.push('Please enter your full name')
+    if (full_name.length === 0 || !letters.includes(full_name[0])) errors.push('Please enter your full name')
+    if (full_name.length !== 0 && full_name.length < 4) errors.push('Full names but be at least 4 characters long')
+    if (full_name.length > 40) errors.push('Please enter your full name at a length less than 40 characters')
+    if (errors.length > 0) setDisable(true)
+    if (errors.length === 0) setDisable(false)
 
     setErrors(errors)
-  }, [username, password, repeatPassword, full_name])
+  }, [username, password, repeatPassword, full_name, disable])
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -138,7 +145,7 @@ const SignUpForm = () => {
               ></input>
             </div>
             <div className='sign-up-submit-button-div'>
-              <button className='sign-up-submit-button' type='submit'>Sign Up</button>
+              <button disabled={disable} className='sign-up-submit-button' type='submit'>Sign Up</button>
             </div>
             <div className='terms-of-service-sign-up-div'>
               <span className='terms-of-service-sign-up'>By signing up, you agree with Sportr's <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Terms of Services</Link> and <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Privacy Policy</Link></span>

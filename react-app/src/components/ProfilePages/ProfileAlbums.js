@@ -6,6 +6,7 @@ import { getUserAlbums, removeAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
 import { oneAlbum } from '../../store/album';
 import './ProfileAlbum.css'
+import ProfilePageBanner from './ProfilePageBanner';
 
 
 
@@ -59,26 +60,7 @@ function ProfileAlbums() {
 
     return (
         <div className='whole-profile-page-container'>
-            <div className='profile-banner-image'>
-                <div className='user-information-profile'>
-                    <div className='profile-picture-div-profile'>
-                        <img className='profile-picture-profile-page' src={DefaultProfilePic} />
-                    </div>
-                    <div className='split-div-for-information'>
-                        <div className='full-name-and-button'>
-                            <span className='full-name-span-profile'>{user.fullName}</span>
-                            <div className='extra-button-profile-div'>
-                                <button className='edit-button-profile-info'><span className='ellipsis-icon-profile'><i className="fa-solid fa-ellipsis"></i></span></button>
-                            </div>
-                        </div>
-                        <div className='username-followers-following'>
-                            <span>{user.username}</span>
-                            <span>0 Followers</span>
-                            <span>0 Following</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ProfilePageBanner />
             <div className='mid-navbar-profile-page-container'>
                 <Link to={`/people/${userId}`} className='mid-navbar-links-profile'>About</Link>
                 <Link to={`/people/${userId}/photostream`} className='mid-navbar-links-profile'>Photostream</Link>
@@ -89,39 +71,33 @@ function ProfileAlbums() {
                 <Link to={`/people/${userId}/stats`} className='mid-navbar-links-profile'>Stats</Link>
             </div>
             <div className='album-container-profile'>
-                {currentUser?.id === +userId ?
-                    <button onClick={e => addAlbumButton(e, userId)}>Add album</button>
-                    : null}
+                <div className='add-album-container'>
+                    <h1>Albums</h1>
+                    {currentUser?.id === +userId ?
+                        <button className='button-to-add-album' onClick={e => addAlbumButton(e, userId)}><i class="fa-regular fa-square-plus"></i></button>
+                        : null}
+                </div>
                 <div className='all-albums-container'>
                     {userAlbumsArray.map((al) => (
                         <>
                             {al.images.length > 0 ?
-                                <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ backgroundImage: `url(${al.images[0].url})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', textDecoration: 'none', color: 'white' }} >
-                                    <div key={al.id} className='album-name-and-buttons'>
-                                        <div className='span-tag-album-name-link'>
-                                            <span>{al.name.toUpperCase()}</span>
-                                        </div>
-                                        {currentUser?.id === +userId ?
-                                            <div className='album-edit-delete-buttons'>
-                                                <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
-                                                <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
+                                <>
+                                    <div className='album-showroom-container'>
+                                        <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ backgroundImage: `url(${al.images[0].url})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', textDecoration: 'none', color: 'white' }} />
+                                        <div key={al.id} className='album-name-and-buttons'>
+                                            <div className='span-tag-album-name-link'>
+                                                <span>{al.name.toUpperCase()}</span>
                                             </div>
-                                            : null}
-                                    </div>
-                                </Link>
-                                : <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    <div key={al.id} className='album-name-and-buttons'>
-                                        <div className='span-tag-album-name-link'>
-                                            <span>{al.name.toUpperCase()}</span>
+                                            {currentUser?.id === +userId ?
+                                                <div className='album-edit-delete-buttons'>
+                                                    <button className='edit-delete-buttons-albums' onClick={e => editAlbumButton(e, userId, al.id)}><i class="fa-regular fa-pen-to-square"></i></button>
+                                                    <button className='edit-delete-buttons-albums' onClick={e => deleteAlbumButton(e, al.id)}><i class="fa-regular fa-trash-can"></i></button>
+                                                </div>
+                                                : null}
                                         </div>
-                                        {currentUser?.id === +userId ?
-                                            <div className='album-edit-delete-buttons'>
-                                                <button onClick={e => deleteAlbumButton(e, al.id)}>Delete</button>
-                                                <button onClick={e => editAlbumButton(e, userId, al.id)}>Edit</button>
-                                            </div>
-                                            : null}
                                     </div>
-                                </Link>
+                                </>
+                                : null
                             }
                         </>
                     ))}

@@ -1,8 +1,9 @@
 .whole-nav-bar {
-    background-color: rgba(32, 32, 35, 0.774);
+    background-color: rgba(25, 25, 26, 0.87);
     position: fixed;
     width: 100%;
     height: 4em;
+    z-index: 1;
 
     box-sizing: border-box;
 
@@ -50,18 +51,20 @@
 .site-name-navbar {
     font-size: 1.5em;
     font-weight: bold;
-
+    box-sizing: border-box;
 
 }
 
 .container-for-name {
     padding-top: 1em;
+    box-sizing: border-box;
 }
 
 .container-for-right-navbar-links {
     display: flex;
     flex-direction: row;
     padding-left: 1em;
+    box-sizing: border-box;
 
 }
 
@@ -74,23 +77,34 @@
     padding-left: 1em;
     padding-right: 1em;
     font-weight: bold;
+    box-sizing: border-box;
 
 
 }
 
 .sign-up-navbar-text:hover {
     color: gray;
+    box-sizing: border-box;
 }
 
 .link-for-signup {
     color: white;
     text-decoration: none;
+    box-sizing: border-box;
 
 }
 
-.logout-button-navbar {
+.logout-button-div-navbar {
     /* padding-left: 5em; */
     padding-top: .25em;
+    box-sizing: border-box;
+}
+
+.logout-button-navbar {
+    background: none;
+    border: none;
+    font-size: .85em;
+
 }
 
 .upload-icon-navbar {
@@ -106,7 +120,19 @@
     display: flex;
     flex-direction: column;
     margin-top: 1.5em;
-    /* margin-left: 2em; */
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    background-color: white;
+    box-shadow: 0px 1px 10px black;
+    border-radius: .5em;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 15em;
+
     /* border: .2em solid black; */
 
 
@@ -118,6 +144,7 @@
     background: none;
     border: none;
     margin-bottom: 10em;
+    box-sizing: border-box;
 
 }
 
@@ -125,6 +152,7 @@
 .profile-button-div {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 
 
 }
@@ -132,6 +160,7 @@
 .profileButton {
     width: 3em;
 
+    box-sizing: border-box;
 }
 
 
@@ -142,6 +171,7 @@
     /* background-color: aqua; */
     width: 30%;
     gap: 2.5em;
+    box-sizing: border-box;
 }
 
 .nav-bar-profile-picture {
@@ -149,4 +179,41 @@
     width: 25%;
     border-radius: 50%;
     margin-right: 10em;
+    box-sizing: border-box;
+}
+
+.username {
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+
+}
+
+.username:hover,
+.logout-button-navbar:hover {
+    text-decoration: underline;
+    box-sizing: border-box;
+}
+
+
+.adjustment-for-profile-dropdown {
+    top: 3em;
+    left: 77%;
+    box-sizing: border-box;
+    position: fixed;
+
+
+}
+
+.hello-user-navbar {
+    display: flex;
+    flex-direction: row;
+    font-size: .9em;
+    justify-content: center;
+    padding-left: .45em;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+
 }

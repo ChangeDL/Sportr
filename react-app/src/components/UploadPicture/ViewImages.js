@@ -46,9 +46,9 @@ const ViewImages = () => {
                 <div className="fix-position-container-mid-navbar">
 
                     <div className="mid-navbar-explore-page">
-                        <Link to='/photos'><span>Explore</span></Link>
-                        <Link to='/page-in-development'><span>Trending</span></Link>
-                        <Link to='/page-in-development'><span>Events</span></Link>
+                        <Link className="links-on-mid-navbar-active" to='/photos'><span>Explore</span></Link>
+                        <Link className="links-on-mid-navbar" to='/page-in-development'><span>Trending</span></Link>
+                        <Link className="links-on-mid-navbar" to='/page-in-development'><span>Events</span></Link>
                     </div>
                 </div>
                 <div className="all-images-explore-page">

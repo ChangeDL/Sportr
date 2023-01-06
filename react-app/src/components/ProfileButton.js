@@ -42,11 +42,17 @@ function ProfileButton({ user, setLogin, setShowModal }) {
                 <img onClick={openMenu} className="nav-bar-profile-picture" src={defaultProfilePic} />
             </div>
             {showMenu && (user ?
-                (< div className="profile-dropdown">
-                    <Link to={`/people/${user.id}/photostream`} className="username">{user.username}</Link>
-                    <span>
-                        <LogoutButton />
-                    </span>
+                (<div className="adjustment-for-profile-dropdown">
+
+                    < div className="profile-dropdown">
+                        <div className="hello-user-navbar">
+                            <span>Hello, </span>
+                            <Link to={`/people/${user.id}/photostream`} className="username"> {user.username}</Link>
+                        </div>
+                        <span>
+                            <LogoutButton />
+                        </span>
+                    </div>
                 </div>) :
                 (<ul className="profile-dropdown">
                     <button

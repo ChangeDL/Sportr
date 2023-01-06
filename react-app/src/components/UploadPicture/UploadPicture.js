@@ -15,6 +15,7 @@ const UploadPicture = () => {
     const [people, setPeople] = useState("")
     const [album, setAlbum] = useState(0)
     const [errors, setErrors] = useState([])
+    const [disable, setDisable] = useState(true)
 
     const currentUser = useSelector(state => state.session.user)
 
@@ -32,9 +33,12 @@ const UploadPicture = () => {
 
 
         } else setTitle('')
+        if (!image) errors.push('Please upload image to continue')
+        if (errors.length > 0) setDisable(true)
+        if (errors.length === 0) setDisable(false)
         setErrors(errors)
 
-    }, [image])
+    }, [image, disable])
 
     useEffect(() => {
         dispatch(getUserAlbums(currentUser.id))
@@ -173,7 +177,7 @@ const UploadPicture = () => {
                             </select>
                         </div>
                         <div className='upload-submit-button-div'>
-                            <button className='sign-up-submit-button' type='submit'>Upload</button>
+                            <button disabled={disable} className='sign-up-submit-button' type='submit'>Upload</button>
                             {(imageLoading) && <p>Loading...</p>}
                         </div>
                     </form>

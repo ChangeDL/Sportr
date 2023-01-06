@@ -12,7 +12,8 @@
 .background-for-signup-and-login {
     background-image: url('../../assets/misc/FlickrSignUpFormBackground.jpg');
     background-size: cover;
-    height: 100vh;
+    height: 110vh;
+    display: fixed;
 }
 
 .logo-sign-up-form {
@@ -78,6 +79,12 @@
 
 .sign-up-submit-button:hover {
     background-color: rgb(20, 156, 240);
+}
+
+.sign-up-submit-button:disabled {
+    background: #999;
+    color: #555;
+    cursor: not-allowed;
 }
 
 .terms-of-service-sign-up {

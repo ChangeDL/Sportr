@@ -11,7 +11,7 @@ const ImageShowRoom = () => {
     const history = useHistory()
     const { id } = useParams()
     const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
-
+    const currentUser = useSelector(state => state.session.user)
 
 
     useEffect(() => {
@@ -52,9 +52,11 @@ const ImageShowRoom = () => {
                     <div className="username-title-showroom">
                         <div className="username-follow-button-div-showroom">
                             <Link to={`/people/${currentImage?.owner.id}/photostream`} className='username-image-showroom-link'><span>{currentImage?.owner.username}</span></Link>
-                            <div className="follow-button-showroom-div">
-                                <button className="follow-button-showroom"><i className="fa-solid fa-plus"></i> Follow</button>
-                            </div>
+                            {currentImage?.owner.id !== currentUser.id ?
+                                <div className="follow-button-showroom-div">
+                                    <button className="follow-button-showroom"><i className="fa-solid fa-plus"></i> Follow</button>
+                                </div>
+                                : null}
                         </div>
                         <span>{currentImage?.title}</span> {/*ADD TITLE TO TABLE */}
                         <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}

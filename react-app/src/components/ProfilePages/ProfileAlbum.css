@@ -10,7 +10,7 @@
     gap: 5em;
     width: 10em;
     height: 10em;
-    padding-top: 1em;
+    padding-top: 1.5em;
     width: auto;
     margin-left: 2em;
     flex-wrap: wrap;
@@ -21,26 +21,70 @@
     height: 210px;
     box-sizing: border-box;
     border-radius: 1em;
+
 }
 
 .span-tag-album-name-link {
     display: flex;
-
-    background-color: rgba(0, 0, 0, 0.346);
-    width: fit-content;
+    width: 7.5em;
     font-weight: bold;
+    margin-top: .25em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
 }
 
 .album-name-and-buttons {
     display: flex;
     flex-direction: row;
-    margin-top: 11em;
+    margin-top: .5em;
     padding-left: .5em;
+    gap: .5em;
+    margin-bottom: 1em;
 }
 
 .album-edit-delete-buttons {
     display: flex;
     flex-direction: row;
-    height: 1.5em;
+    /* height: 1.5em; */
+    gap: .5em;
+    padding-top: .1em;
+}
+
+.album-showroom-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-delete-buttons-albums {
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.edit-delete-buttons-albums:hover {
+    font-size: 1.1em;
+    border: .1em solid black;
+}
+
+.add-album-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-to-add-album {
+    margin-top: .16em;
+    background: none;
+    border: none;
+    font-size: 1.75em;
+    font-weight: lighter;
+    color: rgb(99, 99, 99);
+}
+
+.button-to-add-album:hover {
+    cursor: pointer;
+    color: black;
 
 }
