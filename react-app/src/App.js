@@ -91,7 +91,7 @@ function App() {
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>
-        <ProtectedRoute path='/test'>
+        <ProtectedRoute path='/upload'>
           <UploadPicture />
         </ProtectedRoute>
         <Route path="/photos" exact={true}>

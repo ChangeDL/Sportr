@@ -9,10 +9,11 @@ const UploadPicture = () => {
     const dispatch = useDispatch()
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [tags, setTags] = useState("")
     const [people, setPeople] = useState("")
-    const [album, setAlbum] = useState('')
+    const [album, setAlbum] = useState(0)
     const [errors, setErrors] = useState([])
 
     const currentUser = useSelector(state => state.session.user)
@@ -20,12 +21,17 @@ const UploadPicture = () => {
     const userAlbums = useSelector(state => { return state })
     const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
+
+
+
     useEffect(() => {
         const errors = []
         if (image) {
             if (image?.type !== 'image/jpg' && image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('File Type Not Supported. Please upload a png, jpg, or jpeg')
+            setTitle(image.name.split('.')[0])
 
-        }
+
+        } else setTitle('')
         setErrors(errors)
 
     }, [image])
@@ -35,12 +41,12 @@ const UploadPicture = () => {
     }, [currentUser.id])
 
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (errors.length > 0) return
         const formData = new FormData();
         formData.append("image", image);
+        formData.append("title", title)
         formData.append("description", description)
         formData.append("tags", tags)
         formData.append("people", people)
@@ -85,6 +91,9 @@ const UploadPicture = () => {
     const updatePeople = (e) => {
         setPeople(e.target.value)
     }
+    const updateTitle = (e) => {
+        setTitle(e.target.value)
+    }
     return (
         <div className='background-for-signup-and-login'>
             <div className="whole-upload-container">
@@ -106,6 +115,16 @@ const UploadPicture = () => {
                                 type="file"
                                 accept="image/*"
                                 onChange={updateImage}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label>Title</label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Not Required"
+                                type="text"
+                                onChange={updateTitle}
+                                value={title}
                             />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>

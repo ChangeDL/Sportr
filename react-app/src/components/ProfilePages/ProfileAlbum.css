@@ -13,12 +13,14 @@
     padding-top: 1em;
     width: auto;
     margin-left: 2em;
+    flex-wrap: wrap;
 }
 
 .link-to-album {
-    width: 10em;
-    height: 10em;
+    width: 210px;
+    height: 210px;
     box-sizing: border-box;
+    border-radius: 1em;
 }
 
 .span-tag-album-name-link {
@@ -32,7 +34,7 @@
 .album-name-and-buttons {
     display: flex;
     flex-direction: row;
-    margin-top: 7em;
+    margin-top: 11em;
     padding-left: .5em;
 }
 
@@ -40,5 +42,5 @@
     display: flex;
     flex-direction: row;
     height: 1.5em;
-    margin-top: 1em;
+
 }

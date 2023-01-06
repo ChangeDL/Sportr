@@ -1,0 +1,17 @@
+.album-form-photo-select {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    gap: .5em;
+    flex-wrap: wrap;
+}
+
+.photos-to-be-selected-album-form {
+    height: 75px;
+}
+
+.background-for-album-form {
+    background-image: url('../../assets/misc/FlickrSignUpFormBackground.jpg');
+    background-size: cover;
+    height: 100%;
+}

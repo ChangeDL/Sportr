@@ -56,7 +56,7 @@ const ImageShowRoom = () => {
                                 <button className="follow-button-showroom"><i className="fa-solid fa-plus"></i> Follow</button>
                             </div>
                         </div>
-                        <span>IMAGE TITLE HERE</span> {/*ADD TITLE TO TABLE */}
+                        <span>{currentImage?.title}</span> {/*ADD TITLE TO TABLE */}
                         <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
                     </div>
                 </div>
