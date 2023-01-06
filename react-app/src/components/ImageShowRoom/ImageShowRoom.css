@@ -105,6 +105,7 @@
     font-weight: bolder;
 
 
+
 }
 
 .follow-button-showroom {
@@ -122,6 +123,7 @@
 
 .description-showroom-span {
     font-weight: lighter;
+
 }
 
 .border-div-showroom {
@@ -141,4 +143,24 @@
 .username-image-showroom-link {
     text-decoration: none;
     color: black;
+}
+
+.username-image-showroom-link:hover {
+    color: rgb(0, 117, 179);
+    text-decoration: underline;
+}
+
+
+.description-showroom-span-div,
+.title-showroom-span-div {
+    white-space: wrap;
+    overflow-wrap: break-word;
+    text-overflow: clip;
+    width: 55em;
+}
+
+.under-dev-follow-button {
+    font-size: .75em;
+    padding-left: .5em;
+    text-decoration: underline;
 }

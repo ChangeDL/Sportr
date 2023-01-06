@@ -14,6 +14,7 @@
     background-size: cover;
     height: 110vh;
     display: fixed;
+    background-attachment: fixed;
 }
 
 .logo-sign-up-form {

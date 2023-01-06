@@ -55,11 +55,16 @@ const ImageShowRoom = () => {
                             {currentImage?.owner.id !== currentUser.id ?
                                 <div className="follow-button-showroom-div">
                                     <button className="follow-button-showroom"><i className="fa-solid fa-plus"></i> Follow</button>
+                                    <span className="under-dev-follow-button">Follow Button Under Development</span>
                                 </div>
                                 : null}
                         </div>
-                        <span>{currentImage?.title}</span> {/*ADD TITLE TO TABLE */}
-                        <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
+                        <div className="title-showroom-span-div">
+                            <span>{currentImage?.title}</span> {/*ADD TITLE TO TABLE */}
+                        </div>
+                        <div className="description-showroom-span-div">
+                            <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
+                        </div>
                     </div>
                 </div>
                 <div className="border-div-showroom" />

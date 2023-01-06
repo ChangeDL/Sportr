@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { getUserAlbums } from "../../store/album";
 import Logo from '../../assets/misc/Logo.png'
 import { uploadAlbum } from "../../store/album";
 import { getUserImages } from "../../store/image";
 import './AlbumForm.css'
+
 
 const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
@@ -137,6 +138,13 @@ const AlbumForm = () => {
                         <div className='all-sign-up-form-inputs-labels'>
                             <label>Photos</label>
                             <div className="album-form-photo-select">
+                                {allUserImages.length < 1 ?
+                                    <div>
+                                        <span>Looks like you haven't uploaded any images. </span>
+                                        <span>Go ahead and upload <Link to='/upload' className="upload-here-link">here</Link></span>
+                                    </div>
+                                    :
+                                    null}
                                 {allUserImages?.map((im) => (
                                     <>
                                         {photosThatAreSelected.has(im.id) ? <h1>hi</h1>

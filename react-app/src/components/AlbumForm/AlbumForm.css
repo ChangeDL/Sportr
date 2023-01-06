@@ -7,11 +7,22 @@
 }
 
 .photos-to-be-selected-album-form {
-    height: 75px;
+    height: 50px;
 }
 
 .background-for-album-form {
     background-image: url('../../assets/misc/FlickrSignUpFormBackground.jpg');
     background-size: cover;
-    height: 100%;
+    background-attachment: fixed;
+    height: 150vh;
+
+}
+
+.upload-here-link {
+    text-decoration: none;
+    color: rgb(0, 130, 199);
+}
+
+.upload-here-link:hover {
+    color: rgb(0, 149, 190);
 }
