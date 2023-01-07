@@ -4,6 +4,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteImageThunk, getAllImages, getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
+import Footer from "../Footer/Footer";
 
 
 const ImageShowRoom = () => {
@@ -70,6 +71,7 @@ const ImageShowRoom = () => {
                 <div className="border-div-showroom" />
                 <span>PLACEHOLDER</span>
             </div>
+            <Footer />
         </>
     )
 }

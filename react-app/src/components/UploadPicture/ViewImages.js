@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { deleteImageThunk, getAllImages } from "../../store/image";
+import Footer from "../Footer/Footer";
 import './ViewImage.css'
 
 const ViewImages = () => {
@@ -69,6 +70,7 @@ const ViewImages = () => {
 
                     ))}
                 </div>
+                <Footer />
             </div >
         </div>
     )
