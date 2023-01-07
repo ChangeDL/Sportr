@@ -37,7 +37,7 @@ function ProfileAbout() {
       <div className='about-container-profile'>
         <h1>PAGE CURRENTLY UNDER DEVELOPMENT</h1>
       </div>
-    </div >
+    </div>
   );
 }
 export default ProfileAbout;
