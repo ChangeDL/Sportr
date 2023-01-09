@@ -1,5 +1,5 @@
 .slideshow-splash-page {
-    height: 88vh;
+    height: 90.1vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -22,6 +22,9 @@
     overflow-y: hidden;
     background-color: rgb(0, 0, 0);
     box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 
 .top-half-of-footer-splash {
