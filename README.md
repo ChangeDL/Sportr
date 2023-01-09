@@ -1,6 +1,6 @@
-#Sportr
+# Sportr
 
-## About
+### About
 
 Sportr, inspired by, Flickr, is a website clone for the sport fans community. Users and guests alike can come to find photos from sporting events and venues. The site offers the ability to upload photos only that are png,jpg, or jpeg. With this users are able to show others images they took anywhere sporting related they've been, whether the sport is football, golf, basketball, baseball, mma, boxing, cricket, rugby, etc.
 
