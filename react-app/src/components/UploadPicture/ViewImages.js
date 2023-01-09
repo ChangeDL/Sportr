@@ -58,14 +58,14 @@ const ViewImages = () => {
                             <Link to={`/photos/${im.id}`}>
                                 <img src={im.url} className='images-on-display' />
                             </Link>
-                            {
+                            {/* {
                                 sessionUser && sessionUser.id === im.owner.id ?
                                     <div>
                                         <button onClick={event => editButton(event, im.id)}>Edit</button>
                                         <button onClick={event => deleteButton(event, im.id)}>Delete</button>
                                     </div>
                                     : null
-                            }
+                            } */}
                         </div>
 
                     ))}
