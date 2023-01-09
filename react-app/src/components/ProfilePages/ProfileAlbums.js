@@ -74,7 +74,7 @@ function ProfileAlbums() {
                 <div className='add-album-container'>
                     <h1>Albums</h1>
                     {currentUser?.id === +userId ?
-                        <button className='button-to-add-album' onClick={e => addAlbumButton(e, userId)}><i class="fa-regular fa-square-plus"></i></button>
+                        <button className='button-to-add-album' onClick={e => addAlbumButton(e, userId)}><i className="fa-regular fa-square-plus"></i></button>
                         : null}
                 </div>
                 <div className='all-albums-container'>

@@ -7,16 +7,16 @@ import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import Footer from "../Footer/Footer";
 
 
-const ImageShowRoom = () => {
+const ImageShowFromAlbumRoom = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const { id } = useParams()
-    const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
+    const { userId, albumId, photoId } = useParams()
+    const currentImage = useSelector(state => state?.imageReducer?.currentImage[photoId])
     const currentUser = useSelector(state => state.session.user)
 
 
     useEffect(() => {
-        dispatch(getImageByIdThunk(id))
+        dispatch(getImageByIdThunk(photoId))
     }, [dispatch])
 
     const deleteButton = async (e, id) => {
@@ -36,11 +36,11 @@ const ImageShowRoom = () => {
         <>
             <div className="image-container-showroom">
                 <div>
-                    <Link to='/photos' className="back-to-explore-link-div">
+                    <Link to={`/people/${userId}/albums/${albumId}`} className="back-to-explore-link-div">
                         <div className="icon-for-back-to-explore">
                             <i className="fa-solid fa-arrow-left"></i>
                         </div>
-                        <span className="back-to-explore-link">Back to explore</span>
+                        <span className="back-to-explore-link">Back to album</span>
                     </Link>
                 </div>
                 <div className="showroom-image-div">
@@ -96,4 +96,4 @@ const ImageShowRoom = () => {
     )
 }
 
-export default ImageShowRoom
+export default ImageShowFromAlbumRoom

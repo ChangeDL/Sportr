@@ -26,6 +26,7 @@ import AlbumForm from './components/AlbumForm/AlbumForm';
 import AlbumShowRoom from './components/AlbumShowRoom/AlbumShowRoom';
 import EditAlbumForm from './components/EditAlbumForm/EditAlbumForm';
 import LogoutConfirm from './components/auth/LogoutConfirm';
+import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,9 @@ function App() {
         <ProtectedRoute path='/people/:userId/albums/:albumId/edit'>
           <EditAlbumForm />
         </ProtectedRoute>
+        <Route path='/people/:userId/albums/:albumId/photos/:photoId'>
+          <ImageShowFromAlbumRoom />
+        </Route>
         <Route path='/people/:userId/albums/:albumId'>
           <AlbumShowRoom />
         </Route>

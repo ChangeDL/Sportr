@@ -37,7 +37,7 @@ function AlbumShowRoom() {
             </div>
             <div className='album-banner-showroom'>
                 <div className='album-name-description-div'>
-                    <span className='album-name-showroom'>{currentAlbum[3]?.substring(0, 24)}</span>
+                    <span className='album-name-showroom'>{currentAlbum[3]?.substring(0, 30)}</span>
                     <span className='album-description-showroom'>{currentAlbum[0]?.substring(0, 45)}</span>
                 </div>
                 <img className='album-image-banner' src={albumImages?.length > 0 ? albumImages[0]?.url : null} />
@@ -46,7 +46,7 @@ function AlbumShowRoom() {
             <div className='all-images-in-album'>
                 {albumImages?.map((im) => (
                     <div key={im.id}>
-                        <Link to={`/photos/${im.id}`}><img className='images-album-showroom' src={im.url} /></Link>
+                        <Link to={`/people/${im.username}/albums/${albumId}/photos/${im.id}`}><img className='images-album-showroom' src={im.url} /></Link>
                     </div>
                 ))}
             </div>
