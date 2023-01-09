@@ -28,7 +28,7 @@ const EditAlbumForm = () => {
 
 
 
-    console.log(name)
+
 
     useEffect(() => {
         (async () => {
