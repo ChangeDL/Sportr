@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './ProfileAbout.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
-import { getUserAlbums, removeAlbum } from '../../store/album';
-import { useDispatch, useSelector } from 'react-redux';
-import { oneAlbum } from '../../store/album';
+import { getUserAlbums } from '../../store/album';
+import { useDispatch } from 'react-redux';
 import './ProfileAlbum.css'
 
 
@@ -13,12 +12,8 @@ function ProfilePageBanner() {
     const [user, setUser] = useState({});
     const { userId } = useParams();
     const dispatch = useDispatch()
-    const history = useHistory()
 
-    const userAlbums = useSelector(state => { return state })
-    const currentUser = useSelector(state => state?.session?.user)
 
-    const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
 
     useEffect(() => {
@@ -36,32 +31,12 @@ function ProfilePageBanner() {
         dispatch(getUserAlbums(userId))
     }, [dispatch, userId])
 
-    const addAlbumButton = (e, id) => {
-        e.preventDefault()
-
-        history.push(`/people/${id}/albums/new`)
-
-    }
-
-    const deleteAlbumButton = (e, id) => {
-        e.preventDefault()
-        dispatch(removeAlbum(id))
-        setTimeout(() => {
-            dispatch(getUserAlbums(userId));
-        }, 100)
-
-    }
-
-    const editAlbumButton = (e, userId, albumId) => {
-        e.preventDefault()
-        history.push(`/people/${userId}/albums/${albumId}/edit`)
-    }
 
     return (
         <div className='profile-banner-image'>
             <div className='user-information-profile'>
                 <div className='profile-picture-div-profile'>
-                    <img className='profile-picture-profile-page' src={DefaultProfilePic} />
+                    <img className='profile-picture-profile-page' src={DefaultProfilePic} alt='DefaultPic' />
                 </div>
                 <div className='split-div-for-information'>
                     <div className='full-name-and-button'>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { deleteImageThunk, getAllImages, getImageByIdThunk } from "../../store/image";
+import { getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import Footer from "../Footer/Footer";
@@ -17,7 +17,7 @@ const ImageShowRoom = () => {
 
     useEffect(() => {
         dispatch(getImageByIdThunk(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     const deleteButton = async (e, id) => {
         e.preventDefault()

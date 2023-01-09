@@ -1,15 +1,11 @@
-
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
 import Logo from '../assets/misc/Logo.png'
 import ProfileButton from './ProfileButton';
 import './NavBar.css'
 
 const NavBar = () => {
-  const [showModal, setShowModal] = useState(false)
-  const [login, setLogin] = useState(true)
   const sessionUser = useSelector(state => state.session.user)
   let sessionLinks;
   if (sessionUser) {

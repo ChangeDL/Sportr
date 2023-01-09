@@ -18,7 +18,7 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
-  const button = document.getElementsByClassName('sign-up-submit-button')
+
 
 
 
@@ -79,7 +79,7 @@ const SignUpForm = () => {
       <div className='whole-sign-up-container'>
         <div className='sign-up-form'>
           <div className='logo-and-sign-up-message'>
-            <img className='logo-sign-up-form' src={Logo} />
+            <img className='logo-sign-up-form' src={Logo} alt='Sportr Logo' />
             <span>Sign up for Sportr</span>
           </div>
 

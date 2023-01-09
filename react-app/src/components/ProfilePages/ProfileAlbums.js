@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import './ProfileAbout.css'
-import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import { getUserAlbums, removeAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
-import { oneAlbum } from '../../store/album';
 import './ProfileAlbum.css'
 import ProfilePageBanner from './ProfilePageBanner';
 
@@ -86,7 +84,7 @@ function ProfileAlbums() {
                                         <Link className='link-to-album' to={`/people/${userId}/albums/${al.id}`} style={{ backgroundImage: `url(${al.images[0].url})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', textDecoration: 'none', color: 'white' }} />
                                         <div key={al.id} className='album-name-and-buttons'>
                                             <div className='span-tag-album-name-link'>
-                                                <span>{al.name.toUpperCase()}</span>
+                                                <span key={al.name}>{al.name.toUpperCase()}</span>
                                             </div>
                                             {currentUser?.id === +userId ?
                                                 <div className='album-edit-delete-buttons'>

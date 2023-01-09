@@ -28,8 +28,8 @@ const Footer = () => {
                     <span className='footer-span-splash-page'> through photography</span>
                 </div>
                 <div className='right-side-bottom-footer-splash'>
-                    <a href='https://github.com/ChangeDL' rel="noreferrer" target="_blank" className='footer-links-splash-page'><img className='links-to-socials-icons-github' src={GitHubLogo} /></a>
-                    <a className='footer-links-splash-page'><img className='links-to-socials-icons-linkden' src={LinkdenLogo} /></a>
+                    <a href='https://github.com/ChangeDL' rel="noreferrer" target="_blank" className='footer-links-splash-page'><img className='links-to-socials-icons-github' src={GitHubLogo} alt='GitHub Logo' /></a>
+                    <a className='footer-links-splash-page'><img className='links-to-socials-icons-linkden' src={LinkdenLogo} alt='Linkden Logo' /></a>
                 </div>
             </div>
         </div>

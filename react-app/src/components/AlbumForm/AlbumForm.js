@@ -107,7 +107,7 @@ const AlbumForm = () => {
                 <div className="sign-up-form">
                     <form onSubmit={handleSubmit}>
                         <div className='logo-and-sign-up-message'>
-                            <img className='logo-sign-up-form' src={Logo} />
+                            <img className='logo-sign-up-form' alt='Sportr Logo' src={Logo} />
                             <span>Album Creater</span>
                         </div>
                         <div className='errors-for-sign-up'>
@@ -149,7 +149,7 @@ const AlbumForm = () => {
                                     <>
                                         {photosThatAreSelected.has(im.id) ? <h1>hi</h1>
                                             :
-                                            <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' /></button>
+                                            <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' alt={im.title} /></button>
                                         }
                                     </>
                                 ))}

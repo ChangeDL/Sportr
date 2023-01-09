@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './SplashPage.css'
 import LinkdenLogo from '../../assets/misc/LinkdenLogo.png'
 import GitHubLogo from '../../assets/misc/GitHubLogo.png'
@@ -54,7 +54,7 @@ const SplashPage = () => {
                             <button className='center-page-sign-up-button' onClick={event => startForFree(event)}>Start for free</button>
                         </div>
                     </div>
-                    <img src={arrImages} className='slideshow-splash-page' />
+                    <img src={arrImages} className='slideshow-splash-page' alt='Slideshow images' />
                 </div>
                 <div className='footer-splash-page'>
                     <div className='top-half-of-footer-splash'>
@@ -79,8 +79,8 @@ const SplashPage = () => {
                             <span className='footer-span-splash-page'> through photography</span>
                         </div>
                         <div className='right-side-bottom-footer-splash'>
-                            <a href='https://github.com/ChangeDL' rel="noreferrer" target="_blank" className='footer-links-splash-page'><img className='links-to-socials-icons-github' src={GitHubLogo} /></a>
-                            <a className='footer-links-splash-page'><img className='links-to-socials-icons-linkden' src={LinkdenLogo} /></a>
+                            <a href="https://github.com/ChangeDL" rel="noreferrer" target="_blank" className='footer-links-splash-page'><img className='links-to-socials-icons-github' src={GitHubLogo} alt='Github Logo' /></a>
+                            <a className='footer-links-splash-page'><img className='links-to-socials-icons-linkden' src={LinkdenLogo} alt='Linkden Logo' /></a>
                         </div>
                     </div>
                 </div>

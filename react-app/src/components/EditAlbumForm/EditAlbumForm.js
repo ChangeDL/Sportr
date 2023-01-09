@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { getUserAlbums, oneAlbum } from "../../store/album";
+import { oneAlbum } from "../../store/album";
 import Logo from '../../assets/misc/Logo.png'
 import { updateAlbum } from "../../store/album";
 
@@ -108,7 +108,7 @@ const EditAlbumForm = () => {
                 <div className="sign-up-form">
                     <form onSubmit={handleSubmit}>
                         <div className='logo-and-sign-up-message'>
-                            <img className='logo-sign-up-form' src={Logo} />
+                            <img className='logo-sign-up-form' alt="Sportr Logo" src={Logo} />
                             <span>Edit Album</span>
                         </div>
                         <div className='errors-for-sign-up'>
@@ -140,7 +140,7 @@ const EditAlbumForm = () => {
                             <label>Remove Photos in Album</label>
                             <div className="album-form-photo-select">
                                 {currentAlbumImages?.map((im) => (
-                                    <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' /></button>
+                                    <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' alt={im.title} /></button>
                                 ))}
                             </div>
                         </div>

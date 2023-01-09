@@ -1,36 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import { deleteImageThunk, getAllImages } from "../../store/image";
+import { Link } from "react-router-dom";
+import { getAllImages } from "../../store/image";
 import Footer from "../Footer/Footer";
 import './ViewImage.css'
 
 const ViewImages = () => {
     const dispatch = useDispatch()
-    const history = useHistory()
+
 
     const imagesObj = useSelector(state => {
         return state
     })
 
-    const sessionUser = useSelector(state => state.session.user)
+
 
     const allImages = Object.values(imagesObj.imageReducer.allImages)
 
 
 
 
-    const deleteButton = async (e, id) => {
-        e.preventDefault()
-
-        return history.push(`/photos/${id}/delete-confirm`)
-    }
-
-    const editButton = async (e, id) => {
-        e.preventDefault()
-
-        return history.push(`photos/${sessionUser.id}/${id}/edit-details`)
-    }
 
 
     useEffect(() => {
@@ -56,7 +45,7 @@ const ViewImages = () => {
                     {allImages.map((im) => (
                         <div key={im.id}>
                             <Link to={`/photos/${im.id}`}>
-                                <img src={im.url} className='images-on-display' />
+                                <img src={im.url} className='images-on-display' alt='Images For Display' />
                             </Link>
                             {/* {
                                 sessionUser && sessionUser.id === im.owner.id ?

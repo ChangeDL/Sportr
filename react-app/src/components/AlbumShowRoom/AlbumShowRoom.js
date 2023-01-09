@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useHistory } from 'react-router-dom';
-import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
-import { getUserAlbums, oneAlbum, removeAlbum } from '../../store/album';
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { oneAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
 import './AlbumShowRoom.css'
 import Footer from '../Footer/Footer';
 
 
 function AlbumShowRoom() {
-    const [user, setUser] = useState({});
+
     const { userId, albumId } = useParams();
     const dispatch = useDispatch()
-    const history = useHistory()
+
 
     const userAlbums = useSelector(state => { return state })
-    const currentUser = useSelector(state => state.session.user)
+
 
     const currentAlbum = Object.values(userAlbums.albumReducer.currentAlbum)
 
@@ -40,13 +39,13 @@ function AlbumShowRoom() {
                     <span className='album-name-showroom'>{currentAlbum[3]?.substring(0, 30)}</span>
                     <span className='album-description-showroom'>{currentAlbum[0]?.substring(0, 45)}</span>
                 </div>
-                <img className='album-image-banner' src={albumImages?.length > 0 ? albumImages[0]?.url : null} />
+                <img className='album-image-banner' alt={albumImages?.length > 0 ? albumImages[0]?.title : 'Banne Image'} src={albumImages?.length > 0 ? albumImages[0]?.url : null} />
             </div>
 
             <div className='all-images-in-album'>
                 {albumImages?.map((im) => (
                     <div key={im.id}>
-                        <Link to={`/people/${im.username}/albums/${albumId}/photos/${im.id}`}><img className='images-album-showroom' src={im.url} /></Link>
+                        <Link to={`/people/${im.username}/albums/${albumId}/photos/${im.id}`}><img className='images-album-showroom' src={im.url} alt={im.title} /></Link>
                     </div>
                 ))}
             </div>

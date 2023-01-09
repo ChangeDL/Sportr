@@ -10,7 +10,6 @@ import ProfileAbout from './components/ProfilePages/ProfileAbout';
 import { authenticate } from './store/session';
 import UploadPicture from './components/UploadPicture/UploadPicture';
 import ViewImages from './components/UploadPicture/ViewImages';
-import { getAllImages } from './store/image';
 import ConfirmDelete from './components/ConfirmDelete/ConfirmDelete';
 import WorkInProgress from './components/WorkInProgress/WorkInProgress';
 import SplashPage from './components/SplashPage/SplashPage';
