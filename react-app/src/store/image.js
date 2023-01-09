@@ -131,11 +131,3 @@ const imageReducer = (state = initialState, action) => {
 }
 
 export default imageReducer
-
-function normalizeArray(array) {
-    const obj = {}
-    array.forEach(i => {
-        obj[i.id] = i
-    })
-    return obj
-}

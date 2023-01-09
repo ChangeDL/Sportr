@@ -1,17 +1,15 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import { Link, NavLink, useHistory } from "react-router-dom";
-import * as sessionActions from '../store/session';
+import { Link } from "react-router-dom";
 import LogoutButton from '../components/auth/LogoutButton'
 import defaultProfilePic from '../assets/misc/DefaultProfilePicture.jpg'
 
 
 
 function ProfileButton({ user, setLogin, setShowModal }) {
-    const dispatch = useDispatch();
+
     const [showMenu, setShowMenu] = useState(false);
-    const history = useHistory();
+
 
     const openMenu = () => {
         if (showMenu) return;
@@ -30,16 +28,12 @@ function ProfileButton({ user, setLogin, setShowModal }) {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
-    const logout = (e) => {
-        e.preventDefault();
-        dispatch(sessionActions.logout());
-        history.push('/')
-    };
+
 
     return (
         <>
             <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="nav-bar-profile-picture" src={defaultProfilePic} />
+                <img onClick={openMenu} className="nav-bar-profile-picture" src={defaultProfilePic} alt='DefaultPic' />
             </div>
             {showMenu && (user ?
                 (<div className="adjustment-for-profile-dropdown">

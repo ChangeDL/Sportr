@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProfileAbout.css'
-import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import ProfilePageBanner from './ProfilePageBanner';
 
 

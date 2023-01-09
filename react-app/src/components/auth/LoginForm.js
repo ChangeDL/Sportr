@@ -47,7 +47,7 @@ const LoginForm = () => {
       <div className='whole-sign-up-container'>
         <div className='sign-up-form'>
           <div className='logo-and-sign-up-message'>
-            <img className='logo-sign-up-form' src={Logo} />
+            <img className='logo-sign-up-form' src={Logo} alt='Sportr Logo' />
             <span>Log in to Sportr</span>
           </div>
 

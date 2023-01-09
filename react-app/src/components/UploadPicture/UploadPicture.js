@@ -42,7 +42,7 @@ const UploadPicture = () => {
 
     useEffect(() => {
         dispatch(getUserAlbums(currentUser.id))
-    }, [currentUser.id])
+    }, [currentUser.id, dispatch])
 
 
     const handleSubmit = async (e) => {
@@ -172,7 +172,7 @@ const UploadPicture = () => {
                             >
                                 <option value='' style={{ color: 'grey' }}>Not Required</option>
                                 {userAlbumsArray.map((al) => (
-                                    <option value={al.id}>{al.name}</option>
+                                    <option key={al.id} value={al.id}>{al.name}</option>
                                 ))}
                             </select>
                         </div>

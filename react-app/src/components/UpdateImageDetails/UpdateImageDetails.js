@@ -6,7 +6,7 @@ import './UpdateImageDetails.css'
 import { getUserAlbums } from "../../store/album";
 
 const UpdateImageDetails = () => {
-    const { userId, id } = useParams();
+    const { id } = useParams();
     const history = useHistory();
     const currentImage = useSelector(state => state?.imageReducer?.allImages[id])
     const dispatch = useDispatch()
@@ -36,11 +36,11 @@ const UpdateImageDetails = () => {
 
     useEffect(() => {
         dispatch(getImageByIdThunk(id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     useEffect(() => {
         dispatch(getUserAlbums(currentUser.id))
-    }, [currentUser.id])
+    }, [currentUser.id, dispatch])
 
 
     const updateTitle = (e) => {
