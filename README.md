@@ -78,19 +78,19 @@ Host Database:
 
 
 
-##Sportr Splash Page
+## Sportr Splash Page
 ![SportrSplashPage](https://user-images.githubusercontent.com/108757380/211228598-8ce0dc66-28e4-4978-a0e0-96f96c33d39a.png)
 
-##Sportr Explore Page
+## Sportr Explore Page
 ![SportrExplorePage](https://user-images.githubusercontent.com/108757380/211228618-bfade152-6e20-49b4-8cef-f2b0f6b10888.png)
 
-##Sportr Albums
+## Sportr Albums
 ![SportrAlbums](https://user-images.githubusercontent.com/108757380/211228631-d0cc961a-e8c7-4db9-bd8f-8be64a366334.png)
 
-##Sportr Album Showroom
+## Sportr Album Showroom
 ![SportrAlbumShowroom](https://user-images.githubusercontent.com/108757380/211228645-6f199d9d-eb37-452f-934f-d31c657183cd.png)
 
-##Sportr Image Showroom
+## Sportr Image Showroom
 ![SportrImageShowroom](https://user-images.githubusercontent.com/108757380/211228657-d8bf9479-fc45-4aa9-ac68-cae6112e8997.png)
 
 
