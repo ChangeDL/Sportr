@@ -66,7 +66,7 @@ The links below offer more details on our Database Schema, Features List, and Us
 ## Tech Stack
 Languages, Frameworks, Platforms, and Libraries used:
 
->  Python, Flask, Alembic, SQLAlchemy, PyPI, HTML5, CSS3, Node.js, React, Redux
+>  Python, Flask, Alembic, SQLAlchemy, PyPI, HTML5, CSS3, Node.js, React, Redux, AWS
 
 Hosting:
 
