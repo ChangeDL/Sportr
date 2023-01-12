@@ -51,18 +51,6 @@ To use the website you can either select the live link, or by downloading from t
 
 7. Then checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
-
-## Wiki Links
-The links below offer more details on our Database Schema, Features List, and User Stories:
-
-[Database Schema](https://github.com/ChangeDL/Sportr/wiki/DATABASE-Schema)
-
-[Features List](https://github.com/ChangeDL/Sportr/wiki/Features)
-
-[User Stories](https://github.com/ChangeDL/Sportr/wiki/User-Stories)
-
-[WireFrames](https://github.com/ChangeDL/Sportr/wiki/Wireframes)
-
 ## Tech Stack
 Languages, Frameworks, Platforms, and Libraries used:
 
@@ -77,6 +65,16 @@ Host Database:
 >  PostgreSQL
 
 
+## Wiki Links
+The links below offer more details on our Database Schema, Features List, and User Stories:
+
+[Database Schema](https://github.com/ChangeDL/Sportr/wiki/DATABASE-Schema)
+
+[Features List](https://github.com/ChangeDL/Sportr/wiki/Features)
+
+[User Stories](https://github.com/ChangeDL/Sportr/wiki/User-Stories)
+
+[WireFrames](https://github.com/ChangeDL/Sportr/wiki/Wireframes)
 
 ## Sportr Splash Page
 ![SportrSplashPage](https://user-images.githubusercontent.com/108757380/211228598-8ce0dc66-28e4-4978-a0e0-96f96c33d39a.png)
