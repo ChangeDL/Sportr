@@ -55,6 +55,59 @@
 
 }
 
+.explore-link-navbar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 4.5em;
+    margin-top: 1.25em;
+}
+
+.left-side-links-navbar {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25em;
+}
+
+.left-side-links-navbar:hover,
+.you-span-tag-navbar:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.you-dropdown-div-navbar {
+    margin-left: 2em;
+    /* margin-top: .05em; */
+}
+
+.you-span-tag-navbar {
+    color: white;
+    font-size: 1.25em;
+
+}
+
+.you-dropdown-links-div {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(47, 47, 48);
+    /* padding: .5em; */
+    border-radius: .15em;
+    margin-right: 1em;
+    position: fixed;
+    left: 20em;
+}
+
+.links-for-you-navbar {
+    text-decoration: none;
+    color: white;
+    border: .1em solid rgb(32, 32, 32);
+    padding: .5em;
+    border-radius: .15em;
+}
+
+.links-for-you-navbar:hover {
+    text-decoration: underline;
+}
+
 .container-for-name {
     padding-top: 1em;
     box-sizing: border-box;
@@ -180,6 +233,7 @@
     border-radius: 50%;
     margin-right: 10em;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .username {
@@ -193,6 +247,7 @@
 .logout-button-navbar:hover {
     text-decoration: underline;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 
@@ -215,5 +270,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
+    gap: .25em;
 
 }

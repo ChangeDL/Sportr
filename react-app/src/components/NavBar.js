@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Logo from '../assets/misc/Logo.png'
 import ProfileButton from './ProfileButton';
 import './NavBar.css'
+import You from './You';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -32,6 +33,14 @@ const NavBar = () => {
                 </div>
               </div>
             </NavLink>
+            {sessionUser ?
+              <div className='explore-link-navbar'>
+                <Link to='/photos' className='left-side-links-navbar'>Explore</Link>
+                <div className='you-dropdown-div-navbar'>
+                  <You user={sessionUser} />
+                </div>
+              </div>
+              : null}
           </div>
           <div className='navbar-right-side'>
             {sessionUser ?

@@ -4,94 +4,94 @@ from app.models import db, Image, Album, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_albums():
     demo5 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaMMA.jpg", title='UFC comes to my city.', description="Huge MMA fan and the UFC just so happened to be in my city this weekend."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaMMA.jpg", title='UFC comes to my city.', description="Huge MMA fan and the UFC just so happened to be in my city this weekend.", tags='UFC,Atlanta'
     )
     demo6 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/mmaatlanta.jpg", title='View of arena', description="The look from inside the arena from when I first walked in."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/mmaatlanta.jpg", title='View of arena', description="The look from inside the arena from when I first walked in.", tags='UFC,Atlanta'
     )
     greenbay1 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image0.jpeg", title='Packers vs Viking Week 17, 2022 w/ the boys.', description='First time going to Green Bay and Lambeau Field. Met some close friends for the first time and had an awesome time. My toes felt like they were going to fall off at half time from how cold it was. Still an amazing way to start the New Year.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image0.jpeg", title='Packers vs Viking Week 17, 2022 w/ the boys.', description='First time going to Green Bay and Lambeau Field. Met some close friends for the first time and had an awesome time. My toes felt like they were going to fall off at half time from how cold it was. Still an amazing way to start the New Year.', tags='Football,NFL,Vikings,Packers,Lambeau,SNF,New Years'
     )
     greenbay2 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image1.jpeg", title='The boys w/ the legend himself Tundra Man', description='Saw the famous Tundra Man while waiting to get into the stadium for the Packers vs Vikings game. My friends who are huge Packers fans just had to have a picture with him.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image1.jpeg", title='The boys w/ the legend himself Tundra Man', description='Saw the famous Tundra Man while waiting to get into the stadium for the Packers vs Vikings game. My friends who are huge Packers fans just had to have a picture with him.', tags='Football,NFL,Vikings,Packers,Lambeau,SNF,New Years,Tundra Man'
     )
     greenbay3 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image5.jpeg", title='The view from outside Lambeau an hour before kickoff', description='View of the outside of the stadium from when we were getting ready to head inside.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image5.jpeg", title='The view from outside Lambeau an hour before kickoff', description='View of the outside of the stadium from when we were getting ready to head inside.', tags='Football,NFL,Vikings,Packers,Lambeau,SNF,New Years,Stadium'
     )
     minnesota1 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image2.jpeg", title='First Football Game Outside of Florida', description='The Seahawks are my 2nd favorite team in the NFL and was lucky enough to fly out to meet some friends to watch them play the Vikings. Sat 4th row behind the endzone for what was a great game.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image2.jpeg", title='First Football Game Outside of Florida', description='The Seahawks are my 2nd favorite team in the NFL and was lucky enough to fly out to meet some friends to watch them play the Vikings. Sat 4th row behind the endzone for what was a great game.',tags='Football,NFL,Vikings,Seahawks,US Bank,12th Man'
     )
     tyreek1 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekAndTua.jpg", title='Uce and Cheetah against the world', description='Ready to begin my journey in Miami and help bring this city another Super Bowl.'
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekAndTua.jpg", title='Uce and Cheetah against the world', description='Ready to begin my journey in Miami and help bring this city another Super Bowl.', tags='FinsUp,Miami,Dolphins,Cheetah,Tua,Football,NFL'
     )
     tyreek2 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillBackFlip.jfif", title='Sunday Victory Vibes', description='Back flipping my way into a dub.'
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillBackFlip.jfif", title='Sunday Victory Vibes', description='Back flipping my way into a dub.', tags='FinsUp,Miami,Dolphins,Cheetah,Backflip,Football,NFL,Touchdown'
     )
     minnesota2 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image3.jpeg", title='4th row endzone watching the Seahawks warm up pt.1', description='Got to see Jamal Adams and Travis Home warming up before the game'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image3.jpeg", title='4th row endzone watching the Seahawks warm up pt.1', description='Got to see Jamal Adams and Travis Home warming up before the game',tags='Football,NFL,Vikings,Seahawks,US Bank,Hurricanes,12th Man,Prez'
     )
     minnesota3 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image4.jpeg", title='4th row endzone watching the Seahawks warm up pt.2', description='Got to see Tyler Lockett and D.K. Metcalf warming up before the game'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image4.jpeg", title='4th row endzone watching the Seahawks warm up pt.2', description='Got to see Tyler Lockett and D.K. Metcalf warming up before the game',tags='Football,NFL,Vikings,Seahawks,US Bank,Metcalf,12th Man,Lockett'
     )
     dolphins1 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image6.jpeg", title='I may live in Jacksonville, but I am a Dolphins fan for life. #FinsUp', description='The Miami Dolphins came to town for a thursday night game. It was my first time seeing a Dolphins regular season game in person.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image6.jpeg", title='I may live in Jacksonville, but I am a Dolphins fan for life. #FinsUp', description='The Miami Dolphins came to town for a thursday night game. It was my first time seeing a Dolphins regular season game in person.', tags='FinsUp,Miami,Dolphins,Jacksonville,Football,NFL,Jaguars'
     )
     demo1 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/tiger-crowd-atlanta.jpg", title='Tiger in Atlanta!', description="I'm not the biggest golf fan, but when Tiger Woods comes to your town you go and see him play."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/tiger-crowd-atlanta.jpg", title='Tiger in Atlanta!', description="I'm not the biggest golf fan, but when Tiger Woods comes to your town you go and see him play.", tags='Woods,Golf,Atlanta'
     )
     demo2 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/TigerWoodsHoleInOne.jpg", title='Hole In One!', description="Just saw a Tiger Woods hole in one live! What a moment to witness and be apart of. Congrat Tiger!."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/TigerWoodsHoleInOne.jpg", title='Hole In One!', description="Just saw a Tiger Woods hole in one live! What a moment to witness and be apart of. Congrat Tiger!.",tags='Woods,Golf,Atlanta,Hole In One'
     )
     dolphins2 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image7.jpeg", title='A rookie Tua warming up before the game', description='Got to see Tua in his rookie year warming up before the game. Sadly he did not get a chance to play in the game.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image7.jpeg", title='A rookie Tua warming up before the game', description='Got to see Tua in his rookie year warming up before the game. Sadly he did not get a chance to play in the game.',tags='FinsUp,Miami,Dolphins,Jacksonville,Football,NFL,Jaguars,Tua'
     )
     dolphins3 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image8.jpeg", title='Fun little wheel spin while we waited for the game to start.', description='The stadium had fun games and wheel spins that anyone could try before the game. I ended up winning a Gardner Minshew Stache facemask that I wore the rest of the game.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image8.jpeg", title='Fun little wheel spin while we waited for the game to start.', description='The stadium had fun games and wheel spins that anyone could try before the game. I ended up winning a Gardner Minshew Stache facemask that I wore the rest of the game.',tags='FinsUp,Miami,Dolphins,Jacksonville,Football,NFL,Jaguars,Minshew'
     )
     dolphins4 = Image(
-        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image9.jpeg", title='Under the lights of Thursday Night.', description='View from our seats of the stadium as the sun was going down and the game was getting ready to begin.'
+        user_id=4,  url="https://sportrbucket.s3.amazonaws.com/image9.jpeg", title='Under the lights of Thursday Night.', description='View from our seats of the stadium as the sun was going down and the game was getting ready to begin.',tags='FinsUp,Miami,Dolphins,Jacksonville,Football,NFL,Jaguars,Stadium'
     )
     tyreek6 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillDolphinsWalkout.jpg", title='Walking out on Thursday Night.', description="Ready to help lead my team to a Victory and continue to prove why I am the best in the league."
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillDolphinsWalkout.jpg", title='Walking out on Thursday Night.', description="Ready to help lead my team to a Victory and continue to prove why I am the best in the league.",tags='FinsUp,Miami,Dolphins,Cheetah,Football,NFL'
     )
     demo3 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/Braves.jpg", title='Beautiful Day at Braves Stadium', description="Nothing like spending the afternoon watching some Braves baseball."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/Braves.jpg", title='Beautiful Day at Braves Stadium', description="Nothing like spending the afternoon watching some Braves baseball.", tags='Atlanta,Braves,Baseball,MLB'
     )
     demo4 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/BraveWorldSeriesWin.jfif", title='World Champions!!!', description="Got to celebrate with the rest of Atlanta today at the championship parade! Go Braves!."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/BraveWorldSeriesWin.jfif", title='World Champions!!!', description="Got to celebrate with the rest of Atlanta today at the championship parade! Go Braves!.", tags='Atlanta,Braves,Baseball,MLB'
     )
     tyreek3 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillCollege.jpg", title='Throwback to college pt. 1', description='Been looking fly even before I was in the league.'
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillCollege.jpg", title='Throwback to college pt. 1', description='Been looking fly even before I was in the league.',tags='College,Cheetah,Football,NCAA'
     )
     tyreek4 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillCollege2.jpg", title='Throwback to college pt. 2', description='Taking ankles and burning secondaries has always been my game.'
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillCollege2.jpg", title='Throwback to college pt. 2', description='Taking ankles and burning secondaries has always been my game.',tags='College,Cheetah,Football,NCAA'
     )
     tyreek5 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillDeuces.jfif", title='Maybe next time young boy.', description="Can't keep up with so I throw up the deuces as I leave you in the dust"
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillDeuces.jfif", title='Maybe next time young boy.', description="Can't keep up with so I throw up the deuces as I leave you in the dust",tags='NFL,Cheetah,Football,ChiefsKingdom,Deuces,Touchdown,Speed'
     )
     tyreek7 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillPosing.jpg", title='Winners Pose', description="Who's going to stop me?"
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillPosing.jpg", title='Winners Pose', description="Who's going to stop me?",tags='NFL,Cheetah,Football,ChiefsKingdom'
     )
     tyreek9 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillSuperBowl.jpg", title='SuperBowl Thangs', description="Making big plays no matter the game, I am him!"
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillSuperBowl.jpg", title='SuperBowl Thangs', description="Making big plays no matter the game, I am him!",tags='NFL,Cheetah,Football,ChiefsKingdom,Deuces,SuperBowl,Champion'
     )
     demo7 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaHawksDraftParty.jpg", title='Throwback Thursday', description="Throwback to when I went to the Hawks draft party that they hosted in 2019."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaHawksDraftParty.jpg", title='Throwback Thursday', description="Throwback to when I went to the Hawks draft party that they hosted in 2019.",tags='Atlanta,Hawks,Draft,NBA,Basketball'
     )
     demo8 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaHawksPlayOffWin.jpg", title='Playoff Victory!', description="Nothing like embarassing the Knicks in the playoffs. Trae Young is the future of this franchise."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaHawksPlayOffWin.jpg", title='Playoff Victory!', description="Nothing like embarassing the Knicks in the playoffs. Trae Young is the future of this franchise.",tags='Atlanta,Hawks,Playoffs,NBA,Basketball,Knicks'
     )
     tyreek8 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillProBowl1.jpg", title='Pro Bowl on the regular', description="I'm here so much it's basically a 2nd team for me at this point"
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekHillProBowl1.jpg", title='Pro Bowl on the regular', description="I'm here so much it's basically a 2nd team for me at this point",tags='NFL,Cheetah,Football,ChiefsKingdom,Pro Bowl'
     )
     tyreek10 = Image(
-        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekPattyTravis.png", title='Pro Bowl w/ the squad', description="Best trio in the league, no one is stopping us ever."
+        user_id=5,  url="https://sportrbucket.s3.amazonaws.com/TyreekPattyTravis.png", title='Pro Bowl w/ the squad', description="Best trio in the league, no one is stopping us ever.",tags='NFL,Cheetah,Football,ChiefsKingdom,Pro Bowl,Mahomes,Kelce,GOATS'
     )
     demo9 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaFalcons.jpg", title='Packed House', description="Everyone is excited to come see this new stadium and watch pur Falcons go on their quest to win a superbowl!."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaFalcons.jpg", title='Packed House', description="Everyone is excited to come see this new stadium and watch pur Falcons go on their quest to win a superbowl!.",tags='Atlanta,Falcons,NFL,Stadium'
     )
     demo10 = Image(
-        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaFalconsView.jpg", title='Falcons new stadium view of field', description="This stadium is incredible, amazing views from no matter where you sit!!."
+        user_id=1,  url="https://sportrbucket.s3.amazonaws.com/AtlantaFalconsView.jpg", title='Falcons new stadium view of field', description="This stadium is incredible, amazing views from no matter where you sit!!.",tags='Atlanta,Falcons,NFL,Stadium'
     )
 
 
