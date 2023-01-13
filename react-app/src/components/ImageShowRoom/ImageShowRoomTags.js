@@ -7,22 +7,19 @@ import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import Footer from "../Footer/Footer";
 
 
-const ImageShowFromAlbumRoom = () => {
+const ImageShowRoomTags = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const { userId, albumId, photoId } = useParams()
+    const { tag, photoId } = useParams()
     const currentImage = useSelector(state => state?.imageReducer?.currentImage[photoId])
     const currentUser = useSelector(state => state.session.user)
     let imageTags;
-
     if (currentImage?.tags !== null && currentImage?.tags.includes(',')) imageTags = currentImage?.tags.split(',')
     else if (currentImage?.tags !== null) imageTags = [currentImage?.tags]
 
 
     useEffect(() => {
         dispatch(getImageByIdThunk(photoId))
-
-
     }, [dispatch, photoId])
 
     const deleteButton = async (e, id) => {
@@ -42,11 +39,11 @@ const ImageShowFromAlbumRoom = () => {
         <>
             <div className="image-container-showroom">
                 <div>
-                    <Link to={`/people/${userId}/albums/${albumId}`} className="back-to-explore-link-div">
+                    <Link to={`/photos/tags/${tag}`} className="back-to-explore-link-div">
                         <div className="icon-for-back-to-explore">
                             <i className="fa-solid fa-arrow-left"></i>
                         </div>
-                        <span className="back-to-explore-link">Back to album</span>
+                        <span className="back-to-explore-link">Back to tags</span>
                     </Link>
                 </div>
                 <div className="showroom-image-div">
@@ -107,4 +104,4 @@ const ImageShowFromAlbumRoom = () => {
     )
 }
 
-export default ImageShowFromAlbumRoom
+export default ImageShowRoomTags

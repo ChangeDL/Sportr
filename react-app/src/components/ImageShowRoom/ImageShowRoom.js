@@ -14,6 +14,10 @@ const ImageShowRoom = () => {
     const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
     const currentUser = useSelector(state => state.session.user)
 
+    let imageTags;
+    if (currentImage?.tags !== null && currentImage?.tags.includes(',')) imageTags = currentImage?.tags.split(',')
+    else if (currentImage?.tags !== null) imageTags = [currentImage?.tags]
+
 
     useEffect(() => {
         dispatch(getImageByIdThunk(id))
@@ -85,6 +89,11 @@ const ImageShowRoom = () => {
                         </div>
                         <div className="description-showroom-span-div">
                             <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
+                        </div>
+                        <div className="image-tags-showroom-div">
+                            {imageTags?.map((tag) => (
+                                <span>[<Link to={`/photos/tags/${tag}`} className='tag-links' >{tag}</Link>]</span>
+                            ))}
                         </div>
                     </div>
                 </div>

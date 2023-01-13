@@ -1,0 +1,29 @@
+.whole-tag-page-container {
+    display: flex;
+    flex-direction: column;
+    /* gap: 4em; */
+    justify-content: center;
+
+    /* background-color: rgb(243, 245, 246); */
+
+    padding-top: 4em;
+
+}
+
+.all-images-tag-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 7em;
+    flex-direction: row;
+    padding-right: 5em;
+    flex-wrap: wrap;
+    height: 50%;
+    gap: 1em;
+    padding-bottom: 27.69em;
+}
+
+.tag-header-div {
+    display: flex;
+    justify-content: center;
+}

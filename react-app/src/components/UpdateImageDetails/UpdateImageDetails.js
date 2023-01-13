@@ -117,10 +117,10 @@ const UpdateImageDetails = () => {
                             />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
-                            <label>Tag</label>
+                            <label>Tag (Not Required)</label>
                             <input
                                 className='sign-up-form-inputs-only'
-                                placeholder="Not Required"
+                                placeholder="Example,Tags,Format"
                                 type="text"
                                 onChange={updateTags}
                                 value={tags}

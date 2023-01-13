@@ -26,6 +26,8 @@ import AlbumShowRoom from './components/AlbumShowRoom/AlbumShowRoom';
 import EditAlbumForm from './components/EditAlbumForm/EditAlbumForm';
 import LogoutConfirm from './components/auth/LogoutConfirm';
 import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
+import TagResults from './components/TagResults/TagResults';
+import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -106,6 +108,12 @@ function App() {
         <ProtectedRoute path="/photos/:userId/:id/edit-details">
           <UpdateImageDetails />
         </ProtectedRoute>
+        <Route path='/photos/tags/:tag/:photoId'>
+          <ImageShowRoomTags />
+        </Route>
+        <Route path='/photos/tags/:tag'>
+          <TagResults />
+        </Route>
         <Route path="/photos/:id">
           <ImageShowRoom />
         </Route>
@@ -115,6 +123,9 @@ function App() {
         <ProtectedRoute path='/logout-confirm'>
           <LogoutConfirm />
         </ProtectedRoute>
+        <Route>
+          <h1>NOT FOUND</h1>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

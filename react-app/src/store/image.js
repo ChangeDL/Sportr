@@ -3,6 +3,7 @@ const DELETE_IMAGE = 'image/DELETE_IMAGE';
 const UPDATE_IMAGE = 'image/UPDATE_IMAGE';
 const GET_IMAGE = 'image/GET_IMAGE';
 const USER_IMAGES = 'image/USER_IMAGES';
+const TAG_IMAGES = 'image/TAG_IMAGES'
 
 
 const setImages = (images) => ({
@@ -28,6 +29,11 @@ const getImageById = (image) => ({
 
 const userImages = (images) => ({
     type: USER_IMAGES,
+    payload: images
+})
+
+const tagImages = (images) => ({
+    type: TAG_IMAGES,
     payload: images
 })
 
@@ -86,7 +92,16 @@ export const getUserImages = (userId) => async dispatch => {
     }
 }
 
-const initialState = { allImages: {}, currentImage: {}, userImages: {} };
+export const getTagImages = (tag) => async dispatch => {
+    const res = await fetch(`/api/images/${tag}`)
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(tagImages(data))
+        return data
+    }
+}
+
+const initialState = { allImages: {}, currentImage: {}, userImages: {}, tagImages: {} };
 
 const imageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -111,6 +126,13 @@ const imageReducer = (state = initialState, action) => {
             newState.userImages = {}
             const images = action.payload
             newState.userImages = images
+            return newState
+        }
+        case TAG_IMAGES: {
+            const newState = { ...state }
+            newState.tagImages = {}
+            const images = action.payload
+            newState.tagImages = images
             return newState
         }
 
