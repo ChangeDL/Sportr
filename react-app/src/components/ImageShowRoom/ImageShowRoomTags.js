@@ -89,9 +89,9 @@ const ImageShowRoomTags = () => {
                         <div className="description-showroom-span-div">
                             <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
                         </div>
-                        <div>
+                        <div className="image-tags-showroom-div">
                             {imageTags?.map((tag) => (
-                                <Link to={`/photos/tags/${tag}`}>{tag}</Link>
+                                <span>[<Link to={`/photos/tags/${tag}`} className='tag-links' >{tag}</Link>]</span>
                             ))}
                         </div>
                     </div>
