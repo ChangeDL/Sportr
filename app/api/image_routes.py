@@ -93,9 +93,14 @@ def edit_image_details(id):
 
     if form.validate_on_submit():
 
+        tags = []
+
         title = form.data['title']
         description = form.data['description']
-        tags = form.data['tags']
+        all_tags = form.data['tags'].split(',')
+        [tags.append(tag) for tag in all_tags]
+
+
         people = form.data['people']
         if(form.data['albums']):
             album = Album.query.get(form.data['albums'])
@@ -115,4 +120,10 @@ def edit_image_details(id):
 def all_user_images(id):
 
     images = Image.query.filter_by(user_id=id).all()
+    return {image.id: image.to_dict() for image in images}
+
+@image_routes.route('/<string:tag>')
+def specific_tag_images(tag):
+
+    images = Image.query.filter(Image.tags.like(f"%{tag}%")).all()
     return {image.id: image.to_dict() for image in images}
