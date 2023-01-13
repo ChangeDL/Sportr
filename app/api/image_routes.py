@@ -93,12 +93,12 @@ def edit_image_details(id):
 
     if form.validate_on_submit():
 
-        tags = []
+
 
         title = form.data['title']
         description = form.data['description']
-        all_tags = form.data['tags'].split(',')
-        [tags.append(tag) for tag in all_tags]
+        tags = form.data['tags']
+
 
 
         people = form.data['people']
