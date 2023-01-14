@@ -54,8 +54,8 @@ const ImageShowRoom = () => {
                     <div className="icons-for-showroom-image">
                         {currentUser.id === currentImage?.username ?
                             <div className="edit-delete-button-image-showroom-div">
-                                <button className="edit-delete-button-image-showroom" onClick={event => editButton(event, currentImage?.id)}><i class="fa-regular fa-pen-to-square"></i></button>
-                                <button className="edit-delete-button-image-showroom" onClick={event => deleteButton(event, currentImage?.id)}><i class="fa-regular fa-trash-can"></i></button>
+                                <button className="edit-delete-button-image-showroom" onClick={event => editButton(event, currentImage?.id)}><i className="fa-regular fa-pen-to-square"></i></button>
+                                <button className="edit-delete-button-image-showroom" onClick={event => deleteButton(event, currentImage?.id)}><i className="fa-regular fa-trash-can"></i></button>
                             </div>
                             :
                             <i className="fa-regular fa-star"></i>
@@ -91,14 +91,14 @@ const ImageShowRoom = () => {
                             <span className="description-showroom-span">{currentImage?.description}</span> {/*ADD TITLE TO TABLE */}
                         </div>
                         <div className="image-tags-showroom-div">
-                            {imageTags?.map((tag) => (
-                                <span>[<Link to={`/photos/tags/${tag}`} className='tag-links' >{tag}</Link>]</span>
+                            {imageTags?.map((tag, id) => (
+                                <span key={id}>[<Link to={`/photos/tags/${tag}`} className='tag-links' >{tag}</Link>]</span>
                             ))}
                         </div>
                     </div>
                 </div>
                 <div className="border-div-showroom" />
-                <span>PLACEHOLDER</span>
+                <span>Comments Coming Soon</span>
             </div>
             <Footer />
         </>

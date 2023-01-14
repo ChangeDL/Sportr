@@ -100,7 +100,7 @@ const ImageShowFromAlbumRoom = () => {
                     </div>
                 </div>
                 <div className="border-div-showroom" />
-                <span>PLACEHOLDER</span>
+                <span>Comments Coming Soon</span>
             </div>
             <Footer />
         </>
