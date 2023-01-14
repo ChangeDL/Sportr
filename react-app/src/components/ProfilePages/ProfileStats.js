@@ -5,19 +5,8 @@ import ProfilePageBanner from './ProfilePageBanner';
 
 
 function ProfileStats() {
-    const [user, setUser] = useState({});
-    const { userId } = useParams();
 
-    useEffect(() => {
-        if (!userId) {
-            return;
-        }
-        (async () => {
-            const response = await fetch(`/api/users/${userId}`);
-            const user = await response.json();
-            setUser(user);
-        })();
-    }, [userId]);
+    const { userId } = useParams();
 
 
 

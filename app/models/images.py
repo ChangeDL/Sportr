@@ -24,9 +24,10 @@ class Image(db.Model):
     description = db.Column(db.String)
     tags = db.Column(db.String)
     people = db.Column(db.String)
-    albums = db.relationship('Album', secondary=image_album, back_populates='images')
 
+    albums = db.relationship('Album', secondary=image_album, back_populates='images')
     user = db.relationship("User", back_populates="images")
+    comments = db.relationship('Comment', back_populates='image', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
@@ -38,7 +39,8 @@ class Image(db.Model):
             "tags": self.tags,
             "people": self.people,
             "owner": self.user.to_dict(),
-            "albums": [album.id for album in self.albums]
+            "albums": [album.id for album in self.albums],
+            "comments":[comment.to_dict() for comment in self.comments]
         }
 
     def __repr__(self):
@@ -59,6 +61,7 @@ class Album(db.Model):
     images = db.relationship('Image', secondary=image_album, back_populates='albums')
 
     user = db.relationship("User", back_populates='albums')
+
 
     def to_dict(self):
         return {

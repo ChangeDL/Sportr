@@ -9,7 +9,7 @@ import ProfilePageBanner from './ProfilePageBanner';
 
 
 function ProfileAlbums() {
-    const [user, setUser] = useState({});
+
     const { userId } = useParams();
     const dispatch = useDispatch()
     const history = useHistory()
@@ -19,17 +19,6 @@ function ProfileAlbums() {
 
     const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
-
-    useEffect(() => {
-        if (!userId) {
-            return;
-        }
-        (async () => {
-            const response = await fetch(`/api/users/${userId}`);
-            const user = await response.json();
-            setUser(user);
-        })();
-    }, [userId]);
 
     useEffect(() => {
         dispatch(getUserAlbums(userId))
