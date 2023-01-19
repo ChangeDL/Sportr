@@ -1,0 +1,18 @@
+.edit-comment-textarea {
+    resize: none;
+    width: 39em;
+    padding: 1em;
+    border-color: rgb(207, 214, 217);
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.comment-edit-and-delete-div {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+}

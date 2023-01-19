@@ -5,7 +5,8 @@ import { getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
 import Footer from "../Footer/Footer";
-
+import EditCommentModal from "../EditComment/EditCommentModal";
+import CommentForm from "../CommentForm/CommentForm";
 
 const ImageShowFromAlbumRoom = () => {
     const dispatch = useDispatch()
@@ -17,6 +18,8 @@ const ImageShowFromAlbumRoom = () => {
 
     if (currentImage?.tags !== null && currentImage?.tags.includes(',')) imageTags = currentImage?.tags.split(',')
     else if (currentImage?.tags !== null) imageTags = [currentImage?.tags]
+
+    const commentsForImage = currentImage?.comments
 
 
     useEffect(() => {
@@ -100,7 +103,30 @@ const ImageShowFromAlbumRoom = () => {
                     </div>
                 </div>
                 <div className="border-div-showroom" />
-                <span>Comments Coming Soon</span>
+                <div className="lower-half-of-image-showroom">
+                    <div className="left-side-of-lower-half">
+                        <div className="comments-container">
+                            <span className="span-tag-comment-header">Comments</span>
+                            {commentsForImage?.map((comment) => (
+                                <div key={comment.id} className='comment-div-showroom'>
+                                    <Link className="link-for-users-comments" to={`/people/${comment?.owner.id}/photostream`}>{comment.owner.fullName}</Link>
+                                    <div className="single-comment-body-with-buttons">
+                                        {/* <span>{comment.comment}</span> */}
+                                        <div>
+                                            <EditCommentModal imageId={currentImage?.id} commentId={comment.id} currentComment={comment.comment} user={currentUser} commentOwner={comment.owner} />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="comment-form-div-image-showroom">
+                            <CommentForm user={currentUser} imageId={currentImage?.id} />
+                        </div>
+                    </div>
+                    <div>
+                        <span>Placeholder</span>
+                    </div>
+                </div>
             </div>
             <Footer />
         </>
