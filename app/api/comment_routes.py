@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Comment
+from app.models import db, Comment, Image
 from app.forms import CommentForm
 from flask_login import current_user, login_required
 
@@ -25,8 +25,10 @@ def add_comment():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        new_comment = Comment(user=current_user, image_id=form.data['imageId'], comment=form.data['comment'])
+        new_comment = Comment(user=current_user, image_id= form.data['imageId'], comment=form.data['comment'])
         db.session.add(new_comment)
+        # image = Image.query.get(form.data['imageId'])
+        # image.comments.append(new_comment)
         db.session.commit()
         return new_comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

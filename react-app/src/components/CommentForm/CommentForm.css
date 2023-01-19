@@ -1,0 +1,29 @@
+.comment-form-div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    align-items: center;
+}
+
+.comment-form-label {
+    text-align: center;
+}
+
+.comment-textarea {
+    width: 39em;
+    height: 20em;
+    resize: none;
+    padding: 1em;
+    border-color: rgb(207, 214, 217);
+}
+
+.submit-button-comment {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5.25em;
+    margin-top: .5em;
+}
+
+.comments-container {
+    margin-top: 1em;
+}
