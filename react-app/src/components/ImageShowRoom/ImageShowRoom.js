@@ -27,6 +27,10 @@ const ImageShowRoom = () => {
         dispatch(getImageByIdThunk(id))
     }, [dispatch, id])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const deleteButton = async (e, id) => {
         e.preventDefault()
 
