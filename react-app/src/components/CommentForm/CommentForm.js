@@ -11,6 +11,7 @@ import { getImageByIdThunk } from "../../store/image";
 const CommentForm = ({ user, imageId }) => {
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,6 +33,11 @@ const CommentForm = ({ user, imageId }) => {
     const updateComment = (e) => {
         setComment(e.target.value)
     }
+
+    useEffect(() => {
+        if (comment.length > 0) errors.push('hello')
+    })
+
     return (
         <div className="comment-form-container">
             <form onSubmit={handleSubmit}>
@@ -43,11 +49,18 @@ const CommentForm = ({ user, imageId }) => {
                         type="text"
                         onChange={updateComment}
                         value={comment}
+                        required
                     />
                 </div>
-                <div className="submit-button-comment">
-                    <button type="submit">Submit</button>
-                </div>
+                {user ?
+                    <div className="submit-button-comment-div">
+                        <button type="submit" className="submit-button-comment">Comment</button>
+                    </div>
+                    :
+                    <div className="submit-button-comment-div">
+                        <Link to='/login'><button className="submit-button-edit-comment">Login</button></Link>
+                    </div>
+                }
             </form>
         </div>
     )

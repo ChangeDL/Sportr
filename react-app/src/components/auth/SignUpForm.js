@@ -18,6 +18,9 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
 
 

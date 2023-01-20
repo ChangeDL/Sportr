@@ -75,11 +75,13 @@
     background-color: rgb(18, 143, 220);
     color: rgb(255, 255, 249);
     font-weight: 600;
+    cursor: pointer;
 
 }
 
 .sign-up-submit-button:hover {
     background-color: rgb(20, 156, 240);
+    cursor: pointer;
 }
 
 .sign-up-submit-button:disabled {
@@ -150,6 +152,7 @@
 
 .login-submit-button:hover {
     background-color: rgb(20, 156, 240);
+    cursor: pointer;
 }
 
 .errors-for-sign-up {

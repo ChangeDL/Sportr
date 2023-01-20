@@ -17,7 +17,21 @@
     border-color: rgb(207, 214, 217);
 }
 
-.submit-button-comment {
+.comment-textarea:focus,
+.edit-comment-textarea:focus {
+    border: .001em solid rgb(0, 153, 255);
+    outline: .005em solid rgb(0, 153, 255);
+}
+
+.submit-button-edit-comment-div {
+    display: flex;
+    justify-content: flex-end;
+    /* margin-left: 5.25em;
+    margin-top: .5em;
+    width: fit-content; */
+}
+
+.submit-button-comment-div {
     display: flex;
     justify-content: flex-end;
     margin-right: 5.25em;
@@ -26,4 +40,36 @@
 
 .comments-container {
     margin-top: 1em;
+}
+
+.submit-button-edit-comment {
+    color: white;
+    background-color: rgb(18, 143, 220);
+    border: none;
+    border-radius: .25em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 1em;
+    width: 7em;
+}
+
+.submit-button-comment {
+    color: white;
+    background-color: rgb(18, 143, 220);
+    border: none;
+    border-radius: .25em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    padding-left: 1em;
+    padding-right: 2em;
+    font-size: 1em;
+    width: 7em;
+}
+
+.submit-button-comment:hover,
+.submit-button-edit-comment:hover {
+    background-color: rgb(18, 156, 220);
+    cursor: pointer;
 }

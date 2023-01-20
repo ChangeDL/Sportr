@@ -229,9 +229,13 @@
     margin-left: 6em;
 }
 
+.comment-div-showroom:hover {
+    background-color: white;
+}
+
 .link-for-users-comments {
     text-decoration: none;
-    color: rgb(9, 89, 208);
+    color: rgb(5, 58, 137);
 }
 
 .link-for-users-comments:hover {
@@ -256,4 +260,30 @@
     flex-direction: row;
     width: 38em;
     gap: .5em;
+}
+
+.photo-no-exist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10em;
+}
+
+/* .photo-no-exist {
+    background-image: url("g.com");
+} */
+
+.h2-404-error {
+    font-weight: 400;
+}
+
+.h3-404-error {
+    font-weight: 300;
+}
+
+.a404-link-to-explore {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(0, 130, 199);
 }

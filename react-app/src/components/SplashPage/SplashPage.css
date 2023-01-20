@@ -142,6 +142,7 @@
     font-size: 1.5em;
     font-weight: bold;
     box-sizing: border-box;
+    text-shadow: 1px 1px 5px black;
 }
 
 .center-page-sign-up-button {
@@ -154,10 +155,12 @@
     border: none;
     border-radius: .15em;
     box-sizing: border-box;
+
 }
 
 .center-page-sign-up-button:hover {
     color: gray;
+    cursor: pointer;
 }
 
 .span-tags-in-center-page {
@@ -169,4 +172,5 @@
     box-sizing: border-box;
     flex-wrap: wrap;
     width: 125%;
+    text-shadow: 1px 1px 5px black;
 }
