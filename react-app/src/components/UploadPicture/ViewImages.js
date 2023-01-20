@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getAllImages } from "../../store/image";
 import Footer from "../Footer/Footer";
 import './ViewImage.css'
+import { getImageByIdThunk } from "../../store/image";
 
 const ViewImages = () => {
     const dispatch = useDispatch()
+    const history = useHistory();
 
 
     const imagesObj = useSelector(state => {
@@ -18,7 +20,13 @@ const ViewImages = () => {
     const allImages = Object.values(imagesObj.imageReducer.allImages)
 
 
-
+    const linkClick = (e, photoId) => {
+        e.preventDefault()
+        dispatch(getImageByIdThunk(photoId))
+        setTimeout(() => {
+            history.push(`/photos/${photoId}`)
+        }, 100)
+    }
 
 
 
@@ -44,7 +52,7 @@ const ViewImages = () => {
                 <div className="all-images-explore-page">
                     {allImages.map((im) => (
                         <div key={im.id}>
-                            <Link to={`/photos/${im.id}`}>
+                            <Link to={`/photos/${im.id}`} onClick={e => linkClick(e, im.id)}>
                                 <img src={im.url} className='images-on-display' alt='Images For Display' />
                             </Link>
                             {/* {
