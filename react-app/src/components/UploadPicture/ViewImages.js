@@ -25,7 +25,7 @@ const ViewImages = () => {
         dispatch(getImageByIdThunk(photoId))
         setTimeout(() => {
             history.push(`/photos/${photoId}`)
-        }, 100)
+        }, 500)
     }
 
 
