@@ -43,10 +43,11 @@ const EditCommentForm = ({ commentId, commentText, currentComment, imageId, setS
                         type="text"
                         onChange={updateComment}
                         value={comment}
+                        required
                     />
                 </div>
-                <div className="submit-button-comment">
-                    <button type="submit">Submit</button>
+                <div className="submit-button-edit-comment-div">
+                    <button type="submit" className="submit-button-edit-comment">Done</button>
                 </div>
             </form>
         </div>

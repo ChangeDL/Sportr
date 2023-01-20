@@ -48,27 +48,35 @@ const EditCommentModal = ({ commentId, currentComment, user, commentOwner, image
     return (
         <>
             <div className="comment-container">
-                <div>
 
-                    {showCommentForm ?
-                        <div>
-                            <EditCommentForm setShowCommentForm={setShowCommentForm} showCommentForm={showCommentForm} imageId={imageId} commentText={currentComment} commentId={commentId} />
-                        </div>
-                        :
+                {showCommentForm ?
+                    <div>
+                        <EditCommentForm setShowCommentForm={setShowCommentForm} showCommentForm={showCommentForm} imageId={imageId} commentText={currentComment} commentId={commentId} />
+                    </div>
+                    :
+                    <div className="comment-body-div">
                         <span>{currentComment}</span>
-                    }
-                </div>
+                    </div>
+                }
                 <div>
-                    {user.id === commentOwner.id ?
+                    {user ?
                         <>
-                            {!showCommentForm ?
-                                <div className="comment-edit-and-delete-div">
-                                    <span onClick={closeCommentForm} className='edit-comment-button'><i className="fa-regular fa-pen-to-square"></i></span>
-                                    <span onClick={e => deleteCommentButton(e, commentId)}><i className="fa-regular fa-trash-can"></i></span>
-                                </div>
-                                : null}
+                            {
+                                user.id === commentOwner.id ?
+                                    <>
+                                        {!showCommentForm ?
+                                            <div className="comment-edit-and-delete-div">
+                                                <span onClick={closeCommentForm} className='edit-comment-button'><i className="fa-regular fa-pen-to-square"></i></span>
+                                                <span onClick={e => deleteCommentButton(e, commentId)} className='edit-comment-button' ><i className="fa-regular fa-trash-can"></i></span>
+                                            </div>
+                                            : null}
+                                    </>
+                                    : null
+                            }
                         </>
-                        : null}
+                        :
+                        null
+                    }
                 </div>
             </div>
         </>

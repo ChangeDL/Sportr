@@ -80,7 +80,7 @@ const SplashPage = () => {
                         </div>
                         <div className='right-side-bottom-footer-splash'>
                             <a href="https://github.com/ChangeDL" rel="noreferrer" target="_blank" className='footer-links-splash-page'><img className='links-to-socials-icons-github' src={GitHubLogo} alt='Github Logo' /></a>
-                            <a className='footer-links-splash-page'><img className='links-to-socials-icons-linkden' src={LinkdenLogo} alt='Linkden Logo' /></a>
+                            <a className='footer-links-splash-page' href='https://www.linkedin.com/in/douglas-loizzo-jr-3aa946261/' rel="noreferrer" target="_blank"><img className='links-to-socials-icons-linkden' src={LinkdenLogo} alt='Linkden Logo' /></a>
                         </div>
                     </div>
                 </div>

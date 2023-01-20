@@ -16,3 +16,21 @@
     flex-direction: row;
     gap: .5em;
 }
+
+.edit-comment-button {
+    cursor: pointer;
+    padding-left: .25em;
+    padding-right: .25em;
+}
+
+.edit-comment-button:hover {
+    box-shadow: 0px 0px 1px black;
+}
+
+.comment-body-div {
+    overflow-wrap: break-word;
+    width: 34em;
+}
+
+
+.submit-button-edit-comment {}

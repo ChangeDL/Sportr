@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 import Logo from '../../assets/misc/Logo.png'
+
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -19,6 +20,10 @@ const LoginForm = () => {
       setErrors(data);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const demoUser = async (e) => {
     e.preventDefault()
