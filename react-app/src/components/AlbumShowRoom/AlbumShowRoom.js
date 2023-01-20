@@ -24,6 +24,11 @@ function AlbumShowRoom() {
         dispatch(oneAlbum(albumId))
     }, [dispatch, albumId])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+
     return (
         <div className='whole-album-showroom-container'>
             <div className='link-back-to-album-list-div'>

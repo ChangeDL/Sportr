@@ -25,6 +25,10 @@ const ImageShowRoomTags = () => {
         dispatch(getImageByIdThunk(photoId))
     }, [dispatch, photoId])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const deleteButton = async (e, id) => {
         e.preventDefault()
 
