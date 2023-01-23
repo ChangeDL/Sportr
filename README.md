@@ -54,7 +54,7 @@ To use the website you can either select the live link, or by downloading from t
 ## Tech Stack
 Languages, Frameworks, Platforms, and Libraries used:
 
->  Python, Flask, Alembic, SQLAlchemy, PyPI, HTML5, CSS3, Node.js, React, Redux, AWS
+>  Python, Flask, Alembic, SQLAlchemy, HTML5, CSS3, Node.js, React, Redux, AWS
 
 Hosting:
 
