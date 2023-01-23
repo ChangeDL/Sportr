@@ -69,6 +69,18 @@
 
 }
 
+.middle-side-bottom-footer-splash-links {
+    text-decoration: none;
+    color: rgb(136, 136, 136);
+}
+
+.footer-links-splash-page:hover,
+.middle-side-bottom-footer-splash-links:hover {
+    color: white;
+}
+
+
+
 .footer-span-splash-page {
     color: rgb(136, 136, 136);
     box-sizing: border-box;
