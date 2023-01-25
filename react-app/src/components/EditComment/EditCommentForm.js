@@ -11,6 +11,8 @@ import './EditCommentForm.css'
 const EditCommentForm = ({ commentId, commentText, currentComment, imageId, setShowCommentForm, showCommentForm }) => {
     const dispatch = useDispatch()
     const [comment, setComment] = useState(commentText)
+    const [errors, setErrors] = useState([])
+    const [disable, setDisable] = useState(true)
 
 
     const handleSubmit = async (e) => {
@@ -23,7 +25,7 @@ const EditCommentForm = ({ commentId, commentText, currentComment, imageId, setS
         });
         if (res.ok) {
             await res.json();
-            await dispatch(getImageByIdThunk(imageId))
+            dispatch(getImageByIdThunk(imageId))
             await setShowCommentForm(!showCommentForm)
         }
     }
@@ -32,11 +34,23 @@ const EditCommentForm = ({ commentId, commentText, currentComment, imageId, setS
         setComment(e.target.value)
     }
 
+    useEffect(() => {
+        const error = []
+        if (!/\S/.test(comment) && comment.length > 0) {
+            error.push('Error, blank comments not allowed')
+        }
+        if (error.length > 0) setDisable(true)
+        if (error.length === 0) setDisable(false)
+        setErrors(error)
+    }, [comment])
 
     return (
         <div className="comment-form-container">
             <form onSubmit={handleSubmit}>
                 <div className="edit-comment-form-div">
+                    {errors.length > 0 ?
+                        <span className="comment-error">{errors[0]}</span>
+                        : null}
                     <textarea
                         className='edit-comment-textarea'
                         placeholder="Your thoughts on this photo?"
@@ -47,7 +61,7 @@ const EditCommentForm = ({ commentId, commentText, currentComment, imageId, setS
                     />
                 </div>
                 <div className="submit-button-edit-comment-div">
-                    <button type="submit" className="submit-button-edit-comment">Done</button>
+                    <button disabled={disable} type="submit" className="submit-button-edit-comment">Done</button>
                 </div>
             </form>
         </div>
