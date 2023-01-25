@@ -12,6 +12,7 @@ const CommentForm = ({ user, imageId }) => {
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
     const [errors, setErrors] = useState([])
+    const [disable, setDisable] = useState(true)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,14 +36,23 @@ const CommentForm = ({ user, imageId }) => {
     }
 
     useEffect(() => {
-        if (comment.length > 0) errors.push('hello')
-    })
+        const error = []
+        if (!/\S/.test(comment) && comment.length > 0) {
+            error.push('Error, blank comments not allowed')
+        }
+        if (error.length > 0) setDisable(true)
+        if (error.length === 0) setDisable(false)
+        setErrors(error)
+    }, [comment])
 
     return (
         <div className="comment-form-container">
             <form onSubmit={handleSubmit}>
                 <div className="comment-form-div">
                     <label className="comment-form-label">Leave A Comment</label>
+                    {errors.length > 0 ?
+                        <span className="comment-error">{errors[0]}</span>
+                        : null}
                     <textarea
                         className='comment-textarea'
                         placeholder="Your thoughts on this photo?"
@@ -54,7 +64,7 @@ const CommentForm = ({ user, imageId }) => {
                 </div>
                 {user ?
                     <div className="submit-button-comment-div">
-                        <button type="submit" className="submit-button-comment">Comment</button>
+                        <button disabled={disable} type="submit" className="submit-button-comment" >Comment</button>
                     </div>
                     :
                     <div className="submit-button-comment-div">

@@ -68,8 +68,19 @@
     width: 7em;
 }
 
+.submit-button-comment:disabled,
+.submit-button-edit-comment:disabled {
+    background: #999;
+    color: #555;
+    cursor: not-allowed;
+}
+
 .submit-button-comment:hover,
 .submit-button-edit-comment:hover {
     background-color: rgb(18, 156, 220);
     cursor: pointer;
+}
+
+.comment-error {
+    color: red;
 }
