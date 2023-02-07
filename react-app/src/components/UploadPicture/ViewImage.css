@@ -41,12 +41,13 @@
 
 }
 
-.links-on-mid-navbar {
+.links-on-mid-navbar-in-dev {
     text-decoration: none;
     color: rgb(99, 99, 99);
+    cursor: not-allowed;
 }
 
-.links-on-mid-navbar:hover,
+.links-on-mid-navbar-in-dev:hover,
 .links-on-mid-navbar-active {
     text-decoration: none;
     color: black;

@@ -28,6 +28,8 @@ import LogoutConfirm from './components/auth/LogoutConfirm';
 import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
 import TagResults from './components/TagResults/TagResults';
 import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
+import Developers from './components/Developers';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -123,6 +125,9 @@ function App() {
         <ProtectedRoute path='/logout-confirm'>
           <LogoutConfirm />
         </ProtectedRoute>
+        <Route path='/developers' exact={true}>
+          <Developers />
+        </Route>
         <Route>
           <h1>NOT FOUND</h1>
         </Route>
