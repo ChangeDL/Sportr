@@ -1,0 +1,21 @@
+.about-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4em;
+    gap: .5em;
+    background-color: rgb(107, 136, 168);
+    height: 91.65vh;
+
+}
+
+.picture-of-me-about {
+    width: 500px;
+    height: 400px;
+}
+
+.bio-about-me {
+    text-align: justify;
+    width: 39.5em;
+}
