@@ -62,11 +62,16 @@
 
 }
 
-.footer-links-splash-page {
+.footer-links-splash-page,
+.footer-links-splash-page-no-link {
     text-decoration: none;
     color: rgb(136, 136, 136);
     box-sizing: border-box;
 
+}
+
+.footer-links-splash-page-no-link {
+    cursor: not-allowed;
 }
 
 .middle-side-bottom-footer-splash-links {
@@ -75,6 +80,7 @@
 }
 
 .footer-links-splash-page:hover,
+.footer-links-splash-page-no-link:hover,
 .middle-side-bottom-footer-splash-links:hover {
     color: white;
 }

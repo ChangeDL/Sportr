@@ -1,9 +1,9 @@
-import './About.css'
+import './Developers.css'
 import PictureOfMe from '../assets/PictureOfDouglas/MelissasWeddingMe - Copy.jpg'
 
-const About = () => {
+const Developers = () => {
     return (
-        <div className="about-page-container">
+        <div className="developers-page-container">
             <h1 className='meet-dev-h1'>Meet the Developer</h1>
             <img src={PictureOfMe} className='picture-of-me-about'></img>
             <span>I'm a software engineer with a passion for React, Redux, Python, and Javascript. </span>
@@ -17,4 +17,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Developers

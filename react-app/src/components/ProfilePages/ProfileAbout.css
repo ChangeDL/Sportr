@@ -99,10 +99,15 @@
 
 
 
-.mid-navbar-links-profile {
+.mid-navbar-links-profile,
+.mid-navbar-links-profile-in-dev {
     text-decoration: none;
     color: rgb(99, 99, 99);
 
+}
+
+.mid-navbar-links-profile-in-dev {
+    cursor: not-allowed;
 }
 
 .mid-navbar-links-profile-active {
@@ -110,6 +115,7 @@
 }
 
 .mid-navbar-links-profile:hover,
+.mid-navbar-links-profile-in-dev:hover,
 .mid-navbar-links-profile-active {
     color: black;
     border-bottom: .2em solid rgb(0, 145, 220);

@@ -1,11 +1,11 @@
-.about-page-container {
+.developers-page-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-top: 4em;
     gap: .5em;
-    background-color: rgb(107, 136, 168);
+    background-color: rgba(134, 159, 184, 0.603);
     height: 91.65vh;
 
 }

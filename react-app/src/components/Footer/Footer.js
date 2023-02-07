@@ -7,21 +7,20 @@ const Footer = () => {
     return (
         <div className='footer-splash-page'>
             <div className='top-half-of-footer-splash'>
-                <Link className='footer-links-splash-page' to='/about'>About</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Jobs</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Blog</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Developers</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Guidelines</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Help</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Help forum</Link>
-                <Link className='footer-links-splash-page' to='/page-in-development'>Filler</Link>
+                <Link className='footer-links-splash-page-no-link'>About</Link>
+                <Link className='footer-links-splash-page-no-link'>Jobs</Link>
+                <Link className='footer-links-splash-page-no-link'>Blog</Link>
+                <Link className='footer-links-splash-page' to='/developers'>Developers</Link>
+                <Link className='footer-links-splash-page-no-link'>Guidelines</Link>
+                <Link className='footer-links-splash-page-no-link'>Help</Link>
+                <Link className='footer-links-splash-page-no-link'>Help forum</Link>
             </div>
             <div className='border-middle-footer-splash'></div>
             <div className='bottom-half-of-footer-splash'>
                 <div className='left-side-bottom-footer-splash'>
-                    <Link className='footer-links-splash-page' to='/page-in-development'>Privacy</Link>
-                    <Link className='footer-links-splash-page' to='/page-in-development'>Terms</Link>
-                    <Link className='footer-links-splash-page' to='/page-in-development'>Cookies</Link>
+                    <Link className='footer-links-splash-page-no-link'>Privacy</Link>
+                    <Link className='footer-links-splash-page-no-link'>Terms</Link>
+                    <Link className='footer-links-splash-page-no-link'>Cookies</Link>
                 </div>
                 <div className='middle-side-bottom-footer-splash'>
                     <span className='footer-span-splash-page'> <a href='https://www.appacademy.io/' rel="noreferrer" target="_blank" className='middle-side-bottom-footer-splash-links' >AppAcademy</a>+<Link to='/' className='middle-side-bottom-footer-splash-links'>Sportr</Link> Connecting people </span>

@@ -17,10 +17,10 @@ function ProfilePhotoStream() {
                 <Link to={`/people/${userId}`} className='mid-navbar-links-profile'>About</Link>
                 <Link to={`/people/${userId}/photostream`} className='mid-navbar-links-profile-active'>Photostream</Link>
                 <Link to={`/people/${userId}/albums`} className='mid-navbar-links-profile'>Albums</Link>
-                <Link to={`/people/${userId}/favorites`} className='mid-navbar-links-profile'>Faves</Link>
-                <Link to={`/people/${userId}/galleries`} className='mid-navbar-links-profile'>Galleries</Link>
-                <Link to={`/people/${userId}/groups`} className='mid-navbar-links-profile'>Groups</Link>
-                <Link to={`/people/${userId}/stats`} className='mid-navbar-links-profile'>Stats</Link>
+                <Link className='mid-navbar-links-profile-in-dev'>Faves</Link>
+                <Link className='mid-navbar-links-profile-in-dev'>Galleries</Link>
+                <Link className='mid-navbar-links-profile-in-dev'>Groups</Link>
+                <Link className='mid-navbar-links-profile-in-dev'>Stats</Link>
             </div>
             <div className='about-container-profile'>
                 <h1>PAGE CURRENTLY UNDER DEVELOPMENT</h1>
