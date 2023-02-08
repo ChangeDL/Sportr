@@ -24,6 +24,10 @@ function ProfileAlbums() {
         dispatch(getUserAlbums(userId))
     }, [dispatch, userId])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const addAlbumButton = (e, id) => {
         e.preventDefault()
 

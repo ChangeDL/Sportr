@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 import { deleteImageThunk, getAllImages } from "../../store/image";
 import './ConfirmDelete.css'
 
@@ -7,6 +7,8 @@ const ConfirmDelete = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+    const location = useLocation();
+    const prevLocation = (location.search.split('=')[1])
     // const [loading, setLoading] = useState(false)
 
     const deleteButton = async (e, id) => {
@@ -24,7 +26,7 @@ const ConfirmDelete = () => {
 
     const cancelButton = async (e, id) => {
         e.preventDefault()
-        history.push(`/photos/${id}`)
+        history.push(prevLocation)
     }
 
     return (

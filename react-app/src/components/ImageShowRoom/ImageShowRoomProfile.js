@@ -8,20 +8,19 @@ import Footer from "../Footer/Footer";
 import EditCommentModal from "../EditComment/EditCommentModal";
 import CommentForm from "../CommentForm/CommentForm";
 
-const ImageShowFromAlbumRoom = () => {
+
+const ImageShowRoomProfile = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const prevLocation = useLocation();
-    const { userId, albumId, photoId } = useParams()
+    const { userId, photoId } = useParams()
     const currentImage = useSelector(state => state?.imageReducer?.currentImage[photoId])
     const currentUser = useSelector(state => state.session.user)
     let imageTags;
-
     if (currentImage?.tags !== null && currentImage?.tags.includes(',')) imageTags = currentImage?.tags.split(',')
     else if (currentImage?.tags !== null) imageTags = [currentImage?.tags]
 
     const commentsForImage = currentImage?.comments
-
 
     useEffect(() => {
         dispatch(getImageByIdThunk(photoId))
@@ -51,11 +50,11 @@ const ImageShowFromAlbumRoom = () => {
                     <>
                         <div className="image-container-showroom">
                             <div>
-                                <Link to={`/people/${userId}/albums/${albumId}`} className="back-to-explore-link-div">
+                                <Link to={`/people/${userId}/photostream`} className="back-to-explore-link-div">
                                     <div className="icon-for-back-to-explore">
                                         <i className="fa-solid fa-arrow-left"></i>
                                     </div>
-                                    <span className="back-to-explore-link">Back to album</span>
+                                    <span className="back-to-explore-link">Back to photostream</span>
                                 </Link>
                             </div>
                             <div className="showroom-image-div">
@@ -88,7 +87,7 @@ const ImageShowFromAlbumRoom = () => {
                                 <div className="username-title-showroom">
                                     <div className="username-follow-button-div-showroom">
                                         <Link to={`/people/${currentImage?.owner.id}/photostream`} className='username-image-showroom-link'><span>{currentImage?.owner.username}</span></Link>
-                                        {currentImage?.owner?.id !== currentUser?.id ?
+                                        {currentImage?.owner.id !== currentUser?.id ?
                                             <div className="follow-button-showroom-div">
                                                 <button className="follow-button-showroom"><i className="fa-solid fa-plus"></i> Follow</button>
                                                 <span className="under-dev-follow-button">Follow Button Under Development</span>
@@ -151,8 +150,7 @@ const ImageShowFromAlbumRoom = () => {
                     </div>
             }
         </>
-
     )
 }
 
-export default ImageShowFromAlbumRoom
+export default ImageShowRoomProfile

@@ -29,6 +29,7 @@ import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbu
 import TagResults from './components/TagResults/TagResults';
 import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
 import Developers from './components/Developers';
+import ImageShowRoomProfile from './components/ImageShowRoom/ImageShowRoomProfile';
 
 
 function App() {
@@ -49,6 +50,8 @@ function App() {
   }
 
 
+
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -64,6 +67,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/people/:userId' exact={true} >
           <ProfileAbout />
+        </Route>
+        <Route path='/people/:userId/photostream/:photoId'>
+          <ImageShowRoomProfile />
         </Route>
         <Route path='/people/:userId/photostream' exact={true} >
           <ProfilePhotoStream />

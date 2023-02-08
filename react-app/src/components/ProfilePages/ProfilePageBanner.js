@@ -27,9 +27,6 @@ function ProfilePageBanner() {
         })();
     }, [userId]);
 
-    useEffect(() => {
-        dispatch(getUserAlbums(userId))
-    }, [dispatch, userId])
 
 
     return (

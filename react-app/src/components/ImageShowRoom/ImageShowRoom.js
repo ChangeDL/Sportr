@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import { getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
 import DefaultProfilePic from '../../assets/misc/DefaultProfilePicture.jpg'
@@ -13,6 +13,7 @@ const ImageShowRoom = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { id } = useParams()
+    const prevLocation = useLocation();
     const currentImage = useSelector(state => state?.imageReducer?.currentImage[id])
     const currentUser = useSelector(state => state.session.user)
 
@@ -34,13 +35,13 @@ const ImageShowRoom = () => {
     const deleteButton = async (e, id) => {
         e.preventDefault()
 
-        return history.push(`/photos/${id}/delete-confirm`)
+        return history.push(`/photos/${id}/delete-confirm?redirectTo=${prevLocation.pathname}`)
     }
 
     const editButton = async (e, id) => {
         e.preventDefault()
 
-        return history.push(`/photos/${currentUser.id}/${id}/edit-details`)
+        return history.push(`/photos/${currentUser.id}/${id}/edit-details?redirectTo=${prevLocation.pathname}`)
     }
 
     return (

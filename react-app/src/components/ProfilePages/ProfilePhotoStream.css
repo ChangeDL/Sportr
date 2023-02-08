@@ -1,0 +1,43 @@
+.photostream-container-profile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5em;
+    margin-left: auto;
+    width: 91%;
+
+}
+
+.profile-photostream-photos {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    padding-top: .5em;
+    width: auto;
+
+    flex-wrap: wrap;
+}
+
+.user-images-container {
+    margin-bottom: .5em;
+}
+
+.no-images-uploaded {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5em;
+}
+
+.upload-here-profile {
+    text-decoration: none;
+    color: rgb(0, 130, 199);
+}
+
+.upload-here-profile:hover {
+    color: rgb(19, 144, 212);
+}
