@@ -61,14 +61,14 @@
     padding-top: 1em;
     display: flex;
     flex-direction: row;
-    gap: 1.25em;
+    gap: 1.5em;
     justify-content: center;
     align-items: center;
     padding-bottom: 1em;
 }
 
 .sign-up-submit-button {
-    width: 90%;
+    width: 42%;
     height: 3em;
     border-radius: .25em;
     border: none;
