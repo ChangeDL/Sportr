@@ -90,16 +90,16 @@ const LoginForm = () => {
               <button className='login-submit-button' onClick={event => demoUser(event)}>Demo User</button>
             </div>
             <div className='terms-of-service-sign-up-div'>
-              <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'rgb(0,130,199)', fontSize: '.85em' }}>Forgot Password?</Link>
+              <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', fontSize: '.85em', cursor: 'not-allowed' }}>Forgot Password?</Link>
             </div>
             <div className='sign-up-form-gray-line-before-already-member' />
             <div className='already-a-member-sign-up'> Not a Sportr member? <Link to='/sign-up' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>
           </form>
         </div>
         <div className='extra-links-bottom-of-sign-up'>
-          <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'white' }}>Help</Link>
-          <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'white' }}>Privacy</Link>
-          <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'white' }}>Terms</Link>
+          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Help</Link>
+          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Privacy</Link>
+          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Terms</Link>
         </div>
       </div>
     </div>

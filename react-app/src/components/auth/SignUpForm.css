@@ -138,6 +138,7 @@
     gap: 1em;
     box-sizing: border-box;
     font-size: .85em;
+
 }
 
 .login-submit-button {
@@ -163,4 +164,8 @@
     color: red;
     text-align: center;
     font-size: .75em;
+}
+
+.links-below-sign-up {
+    cursor: not-allowed;
 }

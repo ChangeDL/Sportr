@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useLocation } from 'react-router-dom';
 import { signUp, login } from '../../store/session';
 import './SignUpForm.css'
 import Logo from '../../assets/misc/Logo.png'
@@ -18,6 +18,8 @@ const SignUpForm = () => {
   const [disable, setDisable] = useState(true)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const prevLocation = (location.search.split('=')[1])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -86,7 +88,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to={prevLocation} />;
   }
 
   return (
@@ -177,16 +179,16 @@ const SignUpForm = () => {
               <button className='login-submit-button' onClick={event => demoUser(event)}>Demo User</button>
             </div>
             <div className='terms-of-service-sign-up-div'>
-              <span className='terms-of-service-sign-up'>By signing up, you agree with Sportr's <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Terms of Services</Link> and <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Privacy Policy</Link></span>
+              <span className='terms-of-service-sign-up'>By signing up, you agree with Sportr's <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Terms of Services</Link> and <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Privacy Policy</Link></span>
             </div>
             <div className='sign-up-form-gray-line-before-already-member' />
             <div className='already-a-member-sign-up'> Already a Sportr member? <Link to='/login' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Log in here.</Link></div>
           </form>
         </div>
         <div className='extra-links-bottom-of-sign-up'>
-          <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'white' }}>Help</Link>
-          <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'white' }}>Privacy</Link>
-          <Link to='/page-in-development' style={{ textDecoration: 'none', color: 'white' }}>Terms</Link>
+          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Help</Link>
+          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Privacy</Link>
+          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Terms</Link>
         </div>
       </div>
     </div>
