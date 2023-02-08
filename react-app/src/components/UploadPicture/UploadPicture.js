@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './UploadPicture.css'
 import { getUserAlbums } from "../../store/album";
+import { getUserImages } from "../../store/image";
 
 const UploadPicture = () => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
@@ -38,6 +39,7 @@ const UploadPicture = () => {
         if (errors.length === 0) setDisable(false)
         setErrors(errors)
 
+
     }, [image, disable])
 
     useEffect(() => {
@@ -65,9 +67,11 @@ const UploadPicture = () => {
             body: formData,
         });
         if (res.ok) {
-            await res.json();
+            const data = await res.json();
             setImageLoading(false);
-            history.push("/photos");
+            setTimeout(() => {
+                history.push(`/photos/${data.id}`);
+            }, 500)
 
         }
         else {

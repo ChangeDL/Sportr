@@ -73,7 +73,7 @@ const NavBar = () => {
                   </NavLink>
                 </span>
                 <span>
-                  <NavLink className='link-for-signup' to='/sign-up' exact={true} activeClassName='active'>
+                  <NavLink className='link-for-signup' to={`/sign-up?redirectTo=${prevLocation.pathname}`} exact={true} activeClassName='active'>
                     <span className='sign-up-navbar-text'>
                       Sign Up
                     </span>

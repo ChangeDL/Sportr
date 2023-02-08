@@ -58,7 +58,7 @@ def upload_image():
             return {"url": url}
         else:
             db.session.commit()
-            return {"url": url}
+            return {"url": url, "id": new_image.id}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
