@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useLocation } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 import Logo from '../../assets/misc/Logo.png'
@@ -12,6 +12,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const prevLocation = (location.search.split('=')[1])
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -43,7 +45,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to={prevLocation} />;
   }
 
   return (

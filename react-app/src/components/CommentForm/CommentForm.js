@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, Link } from "react-router-dom";
+import { useHistory, useParams, Link, useLocation } from "react-router-dom";
 import { getUserAlbums } from "../../store/album";
 import Logo from '../../assets/misc/Logo.png'
 import { uploadAlbum } from "../../store/album";
@@ -13,6 +13,7 @@ const CommentForm = ({ user, imageId }) => {
     const [comment, setComment] = useState('')
     const [errors, setErrors] = useState([])
     const [disable, setDisable] = useState(true)
+    const prevLocation = useLocation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -68,7 +69,7 @@ const CommentForm = ({ user, imageId }) => {
                     </div>
                     :
                     <div className="submit-button-comment-div">
-                        <Link to='/login'><button className="submit-button-edit-comment">Login</button></Link>
+                        <Link to={`/login?redirectTo=${prevLocation.pathname}`}><button className="submit-button-edit-comment">Login</button></Link>
                     </div>
                 }
             </form>
