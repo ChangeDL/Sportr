@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import Logo from '../assets/misc/Logo.png'
 import ProfileButton from './ProfileButton';
 import './NavBar.css'
 import You from './You';
 
+
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
   let sessionLinks;
+  const prevLocation = useLocation();
   if (sessionUser) {
     sessionLinks = (
       <>
@@ -66,7 +68,7 @@ const NavBar = () => {
                   </NavLink>
                 </span>
                 <span>
-                  <NavLink className='links-on-nav-bar' to='/login' exact={true} activeClassName='active'>
+                  <NavLink className='links-on-nav-bar' to={`/login?redirectTo=${prevLocation.pathname}`} exact={true} activeClassName='active'>
                     Log in
                   </NavLink>
                 </span>
