@@ -1,7 +1,12 @@
 import './Developers.css'
+import { useEffect } from 'react'
 import PictureOfMe from '../assets/PictureOfDouglas/MelissasWeddingMe - Copy.jpg'
 
 const Developers = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className="developers-page-container">
             <h1 className='meet-dev-h1'>Meet the Developer</h1>

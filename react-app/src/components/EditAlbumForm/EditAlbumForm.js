@@ -50,6 +50,11 @@ const EditAlbumForm = () => {
         setErrors(errors)
     }, [selected, name])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (errors.length > 0) return

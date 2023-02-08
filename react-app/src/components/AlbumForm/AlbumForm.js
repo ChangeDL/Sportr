@@ -45,6 +45,11 @@ const AlbumForm = () => {
         dispatch(getUserImages(currentUser?.id))
     }, [dispatch, currentUser])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (errors.length > 0) return

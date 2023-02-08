@@ -46,6 +46,10 @@ const UploadPicture = () => {
         dispatch(getUserAlbums(currentUser.id))
     }, [currentUser.id, dispatch])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

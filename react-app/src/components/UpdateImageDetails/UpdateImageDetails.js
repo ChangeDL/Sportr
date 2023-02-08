@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 import { editImageThunk, getImageByIdThunk } from "../../store/image";
 import './UpdateImageDetails.css'
 import { getUserAlbums } from "../../store/album";
@@ -10,6 +10,8 @@ const UpdateImageDetails = () => {
     const history = useHistory();
     const currentImage = useSelector(state => state?.imageReducer?.allImages[id])
     const dispatch = useDispatch()
+    const location = useLocation();
+    const prevLocation = (location.search.split('=')[1])
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -41,6 +43,11 @@ const UpdateImageDetails = () => {
     useEffect(() => {
         dispatch(getUserAlbums(currentUser.id))
     }, [currentUser.id, dispatch])
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
 
 
     const updateTitle = (e) => {
@@ -74,14 +81,14 @@ const UpdateImageDetails = () => {
         const editedData = await dispatch(editImageThunk(updatedData))
 
         if (editedData) {
-            history.push(`/photos/${id}`)
+            history.push(prevLocation)
             // dispatch(getImageByIdThunk(id))
         }
     }
 
     const cancelButton = async (e, id) => {
         e.preventDefault()
-        history.push(`/photos/${id}`)
+        history.push(prevLocation)
     }
 
     return (
