@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     full_name = db.Column(db.Text, nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    created_on = db.Column(db.DateTime, default=datetime.utcnow)
+    created_on = db.Column(db.String(), default=datetime.utcnow)
 
     images = db.relationship('Image', back_populates="user")
     albums = db.relationship('Album', back_populates="user")
