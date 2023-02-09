@@ -1,0 +1,54 @@
+.main-modal-container-confirm-delete {
+    /* border: 3px solid black; */
+    /* position: fixed;
+    bottom: 25em;
+    left: 35em; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.082);
+    z-index: 1;
+    /* transform: translate(-50%, -50%) */
+}
+
+.inside-confirm-delete-div {
+    display: flex;
+    flex-direction: column;
+    width: 30em;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20em;
+    /* border: 1px solid rgb(96, 47, 5); */
+    /* position: fixed; */
+    background-color: white;
+    /* padding: .5em; */
+    border-radius: 5px;
+    /* z-index: 1; */
+}
+
+.two-confirm-delete-buttons-div {
+    display: flex;
+    gap: 5em;
+    justify-content: center;
+    padding-top: 1em;
+    padding-bottom: .5em;
+}
+
+.confirm-delete-buttons {
+    background: none;
+    background-color: rgb(6, 138, 200);
+    border-radius: 3px;
+    color: white;
+    border: none;
+    height: 3em;
+    width: 6em;
+}
+
+.confirm-delete-buttons:hover {
+    background-color: rgb(6, 167, 242);
+    cursor: pointer;
+}

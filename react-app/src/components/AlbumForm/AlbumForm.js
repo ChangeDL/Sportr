@@ -6,6 +6,7 @@ import Logo from '../../assets/misc/Logo.png'
 import { uploadAlbum } from "../../store/album";
 import { getUserImages } from "../../store/image";
 import './AlbumForm.css'
+import ImageButton from "./ImageButton";
 
 
 const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -18,7 +19,7 @@ const AlbumForm = () => {
     const [name, setName] = useState("")
     const [photos, setPhotos] = useState(new Set())
     const [selected, setSelected] = useState(false)
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState({})
     const [disable, setDisable] = useState(true)
 
     const currentUser = useSelector(state => state.session.user)
@@ -31,11 +32,11 @@ const AlbumForm = () => {
 
 
     useEffect(() => {
-        const errors = []
-        if (name.length < 1 || !letters.includes(name[0])) errors.push('Please provide a valid name')
-        if (!selected) errors.push('Please select a photo to be added to your album')
-        if (errors.length > 0) setDisable(true)
-        if (errors.length === 0) setDisable(false)
+        const errors = {}
+        if (name.length > 0 && !letters.includes(name[0])) errors.name = ('Please provide a valid name')
+        if (!selected) errors.photo = ('Please select a photo to be added to your album')
+        if (Object.keys(errors).length > 0) setDisable(true)
+        if (Object.keys(errors).length === 0 && name.length > 0 && selected) setDisable(false)
         setErrors(errors)
     }, [name, selected, disable])
 
@@ -81,7 +82,6 @@ const AlbumForm = () => {
         setName(e.target.value)
     }
 
-    const photosThatAreSelected = new Set()
 
 
     const photoSelect = (e, id) => {
@@ -109,17 +109,17 @@ const AlbumForm = () => {
     return (
         <div className='background-for-album-form'>
             <div className="whole-upload-container">
-                <div className="sign-up-form">
+                <div className="album-form">
                     <form onSubmit={handleSubmit}>
-                        <div className='logo-and-sign-up-message'>
-                            <img className='logo-sign-up-form' alt='Sportr Logo' src={Logo} />
+                        <div className='album-logo-and-message'>
+                            <img className='logo-album-form' alt='Sportr Logo' src={Logo} />
                             <span>Album Creater</span>
                         </div>
-                        <div className='errors-for-sign-up'>
+                        {/* <div className='errors-for-sign-up'>
                             {errors.map((error, ind) => (
                                 <div key={ind}>{error}</div>
                             ))}
-                        </div>
+                        </div> */}
                         <div className='all-sign-up-form-inputs-labels'>
                             <label>Name</label>
                             <input
@@ -129,6 +129,9 @@ const AlbumForm = () => {
                                 onChange={updateName}
                                 value={name}
                             />
+                            <div className='errors-for-sign-up'>
+                                {errors.name ? <div>{errors.name}</div> : null}
+                            </div>
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
                             <label>Description</label>
@@ -141,7 +144,12 @@ const AlbumForm = () => {
                             />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
-                            <label>Photos</label>
+                            <label>
+                                Photos
+                                <div className='errors-for-sign-up'>
+                                    {errors.photo ? <div>{errors.photo}</div> : null}
+                                </div>
+                            </label>
                             <div className="album-form-photo-select">
                                 {allUserImages.length < 1 ?
                                     <div>
@@ -151,12 +159,7 @@ const AlbumForm = () => {
                                     :
                                     null}
                                 {allUserImages?.map((im) => (
-                                    <>
-                                        {photosThatAreSelected.has(im.id) ? <h1>hi</h1>
-                                            :
-                                            <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' alt={im.title} /></button>
-                                        }
-                                    </>
+                                    <ImageButton photoSelect={photoSelect} image={im} />
                                 ))}
                             </div>
                         </div>

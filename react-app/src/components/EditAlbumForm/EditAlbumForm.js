@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { oneAlbum } from "../../store/album";
 import Logo from '../../assets/misc/Logo.png'
 import { updateAlbum } from "../../store/album";
+import ImageButton from "../AlbumForm/ImageButton";
 
 
 const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -110,10 +111,10 @@ const EditAlbumForm = () => {
     return (
         <div className='background-for-album-form'>
             <div className="whole-upload-container">
-                <div className="sign-up-form">
+                <div className="album-form">
                     <form onSubmit={handleSubmit}>
-                        <div className='logo-and-sign-up-message'>
-                            <img className='logo-sign-up-form' alt="Sportr Logo" src={Logo} />
+                        <div className='album-logo-and-message'>
+                            <img className='logo-album-form' alt="Sportr Logo" src={Logo} />
                             <span>Edit Album</span>
                         </div>
                         <div className='errors-for-sign-up'>
@@ -145,7 +146,7 @@ const EditAlbumForm = () => {
                             <label>Remove Photos in Album</label>
                             <div className="album-form-photo-select">
                                 {currentAlbumImages?.map((im) => (
-                                    <button onClick={e => photoSelect(e, im.id)}><img src={im.url} className='photos-to-be-selected-album-form' alt={im.title} /></button>
+                                    <ImageButton photoSelect={photoSelect} image={im} />
                                 ))}
                             </div>
                         </div>

@@ -7,7 +7,7 @@
 }
 
 .photos-to-be-selected-album-form {
-    height: 50px;
+    height: 75px;
 }
 
 .background-for-album-form {
@@ -25,4 +25,38 @@
 
 .upload-here-link:hover {
     color: rgb(0, 149, 190);
+}
+
+.select-photo-button-album {
+    padding: .25em;
+    padding-bottom: .01em;
+    border: none;
+}
+
+.select-photo-button-album:hover {
+    cursor: pointer;
+}
+
+.album-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: .25em;
+    width: 50em;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.album-logo-and-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    padding-top: 1em;
+}
+
+.logo-album-form {
+    width: 20%;
+    height: 20%;
 }
