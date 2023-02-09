@@ -58,7 +58,7 @@ const SplashPage = () => {
                 </div>
                 <div className='footer-splash-page'>
                     <div className='top-half-of-footer-splash'>
-                        <Link className='footer-links-splash-page'>About</Link>
+                        <Link className='footer-links-splash-page-no-link'>About</Link>
                         <Link className='footer-links-splash-page-no-link'>Jobs</Link>
                         <Link className='footer-links-splash-page-no-link'>Blog</Link>
                         <Link className='footer-links-splash-page' to='/developers'>Developers</Link>
