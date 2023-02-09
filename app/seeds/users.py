@@ -1,19 +1,19 @@
 from app.models import db, User, environment, SCHEMA
-
+from datetime import date
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', full_name="demo lition")
+        username='Demo', email='demo@aa.io', password='password', full_name="demo lition", created_on= date.today())
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', full_name="marnie bob")
+        username='marnie', email='marnie@aa.io', password='password', full_name="marnie bob", created_on= date.today())
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', full_name="bobbie joe")
+        username='bobbie', email='bobbie@aa.io', password='password', full_name="bobbie joe", created_on= date.today())
     douglas = User(
-        username = 'changedl', email='sportr@gmail.com', password='password', full_name='Douglas Loizzo'
+        username = 'changedl', email='sportr@gmail.com', password='password', full_name='Douglas Loizzo', created_on= date.today()
     )
     tyreek = User(
-        username= 'cheetah', email='tyreek10@yahoo.com', password='password', full_name='Tyreek Hill'
+        username= 'cheetah', email='tyreek10@yahoo.com', password='password', full_name='Tyreek Hill', created_on= date.today()
     )
 
     db.session.add(demo)

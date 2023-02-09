@@ -5,6 +5,7 @@ import { getUserAlbums, removeAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
 import './ProfileAlbum.css'
 import ProfilePageBanner from './ProfilePageBanner';
+import DeleteAlbum from '../DeleteAlbum/DeleteAlbum';
 
 
 
@@ -13,6 +14,7 @@ function ProfileAlbums() {
     const { userId } = useParams();
     const dispatch = useDispatch()
     const history = useHistory()
+    const [confirm, setConfirm] = useState(false)
 
     const userAlbums = useSelector(state => { return state })
     const currentUser = useSelector(state => state?.session?.user)
@@ -35,13 +37,13 @@ function ProfileAlbums() {
 
     }
 
-    const deleteAlbumButton = (e, id) => {
+    const deleteAlbumButton = (e) => {
         e.preventDefault()
-        dispatch(removeAlbum(id))
-        setTimeout(() => {
-            dispatch(getUserAlbums(userId));
-        }, 100)
+        setConfirm(true)
 
+    }
+    const theSetConfirm = () => {
+        setConfirm(false)
     }
 
     const editAlbumButton = (e, userId, albumId) => {
@@ -82,9 +84,10 @@ function ProfileAlbums() {
                                             {currentUser?.id === +userId ?
                                                 <div className='album-edit-delete-buttons'>
                                                     <button className='edit-delete-buttons-albums' onClick={e => editAlbumButton(e, userId, al.id)}><i class="fa-regular fa-pen-to-square"></i></button>
-                                                    <button className='edit-delete-buttons-albums' onClick={e => deleteAlbumButton(e, al.id)}><i class="fa-regular fa-trash-can"></i></button>
+                                                    <button className='edit-delete-buttons-albums' onClick={e => deleteAlbumButton(e)}><i class="fa-regular fa-trash-can"></i></button>
                                                 </div>
                                                 : null}
+                                            {confirm ? <DeleteAlbum confirm={confirm} setconfirm={theSetConfirm} albumId={al.id} /> : ""}
                                         </div>
                                     </div>
                                 </>

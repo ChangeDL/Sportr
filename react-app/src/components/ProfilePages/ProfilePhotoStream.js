@@ -45,13 +45,13 @@ function ProfilePhotoStream() {
                 <Link className='mid-navbar-links-profile-in-dev'>Groups</Link>
                 <Link className='mid-navbar-links-profile-in-dev'>Stats</Link>
             </div>
-            {images.length > 0 ?
+            {images?.length > 0 ?
                 <div className='photostream-container-profile'>
                     <>
-                        {images.map((im) =>
-                            <div key={im.id} className='user-images-container'>
-                                <Link to={`/people/${userId}/photostream/${im.id}`} onClick={e => linkClick(e, im.id)}>
-                                    <img src={im.url} className='profile-photostream-photos' alt='Images For Display' />
+                        {images?.map((im) =>
+                            <div key={im?.id} className='user-images-container'>
+                                <Link to={`/people/${userId}/photostream/${im?.id}`} onClick={e => linkClick(e, im.id)}>
+                                    <img src={im?.url} className='profile-photostream-photos' alt='Images For Display' />
                                 </Link>
                             </div>
                         )}

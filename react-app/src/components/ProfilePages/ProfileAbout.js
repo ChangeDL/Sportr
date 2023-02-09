@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
+import { viewUserProfile } from '../../store/profile';
 import './ProfileAbout.css'
 import ProfilePageBanner from './ProfilePageBanner';
 
 
 function ProfileAbout() {
-  const [user, setUser] = useState({});
   const { userId } = useParams();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (!userId) {
       return;
     }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
+    dispatch(viewUserProfile(userId))
   }, [userId]);
 
+  const userBeingViewed = useSelector(state => state.profileReducer?.profile)
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const createdOnArray = userBeingViewed?.createdOn.split(' ')
+  let joinedOn;
+  if (createdOnArray?.length > 0) {
+    joinedOn = (months.indexOf(createdOnArray[2]) + 1 + '-' + createdOnArray[1] + '-' + createdOnArray[3])
+  }
 
 
   return (
@@ -34,7 +39,11 @@ function ProfileAbout() {
         <Link className='mid-navbar-links-profile-in-dev'>Stats</Link>
       </div>
       <div className='about-container-profile'>
-        <h1>PAGE CURRENTLY UNDER DEVELOPMENT</h1>
+        <div className='email-joined-on'>
+          <span>Joined On: {joinedOn}</span>
+          <span>Email: {userBeingViewed?.email}</span>
+          <span>Bio coming soon</span>
+        </div>
       </div>
     </div>
   );
