@@ -110,34 +110,34 @@ const ImageShowFromAlbumRoom = () => {
                             </div>
                             <div className="border-div-showroom" />
                             <div className="lower-half-of-image-showroom">
-                                <div className="left-side-of-lower-half">
-                                    <div className="comments-container">
-                                        <span className="span-tag-comment-header">Comments</span>
-                                        {commentsForImage?.map((comment) => (
-                                            <div key={comment.id} className='comment-div-showroom'>
-                                                <Link className="link-for-users-comments" to={`/people/${comment?.owner.id}/photostream`}>{comment.owner.fullName}</Link>
-                                                <div className="single-comment-body-with-buttons">
-                                                    {/* <span>{comment.comment}</span> */}
-                                                    <div>
-                                                        <EditCommentModal imageId={currentImage?.id} commentId={comment.id} currentComment={comment.comment} user={currentUser} commentOwner={comment.owner} />
-                                                    </div>
+                                {/* <div className="left-side-of-lower-half"> */}
+                                <div className="comments-container">
+                                    <span className="span-tag-comment-header">Comments</span>
+                                    {commentsForImage?.map((comment) => (
+                                        <div key={comment.id} className='comment-div-showroom'>
+                                            <Link className="link-for-users-comments" to={`/people/${comment?.owner.id}/photostream`}>{comment.owner.fullName}</Link>
+                                            <div className="single-comment-body-with-buttons">
+                                                {/* <span>{comment.comment}</span> */}
+                                                <div>
+                                                    <EditCommentModal imageId={currentImage?.id} commentId={comment.id} currentComment={comment.comment} user={currentUser} commentOwner={comment.owner} />
                                                 </div>
                                             </div>
-                                        ))}
-                                    </div>
-                                    {currentUser ?
-                                        <div className="comment-form-div-image-showroom">
-                                            <CommentForm user={currentUser} imageId={currentImage?.id} />
                                         </div>
-                                        :
-                                        <div>
-                                            <CommentForm />
-                                        </div>
-                                    }
+                                    ))}
                                 </div>
+                                {currentUser ?
+                                    <div className="comment-form-div-image-showroom">
+                                        <CommentForm user={currentUser} imageId={currentImage?.id} />
+                                    </div>
+                                    :
+                                    <div>
+                                        <CommentForm />
+                                    </div>
+                                }
+                                {/* </div>
                                 <div>
                                     <span>Placeholder</span>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <Footer />
