@@ -208,7 +208,7 @@
 
 .lower-half-of-image-showroom {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1em;
     padding-bottom: 5em;
 }
@@ -247,12 +247,19 @@
     font-size: 1.5em;
     text-decoration: underline;
     font-weight: 600;
+    padding-left: 4em;
 }
 
 .comments-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1em;
+    padding-top: 1em;
+    /* margin-left: 6em; */
+    /* padding-right: 2em; */
+    margin-right: 2em;
 }
 
 .single-comment-body-with-buttons {

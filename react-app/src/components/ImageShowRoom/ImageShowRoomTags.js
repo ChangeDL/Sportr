@@ -110,8 +110,8 @@ const ImageShowRoomTags = () => {
                             <div className="border-div-showroom" />
                             <div className="lower-half-of-image-showroom">
                                 {/* <div className="left-side-of-lower-half"> */}
+                                <span className="span-tag-comment-header">Comments</span>
                                 <div className="comments-container">
-                                    <span className="span-tag-comment-header">Comments</span>
                                     {commentsForImage?.map((comment) => (
                                         <div key={comment.id} className='comment-div-showroom'>
                                             <Link className="link-for-users-comments" to={`/people/${comment?.owner.id}/photostream`}>{comment.owner.fullName}</Link>
