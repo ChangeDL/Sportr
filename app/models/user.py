@@ -20,6 +20,8 @@ class User(db.Model, UserMixin):
     images = db.relationship('Image', back_populates="user")
     albums = db.relationship('Album', back_populates="user")
     comments = db.relationship('Comment', back_populates='user')
+    bio = db.relationship('Bio', back_populates='user')
+
 
     @property
     def password(self):
@@ -33,10 +35,12 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        print(self.bio[0])
         return {
             'id': self.id,
             'username': self.username,
             'email': self.email,
             'fullName': self.full_name,
+            'bio': self.bio[0].text,
             'createdOn': self.created_on
         }

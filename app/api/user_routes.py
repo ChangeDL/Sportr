@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User
+from app.models import User, db, Bio
+from app.forms import SignUpForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -21,4 +22,6 @@ def user(id):
     Query for a user by id and returns that user in a dictionary
     """
     user = User.query.get(id)
+    bio = Bio.query.filter_by(user_id=id).first()
+
     return user.to_dict()
