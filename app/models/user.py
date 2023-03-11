@@ -35,12 +35,21 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
-        print(self.bio[0])
-        return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email,
-            'fullName': self.full_name,
-            'bio': self.bio[0].text,
-            'createdOn': self.created_on
-        }
+        if self.bio:
+            return {
+                'id': self.id,
+                'username': self.username,
+                'email': self.email,
+                'fullName': self.full_name,
+                'bio': self.bio[0].text,
+                'createdOn': self.created_on
+            }
+        else:
+                        return {
+                'id': self.id,
+                'username': self.username,
+                'email': self.email,
+                'fullName': self.full_name,
+                'bio': '',
+                'createdOn': self.created_on
+            }

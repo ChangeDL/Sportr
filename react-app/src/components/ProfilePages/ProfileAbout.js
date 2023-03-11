@@ -43,7 +43,7 @@ function ProfileAbout() {
           <span>Joined On: {joinedOn}</span>
           <span>Email: {userBeingViewed?.email}</span>
           <h3>Biography:</h3>
-          <span className='Profile-About-Bio'>{userBeingViewed?.bio}</span>
+          <span className='Profile-About-Bio'>{userBeingViewed?.bio ? userBeingViewed?.bio : 'No Bio Currently'}</span>
           {/* <BioForm userId={userId} /> */}
         </div>
       </div>
