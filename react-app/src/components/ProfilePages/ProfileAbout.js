@@ -4,11 +4,12 @@ import { useParams, Link } from 'react-router-dom';
 import { viewUserProfile } from '../../store/profile';
 import './ProfileAbout.css'
 import ProfilePageBanner from './ProfilePageBanner';
-
+import BioForm from '../BioForm/BioForm';
 
 function ProfileAbout() {
   const { userId } = useParams();
   const dispatch = useDispatch()
+  const [bio, setBio] = useState('')
 
   useEffect(() => {
     if (!userId) {
@@ -18,11 +19,10 @@ function ProfileAbout() {
   }, [userId]);
 
   const userBeingViewed = useSelector(state => state.profileReducer?.profile)
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const createdOnArray = userBeingViewed?.createdOn.split(' ')
   let joinedOn;
   if (createdOnArray?.length > 0) {
-    joinedOn = (months.indexOf(createdOnArray[2]) + 1 + '-' + createdOnArray[1] + '-' + createdOnArray[3])
+    joinedOn = createdOnArray[0]
   }
 
 
@@ -42,7 +42,9 @@ function ProfileAbout() {
         <div className='email-joined-on'>
           <span>Joined On: {joinedOn}</span>
           <span>Email: {userBeingViewed?.email}</span>
-          <span>Bio coming soon</span>
+          <h3>Biography:</h3>
+          <span className='Profile-About-Bio'>{userBeingViewed?.bio ? userBeingViewed?.bio : 'No Bio Currently'}</span>
+          {/* <BioForm userId={userId} /> */}
         </div>
       </div>
     </div>

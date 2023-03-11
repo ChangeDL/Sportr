@@ -126,6 +126,7 @@
 .about-container-profile {
     display: flex;
     justify-content: center;
+    padding-bottom: 1em;
 }
 
 .email-joined-on {
@@ -134,4 +135,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 2em;
+}
+
+
+.Profile-About-Bio {
+    text-align: justify;
+    width: 50%;
 }
